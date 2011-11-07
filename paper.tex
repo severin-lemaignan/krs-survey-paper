@@ -1,0 +1,155 @@
+%\documentclass[twoside,a4paper]{report}
+\documentclass[twocolumn,a4paper]{article}
+
+\usepackage[utf8]{inputenc}
+
+\usepackage{hyperref}
+\usepackage{graphicx}
+\usepackage{tabularx}
+\usepackage{supertabular}
+\usepackage{pdflscape} %% Used for very big table
+\usepackage{moreverb}
+\usepackage{color}
+\usepackage{listings}
+\usepackage{fancyhdr}
+
+
+\definecolor{codegray}{gray}{.95}
+\lstset{language=C,
+	numbers=left,
+	tabsize=2,
+	basicstyle=\scriptsize,
+	stringstyle=\textrm,
+	showstringspaces=false,
+	frame=none,
+	xleftmargin=3pt,
+	backgroundcolor=\color{codegray}}
+
+\hypersetup{
+pdftitle = {Survey on Knowledge Representation Systems for Robotics},
+pdfauthor = {Séverin Lemaignan, Moritz Tenorth},
+pdfkeywords = {cognitive robotics, knowledge representation},
+}
+\title{Survey on Knowledge Representation Systems for Robotics}
+\author{Séverin Lemaignan, Moritz Tenorth}
+
+\begin{document}
+
+\maketitle
+\tableofcontents
+
+\section{Which systems do we survey?}
+
+Systems that:
+
+
+\begin{itemize}
+	\item  Run on \emph{service robot} (robots that interact with objects in a semantic-rich environment),
+	\item  Ground their knowledge in the physical world (physically embedded),
+	\begin{itemize}
+		\item  Able to \emph{resolve entities}
+		\item  Able to automatically create new object instances
+	\end{itemize}
+
+	\item  Are able to merge different knowledge modalities,
+	\item  Are endowed with on-line, dynamic reasoning (not just a static dictionary)
+\end{itemize}
+
+\section{Criteria, capabilities that are compared}
+
+\subsection{Intrinsic features}
+
+\begin{itemize}
+	\item  Expressiveness
+	\begin{itemize}
+		\item  Which logic formalism (DL, 2nd order\ldots{})
+		\item  OWA/CWA
+		\item  Representation of uncertainty
+		\item  (non) monotonic reasoning
+		\item  General knowledge + exception to this knowledge (blue sky/white sky)
+		\item  Microtheories
+		\item  Lazy evaluation
+		\item  Presupposition accomodation (ability to represent facts that are only verbally hinted, but not grounded into perception)
+	\end{itemize}
+
+	\item  Explicit modeling of context of knowledge / domain of validity
+	\item  Representation of change (\emph{"The pancake dough disappears into a pancake"})
+	\item  Support for learning
+	\item  Support for introspection?
+	\item  Support for prediction/projection?
+\end{itemize}
+
+\subsection{Integration in robotic architecture}
+
+\begin{itemize}
+	\item  Knowledge acquisition possible\ldots{}
+	\begin{itemize}
+		\item  \ldots{}through interaction? How?
+		\item  \ldots{}through the Web? How?
+		\item  \ldots{}through learning? How?
+		\item  \ldots{}through perception? How?
+	\end{itemize}
+
+	\item  Integration with supervision
+	\begin{itemize}
+		\item  Events
+		\item  Relation to task planning
+	\end{itemize}
+
+	\item  Scalability and responsiveness
+\end{itemize}
+
+\subsection{Knowledge model}
+
+\begin{itemize}
+	\item  Which underlying knowledge (\emph{common-sense}, \emph{upper knowledge}\ldots{})
+	\begin{itemize}
+		\item  top-down approach?
+	\end{itemize}
+
+\end{itemize}
+
+\section{Major players}
+
+\begin{itemize}
+	\item  Saffiotti/Coradeschi
+	\begin{itemize}
+		\item  Grounding, anchoring
+		\item  \emph{PEIS Ecology} (more "SmartHome")
+	\end{itemize}
+
+	\item  Tom Kollar/Stefanie Tellex
+	\begin{itemize}
+		\item  Dialog grounding
+	\end{itemize}
+
+	\item  OMKRF
+	\item  Deb Roy/Nikolaos Mavridis
+	\item  Wrighteagle RoboCup team
+	\item  Markus Vincze (Vienna)
+	\item  Bielefeld
+	\item  Karlsruhe
+	\begin{itemize}
+		\item  ARMAR
+		\item  Sven Schmidt-Rohr
+	\end{itemize}
+
+	\item  Saarbrücken (SemanticMap)
+	\item  Joachim Hertzberg (Osnabrueck)
+	\item  DFKI Bremen
+	\begin{itemize}
+		\item  more "SmartHome"
+	\end{itemize}
+
+	\item  JSK
+	\begin{itemize}
+		\item  KnowRob + physics simulator + planning
+	\end{itemize}
+
+	\item  Frederik Heitnz, Patrick Dowerty
+	\begin{itemize}
+		\item  \emph{DY-KNOW} (stream-based knowledge bases)
+	\end{itemize}
+
+\end{itemize}
+\end{document}
