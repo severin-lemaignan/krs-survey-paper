@@ -29,6 +29,8 @@
 \title{Current State of Knowledge Representation Systems for Robotics}
 \author{Séverin Lemaignan, Moritz Tenorth}
 
+\graphicspath{{figs/}}
+
 \begin{document}
 
 \maketitle
@@ -135,14 +137,15 @@ This section briefly presents each of them.
 \begin{center}
 \rowcolors{2}{lightgray}{codegray}
 
-\begin{tabularx}{\textwidth}{llp{2cm}p{4cm}p{2.3cm}p{2cm}p{2cm}}
+%\begin{tabularx}{\textheight}{p{2cm}p{4cm}p{3cm}p{4cm}p{2.3cm}p{2cm}p{2cm}}
+\begin{tabular}{lllllll}
 \hiderowcolors
-{\bf Name} & {\bf Authors (Institution)} & {\bf Surveyed version} & {\bf Project homepage} & {\bf Programming language} & {\bf Knowledge model} & {\bf Reasoner} \\
+{\bf Project} & {\bf Authors (Institution)} & {\bf Project homepage} & {\bf Programming language} & {\bf Knowledge model} & {\bf Reasoner} & Main reference \\
 \hline
 \showrowcolors
-{\sc KnowRob} & Tenorth (TU Munich) & & & {\sc Prolog} & {\sc Prolog} + OWL-DL & Custom ({\sc Prolog}) \\
-ORO & Lemaignan (LAAS-CNRS) & 0.8.0 & \url{oro.openrobots.org} & {\sc Java} & OWL-DL ({\sc Jena}) & {\sc Pellet} \\
-PEIS Ecology & Saffiotti (Örebro Univ.) & & \url{www.aass.oru.se/~peis} & {\sc C}\\
+{\sc KnowRob} & Tenorth (TU Munich) & & {\sc Prolog} & {\sc Prolog} + OWL-DL & Custom ({\sc Prolog}) & \cite{Tenorth2009a} \\
+ORO & Lemaignan (LAAS-CNRS) & \url{oro.openrobots.org} & {\sc Java} & OWL-DL ({\sc Jena}) & {\sc Pellet} & \cite{Lemaignan2010} \\
+PEIS Ecology & Daoutis, Coradeshi, Loutfi, Saffiotti (Örebro Univ.) & \url{www.aass.oru.se/~peis} & {\sc C}, {\sc CycL} & OWL-Full, 2nd order logics & & \cite{Daoutis2009} \\
  & Kollar, Tellex \\
 OMKRF \\
  & Roy, Mavridis \\
@@ -158,7 +161,8 @@ DY-KNOW & Heitnz, Dowerty \\
 
 \hline
 
-\end{tabularx}
+%\end{tabularx}
+\end{tabular}
 \end{center}
 \caption{List of surveyed systems}
 \label{table|surveyed-systems}
@@ -168,57 +172,87 @@ DY-KNOW & Heitnz, Dowerty \\
 \subsection{PEIS Ecology}
 \label{sect|peis-ecology}
 
-{\sc PEIS Ecology} is a software \emph{ecosystem} that aim to binds autonomous
+Reference paper:~\cite{Daoutis2009}
+
+{\sc PEIS Ecology}~\cite{Saffiotti2005} is a software \emph{ecosystem} that aim to binds autonomous
 robotics with ambient intelligence (network of sensors). \emph{PEIS} stands for
 \emph{Physically Embedded Intelligent System}: every robots or intelligent
 device in the environment is abstracted as a PEIS.
 
-Each PEIS component is running a \emph{PEIS Kernel} instance. Communication between instance rely on a custom P2P communication protocol.
+Each PEIS component is running a \emph{PEIS Kernel} instance. Communication
+between instance relies on a custom P2P communication protocol.
 
-\fixme{Very good website, lot of doc, examples, but could not find something directly related to knowledge representation...}
+In short:
+* Roughly the same kind of ambition and architecture.
+* Way better than us on the perception side. 
+* They try the "2nd order logic" approach. I'd be curious to know what kind of reasoning capability they actually have.
+* Their tests are conducted in a static environment. They don't take other agents into consideration (nothing like perspective taking or rich disambiguation).
+* No task planning at all (or at least, not discussed in this paper)
 
-%\begin{itemize}
-%	\item  Saffiotti/Coradeschi
-%	\begin{itemize}
-%		\item  Grounding, anchoring
-%		\item  \emph{PEIS Ecology} (more "SmartHome")
-%	\end{itemize}
-%
-%	\item  Tom Kollar/Stefanie Tellex
-%	\begin{itemize}
-%		\item  Dialog grounding
-%	\end{itemize}
-%
-%	\item  OMKRF
-%	\item  Deb Roy/Nikolaos Mavridis
-%	\item  Wrighteagle RoboCup team
-%	\item  Markus Vincze (Vienna)
-%	\item  Bielefeld
-%	\item  Karlsruhe
-%	\begin{itemize}
-%		\item  ARMAR
-%		\item  Sven Schmidt-Rohr
-%	\end{itemize}
-%
-%	\item  Saarbrücken (SemanticMap)
-%	\item  Joachim Hertzberg (Osnabrueck)
-%	\item  DFKI Bremen
-%	\begin{itemize}
-%		\item  more "SmartHome"
-%	\end{itemize}
-%
-%	\item  JSK
-%	\begin{itemize}
-%		\item  KnowRob + physics simulator + planning
-%	\end{itemize}
-%
-%	\item  Frederik Heitnz, Patrick Dowerty
-%	\begin{itemize}
-%		\item  \emph{DY-KNOW} (stream-based knowledge bases)
-%	\end{itemize}
-%
-%\end{itemize}
-%
+More in details:
+- object identification based on viewpoint independent SIFT features
+- formalized anchoring system that explicitely match percieved attributes to predicates
+- Cyc predicates
+- ground 12 colors, based on a paper on color perception. Could be useful for us.
+- idem, they cite a paper on what spatial relations to compute
+- location of objects based on a previously provided semantic map (but not much on this semantic map)
+- two "memories": the robot memory stores the current list of percieved objects ; the archive memory stores what is not percieved anymore
+- uses directly Cyc (ie, 250 000 common sense concepts...), via CycL language -> 2nd and higher order logics (quantification over predicates, functions, etc)
+Remark: using 2nd order logic (ie meta statements), it would be easy to store the knowledge of each agent
+- disambiguation in concept name by asking human to decide amongst all concepts known by Cyc
+- template based natural language
+- experiment conducted in a "smart" indoor environmement + simple robot
+
+\subsubsection{Intrinsic features}
+\label{sect|peis-intrinsic-features}
+
+\subsubsection{Integration in the PEIS Ecology architecture}
+\label{sect|peis-integration}
+
+\begin{figure}
+	\centering
+	\includegraphics[width=0.9\columnwidth]{peis-architecture.pdf}
+	\caption{The PEIS knowledge representation system, taken from~\cite{Daoutis2009}}
+	\label{fig|peis-architecture}
+\end{figure}
+
+The PEIS KR\&R system is deeply integrated to the general PEIS Ecology environment.
+
+
+
+\begin{table}
+\begin{center}
+\rowcolors{2}{lightgray}{codegray}
+
+\begin{tabular}{ll}
+\hiderowcolors
+{\bf Project} & {\bf Common-sense knowledge source} \\
+\hline
+\showrowcolors
+{\sc KnowRob} & {\sc OpenCyc}, processed web content, custom OWL-DL ontology \\
+ORO & {\sc OpenCyc}, custom OWL-DL ontology \\
+PEIS Ecology & {\sc ReseachCyc} \\
+ & Kollar, Tellex \\
+OMKRF \\
+ & Roy, Mavridis \\
+ & Wrighteagle \\
+ & Vincze \\
+ & (Bielfeld) \\
+ARMAR & Schmidt-Rohr (Karlsruhe) \\
+ & (Saarbrücken) \\
+ & Hertzberg (Osnabrück) \\
+ & (DFKI Bremen) \\
+ (based on {\sc KnowRob} & (JSK) \\
+DY-KNOW & Heitnz, Dowerty \\
+
+\hline
+
+\end{tabular}
+\end{center}
+\caption{Underlying knowledge sources for each project}
+\label{table|knowledge-sources}
+\end{table}
+
 
 \section{Conclusion}
 \label{sect|conclusion}
