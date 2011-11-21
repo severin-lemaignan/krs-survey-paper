@@ -201,13 +201,6 @@ device in the environment is abstracted as a PEIS.
 Each PEIS component is running a \emph{PEIS Kernel} instance. Communication
 between instance relies on a custom P2P communication protocol.
 
-In short:
-* Roughly the same kind of ambition and architecture.
-* Way better than us on the perception side. 
-* They try the "2nd order logic" approach. I'd be curious to know what kind of reasoning capability they actually have.
-* Their tests are conducted in a static environment. They don't take other agents into consideration (nothing like perspective taking or rich disambiguation).
-* No task planning at all (or at least, not discussed in this paper)
-
 More in details:
 - object identification based on viewpoint independent SIFT features
 - formalized anchoring system that explicitely match percieved attributes to predicates
@@ -225,18 +218,59 @@ Remark: using 2nd order logic (ie meta statements), it would be easy to store th
 \subsubsection{Intrinsic features}
 \label{sect|peis-intrinsic-features}
 
-\subsubsection{Integration in the PEIS Ecology architecture}
-\label{sect|peis-integration}
+\paragraph{Expressiveness} The PEIS Knowledge representation system relies on
+the {\sc ReseachCyc} and {\sc CycL} language to represent knowledge. The {\sc CycL} language
+allows to represent first order logic sentences and has extensions for modal logics and higher order logics.
+
+\fxfatal{Is modal logics and higher order logics actually used in PEIS?} 
+
+As a system relying on {\sc CycL}, contexts can be expressed as
+\emph{microtheories}: the truth or falsity of a set of statement depends of the
+\emph{microtheory} in which these statements are evaluated.
+
+\fxfatal{OWA/CWA?}
+
+\subsection{Anchoring strategies}
+\label{sect|peis-anchoring}
 
 \begin{figure}
 	\centering
 	\includegraphics[width=0.9\columnwidth]{peis-architecture.pdf}
 	\caption{The PEIS knowledge representation system, taken from~\cite{Daoutis2009}}
-	\label{fig|peis-architecture}
+	\label{fig|peis-archi}
 \end{figure}
 
-The PEIS KR\&R system is deeply integrated to the general PEIS Ecology environment.
+The PEIS KR\&R system is deeply integrated to the general PEIS Ecology
+\emph{smart} environment. Figure~\ref{fig|peis-archi} gives an overview of the
+interactions between PEIS knowledge processing layers.
 
+\paragraph{Knowledge Acquisition} The primary source for knowledge acquisition
+is perception.  The PEIS ecosystem provides a SIFT-based object recognizer used
+in conjunction with ceiling cameras for object localization.  Other perceptual
+modalities are available (like human tracking, ambient environment monitoring).
+
+A template-based natural language parsing system may also be used to add new
+assertions to the system.
+
+\paragraph{Anchoring} Daoutis et al. formalize the issue of anchoring as
+finding a \emph{predicate grounding relation} $g \subseteq \mathcal{P} \times
+\Phi \times D(\Phi)$, where $\mathcal{P}$ is a set of predicate symbols, $\Phi$
+a set of percept's attributes, and $D(\Phi)$ the domain of these attributes.
+
+In the current implementation, object category (returned by the SIFT
+classifier), color, location, spatial relations (both topological -- \emph{at},
+\emph{near} -- and relative to the robot -- \emph{left}, \emph{behind}, etc.)
+and visibility are the five classes of extracted attributes.
+
+\subsubsection{Integration in the robot architecture}
+\label{sect|peis-integration}
+
+The PEIS framework offers through the \emph{PEIS middleware} a practical way to
+insert a new component into the shared \emph{tuple space}.  Thus, the KR\&R
+module can be seemlessly integrated into the PEIS ecosystem.
+
+\subsubsection{Notable experiments}
+\label{sect|peis-expe}
 
 
 \begin{table}
