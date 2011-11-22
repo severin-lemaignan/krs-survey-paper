@@ -340,32 +340,35 @@ ARMAR & Schmidt-Rohr (Karlsruhe TH) \\
 \subsection{ORO}
 \label{sect|oro}
 
-\subsection{PEIS Ecology}
+\subsection{PEIS KR\&R}
 \label{sect|peis-ecology}
 
-Reference paper:~\cite{Daoutis2009}
 
 {\sc PEIS Ecology}~\cite{Saffiotti2005} is a software \emph{ecosystem} that aim to binds autonomous
 robotics with ambient intelligence (network of sensors). \emph{PEIS} stands for
 \emph{Physically Embedded Intelligent System}: every robots or intelligent
 device in the environment is abstracted as a PEIS.
 
-Each PEIS component is running a \emph{PEIS Kernel} instance. Communication
+Each PEIS physical component is running a \emph{PEIS Kernel} instance. Communication
 between instance relies on a custom P2P communication protocol.
 
-More in details:
-- object identification based on viewpoint independent SIFT features
-- formalized anchoring system that explicitely match percieved attributes to predicates
-- Cyc predicates
-- ground 12 colors, based on a paper on color perception. Could be useful for us.
-- idem, they cite a paper on what spatial relations to compute
-- location of objects based on a previously provided semantic map (but not much on this semantic map)
-- two "memories": the robot memory stores the current list of percieved objects ; the archive memory stores what is not percieved anymore
-- uses directly Cyc (ie, 250 000 common sense concepts...), via CycL language -> 2nd and higher order logics (quantification over predicates, functions, etc)
-Remark: using 2nd order logic (ie meta statements), it would be easy to store the knowledge of each agent
-- disambiguation in concept name by asking human to decide amongst all concepts known by Cyc
-- template based natural language
-- experiment conducted in a "smart" indoor environmement + simple robot
+The PEIS architecture allows for adding new abilities through software components sharing the common \emph{tuple space}.
+
+We survey here the semantic layer~\cite{Daoutis2009}, referred as \emph{PEIS KR\&R}, that includes symbolic representation and reasoning.
+
+% More in details:
+% - object identification based on viewpoint independent SIFT features
+% - formalized anchoring system that explicitely match percieved attributes to predicates
+% - Cyc predicates
+% - ground 12 colors, based on a paper on color perception. Could be useful for us.
+% - idem, they cite a paper on what spatial relations to compute
+% - location of objects based on a previously provided semantic map (but not much on this semantic map)
+% - two "memories": the robot memory stores the current list of percieved objects ; the archive memory stores what is not percieved anymore
+% - uses directly Cyc (ie, 250 000 common sense concepts...), via CycL language -> 2nd and higher order logics (quantification over predicates, functions, etc)
+% Remark: using 2nd order logic (ie meta statements), it would be easy to store the knowledge of each agent
+% - disambiguation in concept name by asking human to decide amongst all concepts known by Cyc
+% - template based natural language
+% - experiment conducted in a "smart" indoor environmement + simple robot
 
 \subsubsection{Intrinsic features}
 \label{sect|peis-intrinsic-features}
