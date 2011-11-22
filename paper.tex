@@ -36,6 +36,7 @@
 \maketitle
 \tableofcontents
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Introduction}
 \label{sect|intro}
 
@@ -92,64 +93,103 @@ ability to take into account the human perspective.
 \fxnote{Mention here that each team was proposed to complete/amend the description of their
 system}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Comparison criteria}
 \label{sect|comparison-criteria}
 
 \subsection{Intrinsic features}
 \label{sect|intrinsic-features}
 
-\begin{itemize}
-	\item  Expressiveness
-	\begin{itemize}
-		\item  Which logic formalism (DL, 2nd order\ldots{})
-		\item  OWA/CWA
-		\item  Representation of uncertainty
-		\item  (non) monotonic reasoning
-		\item  General knowledge + exception to this knowledge (blue sky/white sky)
-		\item  Microtheories
-		\item  Lazy evaluation
-		\item  Presupposition accomodation (ability to represent facts that are only verbally hinted, but not grounded into perception)
-	\end{itemize}
+\subsubsection{Expressiveness}
+\label{sect|expressiveness}
 
-	\item  Explicit modeling of context of knowledge / domain of validity
-	\item  Representation of change (\emph{"The pancake dough disappears into a pancake"})
-	\item  Support for learning
-	\item  Support for introspection?
-	\item  Support for prediction/projection?
-\end{itemize}
+\paragraph{Logics formalism}
+
+Which logic formalism (DL, 2nd order\ldots{})
+
+\paragraph{Open World Assumption or Close World Assumption}
+
+\paragraph{(non) monotonic reasoning}
+
+\paragraph{General knowledge + exception to this knowledge (blue sky/white sky)}
+
+\paragraph{Representation of uncertainty}
+
+\paragraph{Representation of time}
+
+\paragraph{Representation of change}
+
+E.g. \emph{"The pancake dough disappears into a pancake"}
+ 
+\paragraph{Context and Microtheories}
+Explicit modeling of context of knowledge / domain of validity
+
+\subsubsection{Presupposition accomodation}
+\label{sect|presupposition-accomodation}
+
+\emph{Presupposition accomodation} is the ability to acquire and represent facts that are not
+grounded into perception. A typical example is a human telling the robot that
+\emph{"there is big blue sphere behind you!"}.
+
+\subsubsection{Lazy evaluation}
+\label{sect|lazy-evaluation}
+
+
+\subsubsection{Introspection}
+\label{sect|introspection}
+Support for introspection?
+
+\subsubsection{Prediction and projection tasks}
+\label{sect|prediction-projection}
+
+Levesque~\cite{Levesque2007} distinguish two main tasks, the \emph{projection task} and the \emph{legality task}.
+
+\paragraph{Projection task}: determining whether or not some condition while hold after a sequence of actions.
+
+\paragraph{Legality task}: determining whether a sequence of action can be performed starting in some initial state.
+
+\subsubsection{Learning}
+\label{sect|learning}
+
 
 \subsection{Strategies to deal with the physical world}
 
-\begin{itemize}
-	\item  Knowledge acquisition possible\ldots{}
-	\begin{itemize}
-		\item  \ldots{}through interaction? How?
-		\item  \ldots{}through the Web? How?
-		\item  \ldots{}through learning? How?
-		\item  \ldots{}through perception? How?
-	\end{itemize}
-	\item Grounding/anchoring strategies
-	\item Ability to automatically create new object instances
-	\item Ability to merge modalities
-\end{itemize}
+\subsubsection{Knowledge acquisition}
+\label{sect|knowledge-acquisition}
+
+\paragraph{Perception}
+\paragraph{Interaction}
+\paragraph{External sources (Web, upper ontologies, ...)}
+\paragraph{Learning}
+
+\subsubsection{Grounding/anchoring strategies}
+\label{sect|grounding}
+
+\subsubsection{Ability to automatically create new object instances}
+\label{sect|new-instances}
+
+\subsubsection{Ability to merge modalities}
+\label{sect|modalities-merging}
 
 \subsection{Integration in a larger robotic architecture}
+\label{sect|integration-robot}
 
-\begin{itemize}
+\subsubsection{Integration with executive layers}
+\label{sect|integration-executive-layers}
 
-	\item  Integration with executive layers
-	\begin{itemize}
-		\item  Events
-		\item  Relation to task planning
-	\end{itemize}
+\paragraph{Events}
 
-	\item Interaction with humans
+\paragraph{Relation to task planning}
 
-	Both as developers (KRS as a tool to make robot knowledge explicit to the
-	robot designer) and end-users (like natural language processing,...)
+\subsubsection{Interaction with humans}
+\label{sect|hri}
 
-	\item  Scalability and responsiveness
-\end{itemize}
+Both as developers (KRS as a tool to make robot knowledge explicit to the
+robot designer) and end-users (like natural language processing,...)
+
+\subsubsection{Scalability and responsiveness}
+\label{sect|scalability}
+
 
 \subsection{Underlying knowledge model}
 
@@ -161,6 +201,9 @@ system}
 
 \end{itemize}
 
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Surveyed systems}
 
 Table \ref{table|surveyed-systems} presents the fifteen knowledge representation systems surveyed
@@ -253,7 +296,7 @@ As a system relying on {\sc CycL}, contexts can be expressed as
 
 \fxfatal{OWA/CWA?}
 
-\subsection{Anchoring strategies}
+\subsubsection{Anchoring strategies}
 \label{sect|peis-anchoring}
 
 \begin{figure}
@@ -330,6 +373,7 @@ ARMAR & Schmidt-Rohr (Karlsruhe) \\
 \end{table}
 
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Conclusion}
 \label{sect|conclusion}
 
