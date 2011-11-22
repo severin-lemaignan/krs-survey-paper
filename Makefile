@@ -1,5 +1,5 @@
 
-TARGET=paper.tex
+TARGET=krs-survey.tex
 
 SVG=$(wildcard figs/*.svg)
 
