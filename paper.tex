@@ -31,6 +31,10 @@
 
 \graphicspath{{figs/}}
 
+\newcommand{\ie}{{\textit{i.e.~}}}
+\newcommand{\cf}{{\textit{cf~}}}
+\newcommand{\eg}{{\textit{e.g.~}}}
+
 \begin{document}
 
 \maketitle
@@ -40,12 +44,91 @@
 \section{Introduction}
 \label{sect|intro}
 
+The idea of \emph{Cognitive robotics} was coined in the early 1990s by Reiter.
+In a chapter on that subject in \emph{Fondations of Artifical
+Intelligence}~\cite{Levesque2007}, Levesque reminds about the manifesto they
+wrote together in 1998:
+
+\begin{quotation}
+
+	Central to this effort is to develop an understanding of the relationship
+	between the knowledge, the perception, and the action of such a robot. The
+	sorts of questions we want to be able to answer are
+
+	\begin{itemize} 
+	
+		\item to execute a program, what information does a robot need to have
+		at the outset vs. the information that it can acquire \emph{en route}
+		by perceptual means?
+
+		\item what does the robot need to know about its environment vs. what
+		need only be known by the designer?
+
+		\item when should a robot use perception to find out if something is
+		true as opposed to reasoning about what it knows was true in the past?
+
+		\item when should the inner workings of an action be available to the
+		robot for reasoning and when should the action be considered primitive
+		or atomic?
+
+	\end{itemize}
+
+	and so on. With respect to robotics, our goal (like that of many in AI) is
+	\emph{high-level robotic control}: develop a system that is capable of
+	generating actions in the world that are appropriate as a function of some
+	current set of beliefs and desires.
+
+\end{quotation}
+
+This survey focuses on the knowledge issue: we aims at establishing the current
+landscape of approaches to the knowledge representation problem in the research
+community.
+
+We have identified over ten projects that are designed for explicit knowledge
+manipulation within a robot. By knowledge manipulation, we mainly mean:
+
+\begin{itemize}
+
+	\item symbolic representation of assertions, be it static statements on the
+	world or spatio-temporal events,
+
+	\item reasoning that this representation enables,
+
+\end{itemize}
+
+We will also try, for each project, to make clear
+
+\begin{itemize}
+
+	\item how new facts can be acquired, \ie how informations from perception
+	or interaction are turned into knowledge,
+
+	\item how, in return, symbolic concept are \emph{anchored} into the robot
+	sensori-motor space,
+
+	\item how the knowledge representation system integrates with the
+	decisional layers of the robot, and if this leads to better robotic
+	control.
+
+\end{itemize}
+
+
 \subsection{Definition of inclusion criteria}
+\label{sect|inclusion-criteria}
 
-We have setup the following criteria to select the knowledge representation
-systems to include in this survey.
+Every robotic system has, implicitely or not, some knowledge representation
+systems. It may range from a simple state vector to an explicit symbolic
+knowledge base.  This survey focuses on the right end of this spectrum:
+symbolic systems, suited for abstract reasoning.
 
-Those systems must:
+Besides, we have decided to restraint the set of systems to those actually
+implemented on robots, and used in semantic-rich environments (\ie , dynamic,
+partially unknown environments with a large range of different entities which
+may have interactions). The typical scenario that would involve such robots is
+a service robot in a human-friendly environment like a kitchen.
+
+More precisely, we have established the following criteria to select the
+knowledge representation systems to include in this survey. Those systems must:
 
 \begin{itemize}
 	\item  Run on \emph{service robot} (robots that interact with objects in a
@@ -66,7 +149,8 @@ Those systems must:
 \subsection{Evaluation of a knowledge representation system}
 \label{sect|evaluation}
 
-\subsubsection{Desired features from other fields}
+
+\subsubsection{Desirable features of a knowledge representation system}
 \label{sect|evaluation-literature}
 
 \paragraph{General views on what is missing to AI} \cite{McCarthy2007}
@@ -107,7 +191,9 @@ system}
 
 Which logic formalism (DL, 2nd order\ldots{})
 
-\paragraph{Open World Assumption or Close World Assumption}
+\paragraph{Open World and Close World Assumptions}
+
+\fixme{cf Levesque~\cite{Levesque2007}, section 24.3.2}
 
 \paragraph{(non) monotonic reasoning}
 
