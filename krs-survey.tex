@@ -200,6 +200,10 @@ the right granularity of models, integrating temporal modeling and planning,
 ability to match past (learned) experiences with the current interaction and
 ability to take into account the human perspective.
 
+\subsubsection{Benchmarking}
+\label{sect|benchmarking}
+
+\cite{Hawes2008}: benchmarking of "Information-Processing Architectures on Intelligent Systems"
 \subsubsection{Pyschological tests}
 \label{sect|evaluation-tests}
 
@@ -215,8 +219,8 @@ ability to take into account the human perspective.
 system}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Comparison criteria}
-\label{sect|comparison-criteria}
+\section{Compared features}
+\label{sect|compared-features}
 
 \subsection{Intrinsic features}
 \label{sect|intrinsic-features}
@@ -259,6 +263,8 @@ grounded into perception. A typical example is a human telling the robot that
 \subsubsection{Lazy evaluation}
 \label{sect|lazy-evaluation}
 
+\subsubsection{Agent-dependent models}
+\label{sect|multiple-models}
 
 \subsubsection{Introspection}
 \label{sect|introspection}
@@ -555,15 +561,59 @@ Hertzberg (Osnabrück) & \\
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Conclusion}
+\section{Summary of Approaches}
+\label{sect|summary}
+
+This section tries to summary the various approaches we surveyed in the
+previous section.  This summary does not exactly follow the list of compared
+features presented in section~\ref{sect|compared-features}. We have organized
+it along four axis: \emph{what can be represented?}, \emph{How knowledge is
+created and grounded?}, \emph{What can be done with the knowledge?} and
+\emph{How to use knowledge in the whole, larger robot architecture?}.
+
+\subsection{Expressiveness: what can we represent in the current state-of-the-art?}
+\label{sect|summary-expressiveness}
+
+\begin{itemize}
+	\item expressiveness
+\end{itemize}
+
+
+\subsection{Creating and grounding knowledge in the physical world}
+\label{sect|summary-grounding}
+
+\begin{itemize}
+	\item which knowledge modalities can be merged
+	\item which grounding strategies
+\end{itemize}
+
+
+\subsection{Exploiting knowledge}
+\label{sect|summary-knowledge-sources-reasoning}
+
+\begin{itemize}
+	\item which common-sense knowledge is used
+	\item what kind of reasoning is made
+	\item introspection
+\end{itemize}
+
+
+\subsection{Using a knowledge representation system in a larger robotic cognitive architecture}
+\label{sect|summary-integration}
+
+\begin{itemize}
+	\item a priori evaluation/lazy evaluation and trade-offs (relations to events, scalability, detection of inconsistencies,...)
+	\item relation with planning (action representation, temporal representation...)
+	\item API/bindings/integration into executive layers
+\end{itemize}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Towards the next generation of Knowledge Representation Systems for Robotics}
 \label{sect|conclusion}
 
-\subsection{Main groups}
+\subsection{Current shotcomings: what is not successfully covered by current systems}
 
-\subsection{What is not successfully covered by current systems}
-
-\subsection{Future challenges}
-\label{sect|future-challenges}
+\subsection{Towards a new design}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
 \section*{Acknowledgements} 
