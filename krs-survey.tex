@@ -354,11 +354,11 @@ DY-KNOW & Heintz, Dowerty \par (Linköping Univ.) & & & & & \cite{Heintz2004} \\
 OMKRF & Suh et al. \par (Hanyang Univ.) & & & & & \cite{Suh2007} \\
 GSM & Mavridis, Roy \par (MIT MediaLab) & & & & & \cite{Mavridis2006} \\
 NKRL & Zarri et al. \par (Paris Est Créteil Univ.) & & NKRL & & & \cite{Sabri2011} \\
+CAST Proxies & Wyatt, Hawes, Jacobsson, Kruijff (Brimingham Univ., DFKI Saarbrücken) & & & & Amodal proxies & \cite{Jacobsson2008} \\
  & Wrighteagle \\
  & Vincze \\
  & (Bielfeld Univ.) \\
 ARMAR & Schmidt-Rohr (Karlsruhe TH) \\
- & (Saarbrücken) \\
  & Hertzberg (Osnabrück Univ.) \\
  & (DFKI Bremen) \\
  (based on {\sc KnowRob} & (JSK) \\
@@ -486,6 +486,40 @@ representation and reasoning mechanism for robots by Sabri et al.
 
 ...seem to be mostly WIP...
 
+
+\subsection{CAST Knowledge model}
+\label{sect|cast}
+
+CAS (\emph{CoSy Architecture Schema}) Toolkit~\cite{Hawes2007} is a
+comprehensive toolkit aimed at builduing cognitive architectures for robots
+through a set of interconnected SAs (\emph{subarchitectures}). The CAS does not
+expose a central knowledge base as seen in previous works. It instead
+represents knowledge as unrooted \emph{proxies}. Thoses proxies are formally
+defined in \cite{Jacobsson2008} as $p= \langle F_p, u_p \rangle$ where $F_p$ is
+a set of instanciated features (like $\phi^{Colour}_{red}$) and $u_p$ a
+\emph{proxies union} that form an equivalence class corresponding to one
+entity.
+
+A union of proxies forms a global amodal representation of an entity, that can
+be explicitely shared and manipulated. Being not centralized, the knowledge
+model can be qualified of \emph{ubiquitous}. Futhermore, knowledge source in
+the CAS architecture is tightly bound to the on-line grounding process (be it
+grounded in perception or in dialogue). While nothing seems to prevent it, no
+{\it a priori} knowledge (including common-sense knowledge) is used.
+
+Knowledge sharing is ensured by the event mechanism of CAST: modules can
+monitor proxies for alteration by other modules. Jacobsson et al. mention how
+this can apply to reinforcement learning: the vision module creates a proxy for
+an orange object. This proxy get monitored by a learning module. In parallel,
+the proxy is bound to an union by the natural language understanding module
+that add new a feature like \emph{"this object is a fruit"}. The learning
+module is called back, and can add this new information to its model.
+
+In the presented implementation, the CAST knowledge model does no allow for
+effectively representing actions or temporal information.\fxfatal{What about reasoning? can they retrieve for example 'all proxies for colorful objects'?}
+
+
+%%%%%%%%%% Underlying knowledge model table %%%%%%%%
 \begin{table}
 \begin{center}
 \rowcolors{2}{lightgray}{codegray}
@@ -502,11 +536,11 @@ DY-KNOW & \\
 OMKRF & \\
 GSM &  \\
 NKLR &  None \\
+CAST Proxies &  None \\
 Wrighteagle & \\
 Vincze & \\
 (Bielfeld) & \\
 ARMAR &  \\
-(Saarbrücken) & \\
 Hertzberg (Osnabrück) & \\
 (DFKI Bremen) & \\
 (JSK) & \\
