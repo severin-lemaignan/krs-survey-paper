@@ -11,6 +11,7 @@
 \usepackage{moreverb}
 \usepackage[table]{xcolor}
 \usepackage{listings}
+\usepackage{paralist}
 \usepackage{fancyhdr}
 \usepackage[draft]{fixme}
 
@@ -44,7 +45,7 @@
 \section{Introduction}
 \label{sect|intro}
 
-The idea of \emph{Cognitive robotics} was coined in the early 1990s by Reiter.
+The idea of \emph{Cognitive Robotics} was coined in the early 1990s by Reiter.
 In a chapter on that subject in \emph{Fondations of Artifical
 Intelligence}~\cite{Levesque2007}, Levesque reminds about the manifesto they
 wrote together in 1998:
@@ -82,35 +83,21 @@ wrote together in 1998:
 
 This survey focuses on the knowledge issue: we aims at establishing the current
 landscape of approaches to the knowledge representation problem in the research
-community.
+community, at summarizing the major trends and identifying the possible
+shortcomings.
 
-We have identified over ten projects that are designed for explicit knowledge
-manipulation within a robot. By knowledge manipulation, we mainly mean:
+We have identified over ten projects that either are explicitely advertised as
+knowledge representation systems or involve explicit knowledge manipulation
+within a robot. By knowledge manipulation, we mean symbolic representation of
+assertions, be it static statements on the world or spatio-temporal events, and
+reasoning on this representation.
 
-\begin{itemize}
-
-	\item symbolic representation of assertions, be it static statements on the
-	world or spatio-temporal events,
-
-	\item reasoning that this representation enables,
-
-\end{itemize}
-
-We will also try, for each project, to make clear
-
-\begin{itemize}
-
-	\item how new facts can be acquired, \ie how informations from perception
-	or interaction are turned into knowledge,
-
-	\item how, in return, symbolic concept are \emph{anchored} into the robot
-	sensori-motor space,
-
-	\item how the knowledge representation system integrates with the
-	decisional layers of the robot, and if this leads to better robotic
-	control.
-
-\end{itemize}
+We also try, for each project, to make clear \begin{inparaenum} \item how new
+facts can be acquired, \ie how informations from perception or interaction are
+turned into knowledge, \item how, in return, symbolic concept are
+\emph{anchored} into the robot sensori-motor space, \item how the knowledge
+representation system integrates with the decisional layers of the robot, and
+how this leads to better robotic control.\end{inparaenum}
 
 
 \subsection{Definition of inclusion criteria}
