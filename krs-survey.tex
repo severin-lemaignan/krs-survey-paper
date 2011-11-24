@@ -47,7 +47,7 @@
 
 The idea of \emph{Cognitive Robotics} was coined in the early 1990s by Reiter.
 In a chapter on that subject in \emph{Fondations of Artifical
-Intelligence}~\cite{Levesque2007}, Levesque reminds about the manifesto they
+Intelligence}~\cite{Levesque2008}, Levesque reminds about the manifesto they
 wrote together in 1998:
 
 \begin{quotation}
@@ -215,17 +215,104 @@ system}
 \subsubsection{Expressiveness}
 \label{sect|expressiveness}
 
-\paragraph{Logics formalism}
+\paragraph{Logic formalism}
 
-Which logic formalism (DL, 2nd order\ldots{})
+The main role of a knowledge represenation system is to provide an adequate
+representation system to store facts and concepts that can be informally
+described in natural language.
 
-On modal logics, see the remark of McCarthy, in \cite{McCarthy2007}, section 3
+Formal logic aims at providing such a representation system with the added
+value of providing a tractable support for inference and reasoning.
+
+Most (but not all) of the systems we survey rely on a particular logic
+formalism. The choice of the formalism has a strong impact, on one side, on the
+range of ideas that can be expressed conveniently (\emph{practical
+expressiveness}) or at all (\emph{theoritical expressiveness}), on the other
+side, on the ability to solve the inference problem (called
+\emph{decidability}: is a given logical sentence true in my model?) in a
+tractable manner.
+
+A large number of logic formalism do exist, we shall summarize below the most
+relevant for system actually deployed in current robotic architectures.
+
+\emph{Predicate logic} is the family of logic formalisms the most commonly
+found in knowledge representation. It distinguishes itself from the simpler
+\emph{propositional logic} by the use of quantification to increase generality.
+\emph{First-order logic} (FOL) is the subpart of \emph{predicate logic} where the
+objects of \emph{predicates} (or \emph{formulae}) are simple \emph{terms},
+while in \emph{higher-order logics}, predicates can be themselves objects of
+other predicates.
+
+The family of \emph{description logics}~\cite{Baader2008} also play an
+important role. It is a subset of the first-order logic, with some extensions
+in second-order logic. Description logics are notable because most of them are
+known to be decidable. In description logic, axioms are build from
+\emph{concepts}, \emph{roles} (that are unary or binary predicates) and
+\emph{individuals}. \emph{Modal logics}, that allow for statement qualification
+(like \emph{possibility} or \emph{necessity}) have been shown to be closely
+related to description logics.
+
+\fxfatal{On modal logics, see the remark of McCarthy, in \cite{McCarthy2007}, section 3}
+
+One last class of logics that is of particular relevance for robotic
+applications is the \emph{probabilistic logics} or \emph{bayesian logics}.
+These logics provide a formal framework to reason on propositions whose truth
+or falsity is uncertain.
+
+\paragraph{Some examples}
+
+\emph{The robot knows that a blue bottle is laying on the table.}
+
+\emph{The robot knows that the human knows about the position of the bottle,
+but the robot does not know what the human actually know about it.}
 
 \paragraph{Open World and Close World Assumptions}
 
-\fixme{cf Levesque~\cite{Levesque2007}, section 24.3.2}
+The \emph{close world} (CWA) vs. \emph{open world} (OWA) assumption names a
+modelling choice on the \emph{completeness} of a knowledge domain. In the close
+world assumption, a proposition that can not be proven true is assumed to be
+false (\emph{negation by failure}), while in the open world assumption, a
+proposition may be considered either true, false or unknown.
+
+This distinction is important in robotics were the robot may have to manipulate
+concepts with only partial knowledge on them. For instance, let imagine a robot
+that sees a bottle over a table, whose bottom is hidden by another object. The
+robot can not prove that the bottle is indeed \emph{on} the table. A knowledge
+representation system relying on the closed world assumption would then assume
+the bottle is \emph{not} on the table ($\lnot R^{CWA}_{isOn}(bottle, table)$)
+whereas with the open world assumption, the proposition $R^{OWA}_{isOn}(bottle,
+table)$ would be undecided. Example in table~\ref{table|cwa-owa-example} provides
+a simple, concerete example of consequences of the CWA/OWA choice on reasoning.
+
+\begin{table}
+	\begin{center}
+	\begin{tabular}{ll}
+	{\bf Action} & {\bf Part involved} \\
+	\hline
+	{\tt PickSoftly} & hand \\
+	{\tt PickAndPlace} & arm, hand \\
+	{\tt MoveArm} & arm \\
+	\hline
+	\end{tabular}
+	\end{center}
+	\caption{Assuming the question is: \emph{select actions that do not require
+	to move the arm}, a CWA reasoner would return {\tt PickSoftly} whereas an
+	OWA reasoner would not return anything if the {\tt PickSoftly} action is
+	not explicitely said not to involve the arm.}
+	\label{table|cwa-owa-example}
+\end{table}
+
+Domains constrained with the closed world assumption lead to more tractable
+inference problems, and allow for instance the use of logic languages like
+Prolog. Thus, several approaches exists to \emph{locally close} a domain (\cf
+Levesque~\cite{Levesque2008}, section 24.3.2 for a summary of those).
 
 \paragraph{(non) monotonic reasoning}
+
+\paragraph{Knowledge alteration possibilities}
+
+In DL -> always possible to modify the ABox, not always possible to alter the TBox
+
 
 \paragraph{General knowledge + exception to this knowledge (blue sky/white sky)}
 
@@ -250,8 +337,10 @@ grounded into perception. A typical example is a human telling the robot that
 \subsubsection{Lazy evaluation}
 \label{sect|lazy-evaluation}
 
-\subsubsection{Agent-dependent models}
-\label{sect|multiple-models}
+\subsubsection{Possible-Worlds and Agent-dependent models}
+\label{sect|possible-worlds}
+
+\cite{Levesque2008}, p. 4
 
 \subsubsection{Introspection}
 \label{sect|introspection}
@@ -260,7 +349,7 @@ Support for introspection?
 \subsubsection{Prediction and projection tasks}
 \label{sect|prediction-projection}
 
-Levesque~\cite{Levesque2007} distinguish two main tasks, the \emph{projection task} and the \emph{legality task}.
+Levesque~\cite{Levesque2008} distinguish two main tasks, the \emph{projection task} and the \emph{legality task}.
 
 \paragraph{Projection task}: determining whether or not some condition while hold after a sequence of actions.
 
