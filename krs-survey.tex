@@ -333,6 +333,16 @@ whose existence follows from the facts being taken into account will be
 considered.
 \end{quotation}
 
+Another important application of non-monotonic reasoning is representation of
+change: for example, to make an omelette, you need to crack eggs and wipe them.
+The eggs disappear and are replaced by an omelette:
+
+$Egg(a) \wedge Egg(b) \wedge MakeOmelette(a, b, c) \to \lnot Egg(a) \wedge
+\lnot Egg(b) \wedge Omelette(c)$
+
+The insertion of the proposition $MakeOmelette(a, b, c)$ leads to retraction of
+other facts. This rule requires non-monotonic reasoning to be applied.
+
 \emph{Default logic} is one of the formal logic that account for representing
 general truth and exceptions to it. However, due to computational complexity of
 these model (most of inferences in default logic are known to be $NP$-complete
@@ -365,10 +375,7 @@ In DL -> always possible to modify the ABox, not always possible to alter the TB
 
 \paragraph{Representation of time}
 
-\paragraph{Representation of change}
 
-E.g. \emph{"The pancake dough disappears into a pancake"}
- 
 \paragraph{Context and Microtheories}
 Explicit modeling of context of knowledge / domain of validity
 
