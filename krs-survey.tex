@@ -407,13 +407,17 @@ Support for introspection?
 \subsubsection{Presupposition accomodation}
 \label{sect|presupposition-accomodation}
 
-\emph{Presupposition accomodation} is the ability to acquire and represent
-facts that are not grounded into perception. A typical example is a human
-telling the robot that \emph{"big blue sphere is behind you!"}.
+\emph{Presupposition accomodation} is the ability for the system to
+automatically create a context allowing to make sense of a proposition.
+
+For instance, we can imagine a human telling a robot \emph{Please get me the
+bottle that is behind you}. If the robot has not yet see what is behind it, it
+needs to assume (and represents in its knowledge model) that a undefined bottle
+can be found somewhere in the half of space behind it.
 
 A knowledge representation system able to copte with presupposition
 accomodation would be able to take into account this (usually under-defined)
-information in later inference.
+information that is not grounded into perception for later inferences.
 
 This ability to imagine a physically state of the world that is not actually
 perceived can be seen as the converse of the grounding ability.
