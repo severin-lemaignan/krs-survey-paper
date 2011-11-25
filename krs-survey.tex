@@ -248,8 +248,11 @@ important role. It is a subset of the first-order logic, with some extensions
 in second-order logic. Description logics are notable because most of them are
 known to be decidable. In description logic, axioms are build from
 \emph{concepts}, \emph{roles} (that are unary or binary predicates) and
-\emph{individuals}. \emph{Modal logics}, that allow for statement qualification
-(like \emph{possibility} or \emph{necessity}) have been shown to be closely
+\emph{individuals}. The W3C OWL-DL standard is a widely-used language to describe
+domain with the description logic.
+
+\emph{Modal logics}, that allow for statement qualification
+like \emph{possibility} or \emph{necessity}, have been shown to be closely
 related to description logics.
 
 \fxfatal{On modal logics, see the remark of McCarthy, in \cite{McCarthy2007}, section 3}
@@ -257,7 +260,8 @@ related to description logics.
 One last class of logics that is of particular relevance for robotic
 applications is the \emph{probabilistic logics} or \emph{bayesian logics}.
 These logics provide a formal framework to reason on propositions whose truth
-or falsity is uncertain.
+or falsity is uncertain. We elaborate below on the representation of uncertainty.
+
 
 \paragraph{Some examples}
 
@@ -307,14 +311,53 @@ inference problems, and allow for instance the use of logic languages like
 Prolog. Thus, several approaches exists to \emph{locally close} a domain (\cf
 Levesque~\cite{Levesque2008}, section 24.3.2 for a summary of those).
 
-\paragraph{(non) monotonic reasoning}
+\paragraph{(Non) Monotonic Reasoning}
+
+\emph{Monotonic reasoning} means that addition of new assertions to a knowledge base
+can only extend the set of assertions that can be inferred, while a
+\emph{non-monotonic} reasoning scheme may lead to retraction of facts.
+McCarthy coined a famous example to illustrate the need of non-monotonic reasoning:
+
+\begin{quotation}
+Consider putting an axiom in a common sense database asserting that birds can
+fly. Clearly the axiom must be qualified in some way since penguins, dead birds
+and birds whose feet are encased in concrete can't fly. A careful construction
+of the axiom might succeed in including the exceptions of penguins and dead
+birds, but clearly we can think up as many additional exceptions like birds
+with their feet encased in concrete as we like. Formalized nonmonotonic
+reasoning provides a way of saying that a bird can fly unless there
+is an abnormal circumstance and reasoning that only the abnormal circumstances
+whose existence follows from the facts being taken into account will be
+considered.
+\end{quotation}
+
+\emph{Default logic} is one of the formal logic that account for representing
+general truth and exceptions to it. However, due to computational complexity of
+these model (most of inferences in default logic are known to be $NP$-complete
+problem), classical logics and most of the existing reasoners do not allow
+non-monotonic reasoning. For instance, the SWRL rule language, usually
+associated to the OWL-DL ontology language, do not allow non-monotonic
+reasoning.
+
+\fxfatal{Make clear 'who does not allow non-monotonic-reasoning': logics? rule
+languages? reasoner?}
+
+One important exception if the \emph{Negation as failure} inference rule, as
+implemented by {\sc Prolog} for instance, that allows for non-monotonicity, but
+only \emph{within the closed world assumption}.
+
+\fxfatal{Give here an example of non-monotonic reasoning with Prolog}
+
+A monotonic system does not theoritically allow for knowledge retractation,
+which is an important issue in the robotic context where the world model is
+likely to be often altered.  However it is a practical issue only if the
+reasoning process is \emph{continuous} during the whole robot's activity
+lifespan. It is often possible to stop the reasoner, alter the knowledge, and
+restart the inference process on a new domain.
 
 \paragraph{Knowledge alteration possibilities}
 
 In DL -> always possible to modify the ABox, not always possible to alter the TBox
-
-
-\paragraph{General knowledge + exception to this knowledge (blue sky/white sky)}
 
 \paragraph{Representation of uncertainty}
 
