@@ -1,5 +1,5 @@
 %\documentclass[twoside,a4paper]{report}
-\documentclass[a4paper]{article}
+\documentclass[a4paper, twocolumn]{article}
 
 \usepackage[utf8]{inputenc}
 
@@ -14,6 +14,8 @@
 \usepackage{paralist}
 \usepackage{fancyhdr}
 \usepackage[draft]{fixme}
+\fxsetup{footnote}
+\fxsetup{nomargin}
 
 \definecolor{codegray}{gray}{.95}
 \definecolor{palegray}{gray}{.65}
@@ -652,9 +654,9 @@ effectively representing actions or temporal information.\fxfatal{What about rea
 \begin{center}
 \rowcolors{2}{lightgray}{codegray}
 
-\begin{tabular}{ll}
+\begin{tabular}{lp{4cm}}
 \hiderowcolors
-{\bf Project} & {\bf Common-sense knowledge source} \\
+{\bf Project} & {\bf Common-sense \par knowledge source} \\
 \hline
 \showrowcolors
 {\sc KnowRob} & {\sc OpenCyc}, processed web content, custom OWL-DL ontology \\
