@@ -372,13 +372,6 @@ E.g. \emph{"The pancake dough disappears into a pancake"}
 \paragraph{Context and Microtheories}
 Explicit modeling of context of knowledge / domain of validity
 
-\subsubsection{Presupposition accomodation}
-\label{sect|presupposition-accomodation}
-
-\emph{Presupposition accomodation} is the ability to acquire and represent facts that are not
-grounded into perception. A typical example is a human telling the robot that
-\emph{"there is big blue sphere behind you!"}.
-
 \subsubsection{Lazy evaluation}
 \label{sect|lazy-evaluation}
 
@@ -391,6 +384,50 @@ grounded into perception. A typical example is a human telling the robot that
 \label{sect|introspection}
 Support for introspection?
 
+\subsubsection{Learning}
+\label{sect|learning}
+
+
+\subsection{Strategies to deal with the physical world}
+
+\subsubsection{Knowledge acquisition and modalities merging}
+\label{sect|knowledge-acquisition}
+
+\paragraph{Perception}
+\paragraph{Interaction}
+\paragraph{External sources (Web, upper ontologies, ...)}
+\paragraph{Learning}
+
+\subsubsection{Ability to automatically create new object instances}
+\label{sect|new-instances}
+
+\subsubsection{Grounding/anchoring strategies}
+\label{sect|grounding}
+
+\subsubsection{Presupposition accomodation}
+\label{sect|presupposition-accomodation}
+
+\emph{Presupposition accomodation} is the ability to acquire and represent
+facts that are not grounded into perception. A typical example is a human
+telling the robot that \emph{"big blue sphere is behind you!"}.
+
+A knowledge representation system able to copte with presupposition
+accomodation would be able to take into account this (usually under-defined)
+information in later inference.
+
+This ability to imagine a physically state of the world that is not actually
+perceived can be seen as the converse of the grounding ability.
+
+Note also that presupposition accomodation implies a bidirectional link of the
+symbolic knowledge model with a geometric (or physical) model of the
+environment. This article focuses on symbolic knowledge representation systems,
+but we shall mention when a KRS explicitely provides support for presupposition
+accomodation.
+
+%%%%%
+\subsection{Integration in robotic architectures}
+\label{sect|integration-robot}
+
 \subsubsection{Prediction and projection tasks}
 \label{sect|prediction-projection}
 
@@ -400,38 +437,12 @@ Levesque~\cite{Levesque2008} distinguish two main tasks, the \emph{projection ta
 
 \paragraph{Legality task}: determining whether a sequence of action can be performed starting in some initial state.
 
-\subsubsection{Learning}
-\label{sect|learning}
-
-
-\subsection{Strategies to deal with the physical world}
-
-\subsubsection{Knowledge acquisition}
-\label{sect|knowledge-acquisition}
-
-\paragraph{Perception}
-\paragraph{Interaction}
-\paragraph{External sources (Web, upper ontologies, ...)}
-\paragraph{Learning}
-
-\subsubsection{Grounding/anchoring strategies}
-\label{sect|grounding}
-
-\subsubsection{Ability to automatically create new object instances}
-\label{sect|new-instances}
-
-\subsubsection{Ability to merge modalities}
-\label{sect|modalities-merging}
-
-\subsection{Integration in a larger robotic architecture}
-\label{sect|integration-robot}
+\paragraph{Relation to task planning}
 
 \subsubsection{Integration with executive layers}
 \label{sect|integration-executive-layers}
 
 \paragraph{Events}
-
-\paragraph{Relation to task planning}
 
 \subsubsection{Interaction with humans}
 \label{sect|hri}
