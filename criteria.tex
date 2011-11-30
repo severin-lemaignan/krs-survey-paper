@@ -1,0 +1,178 @@
+%\documentclass[twoside,a4paper]{report}
+\documentclass[a4paper]{article}
+
+\usepackage[utf8]{inputenc}
+
+\usepackage{hyperref}
+\usepackage{graphicx}
+\usepackage{tabularx}
+\usepackage{supertabular}
+\usepackage{pdflscape} %% Used for very big table
+\usepackage{moreverb}
+\usepackage[table]{xcolor}
+\usepackage{listings}
+\usepackage{paralist}
+\usepackage{fancyhdr}
+\usepackage[draft]{fixme}
+\fxsetup{footnote}
+\fxsetup{nomargin}
+
+
+\newcommand{\ie}{{\textit{i.e.~}}}
+\newcommand{\cf}{{\textit{cf~}}}
+\newcommand{\eg}{{\textit{e.g.~}}}
+
+\begin{document}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Compared Features}
+
+\begin{itemize}
+    \item{\bf What Can be Represented? The Expressiveness Question}
+
+    \begin{itemize}
+        \item{\bf Introduction: main logic formalisms}
+
+    [...]A large number of logic formalism do exist, we shall summarize below the most
+    relevant for systems actually deployed in current robotic architectures.[...]
+
+        \item{\bf Open World and Close World Assumptions}
+
+    The \emph{close world} (CWA) vs. \emph{open world} (OWA) assumption names a
+    modelling choice on the \emph{completeness} of a knowledge domain. In the close
+    world assumption, a proposition that can not be proven true is assumed to be
+    false (\emph{negation by failure}), while in the open world assumption, a
+    proposition may be considered either true, false or unknown. [...]
+
+        \item{\bf Representation of uncertainty}
+        
+	Sources of uncertainty for a robot are two-fold: uncertainty
+	\emph{intrinsic} to facts (like \emph{``It may rain tomorrow''}),
+	uncertainty caused by imperfect perception of the world (\emph{``Is the
+	bottle really on the table?''}). Most logics do not account explicitely for
+	uncertainty. It must be either relied on specific logics (like Bayesian
+	logics) or on extensions of classical logics.
+
+        \item{\bf Representation of time}
+
+	As an agent acting at human-like time scale and dealing with temporal
+	concepts (like actions), a robot may want to represent, and possibly to
+	reason, about time. Time representation is split into two distinct
+	abilities: representing time points (both in the past -- which is roughly
+	equivalent to assignment of timestamps to events the robot perceives -- and
+	in the future), and representing \emph{passing time} (durations, timespans)
+	like in \emph{``the eggs will be cooked in 10 min''}.
+	
+	We call a system that do not account for time (\ie that permanently lives
+	in present) \emph{atemporal}.
+
+        \item{\bf Context modeling}
+	
+	\emph{Knowledge is contextualized information}\fxfatal{Find someone
+	respectable how said that :-)}: it is essential for the robot to associate
+	the facts it represents to a \emph{context}. The context carries the keys
+	for the interpretation of the information. It covers the \emph{domain of
+	validity} of the facts, the \emph{common-sense} knowledge required to
+	fill the gaps in the representation\fxfatal{give an example}, \fxfatal{What more?}.
+
+        \item{\bf Possible-Worlds and representing what others know}
+	
+	Linked to the context representation, but seen from another angle,
+	knowledge representation systems may provide explicit ways to model other
+	point of view on the world. This ability is often refered as the
+	\emph{perspective taking} ability.
+
+        \cite{Levesque2008}, p. 4
+
+        \item{\bf Introspection: knowledge about the knowledge}
+
+        \item{\bf Modifying its knowledge}
+
+        In DL -> always possible to modify the ABox, not always possible to alter the TBox
+
+    \end{itemize}
+
+    \item{\bf Reasoning Techniques}
+
+    \begin{itemize}
+            \item{\bf Prediction and projection tasks}
+
+            Levesque~\cite{Levesque2008} distinguish two main tasks, the \emph{projection task} and the \emph{legality task}.
+        
+        \begin{itemize}
+            \item{\bf Projection task}: determining whether or not some condition while hold after a sequence of actions.
+            \item{\bf Legality task}: determining whether a sequence of action can be performed starting in some initial state.
+        \end{itemize}
+        
+        \item{\bf Reasoning in uncertainty}
+
+        \item{\bf (Non) Monotonic Reasoning}
+
+        \emph{Monotonic reasoning} means that addition of new assertions to a knowledge base
+        can only extend the set of assertions that can be inferred, while a
+        \emph{non-monotonic} reasoning scheme may lead to retraction of facts.
+        [...]
+
+        \item{\bf Presupposition accomodation}
+
+        \emph{Presupposition accomodation} is the ability for the system to
+        automatically create a context allowing to make sense of a proposition.[...]
+
+        \item{\bf Learning}
+    \end{itemize}
+
+%%%%%%%%%%%%%%%%%
+    \item{\bf Acquiring Knowledge}
+
+    \begin{itemize}
+        \item{\bf Knowledge acquisition and modalities merging}
+        \begin{itemize}
+            \item{\bf Perception}
+            \item{\bf Interaction}
+            \item{\bf External sources (Web, upper ontologies, ...)}
+            \item{\bf Learning}
+        \end{itemize}
+
+        \item{\bf Grounding/anchoring strategies}
+
+        \item{\bf Ability to automatically create new object instances}
+    \end{itemize}
+
+%%%%%%%%%%%%%%%%%
+\item{\bf Practical Integration in Robotic Architectures}
+
+    \begin{itemize}
+        \item{\bf Lazy evaluation}
+
+        \item{\bf The planning task}
+
+        \item{\bf Integration with executive layers}
+
+        \begin{itemize}
+            \item{\bf Language integration}
+            \item{\bf Events}
+        \end{itemize}
+        
+        \item{\bf Monitoring and debugging}
+
+        \item{\bf Is it fast enough? Scalability and responsiveness}
+    \end{itemize}
+
+\begin{itemize}
+    \item{\bf Underlying knowledge model}
+
+    \begin{itemize}
+        \item  Which underlying knowledge (\emph{common-sense}, \emph{upper knowledge}\ldots{})
+        \begin{itemize}
+            \item  top-down approach?
+        \end{itemize}
+
+    \end{itemize}
+\end{itemize}
+\end{itemize}
+
+\bibliographystyle{ieeetr}
+\bibliography{biblio}
+
+
+\end{document}
