@@ -208,16 +208,16 @@ ability to take into account the human perspective.
 system}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Compared features}
+\section{Compared Features}
 \label{sect|compared-features}
 
-\subsection{Intrinsic features}
+\subsection{What Can be Represented? The Expressiveness Question}
 \label{sect|intrinsic-features}
 
-\subsubsection{Expressiveness}
-\label{sect|expressiveness}
+%\subsubsection{Expressiveness}
+%\label{sect|expressiveness}
 
-\paragraph{Logic formalism}
+\subsubsection{Introduction: main logic formalisms}
 
 The main role of a knowledge represenation system is to provide an adequate
 representation system to store facts and concepts that can be informally
@@ -235,7 +235,7 @@ side, on the ability to solve the inference problem (called
 tractable manner.
 
 A large number of logic formalism do exist, we shall summarize below the most
-relevant for system actually deployed in current robotic architectures.
+relevant for systems actually deployed in current robotic architectures.
 
 \emph{Predicate logic} is the family of logic formalisms the most commonly
 found in knowledge representation. It distinguishes itself from the simpler
@@ -272,7 +272,7 @@ or falsity is uncertain. We elaborate below on the representation of uncertainty
 \emph{The robot knows that the human knows about the position of the bottle,
 but the robot does not know what the human actually know about it.}
 
-\paragraph{Open World and Close World Assumptions}
+\subsubsection{Open World and Close World Assumptions}
 
 The \emph{close world} (CWA) vs. \emph{open world} (OWA) assumption names a
 modelling choice on the \emph{completeness} of a knowledge domain. In the close
@@ -313,7 +313,76 @@ inference problems, and allow for instance the use of logic languages like
 Prolog. Thus, several approaches exists to \emph{locally close} a domain (\cf
 Levesque~\cite{Levesque2008}, section 24.3.2 for a summary of those).
 
-\paragraph{(Non) Monotonic Reasoning}
+
+\subsubsection{Representation of uncertainty}
+
+Sources of uncertainty for a robot are two-fold: uncertainty \emph{intrinsic}
+to facts (like \emph{``It may rain tomorrow''}), uncertainty caused by
+imperfect perception of the world (\emph{``Is the bottle really on the
+table?''}). Most logics do not account explicitely for uncertainty. It must be
+either relied on specific logics (like Bayesian logics) or on extensions of
+classical logics.
+
+
+\subsubsection{Representation of time}
+
+As an agent acting at human-like time scale and dealing with temporal concepts
+(like actions), a robot may want to represent, and possibly to reason, about
+time. Time representation is split into two distinct abilities: representing
+time points (both in the past -- which is roughly equivalent to assignment of
+timestamps to events the robot perceives -- and in the future), and
+representing \emph{passing time} (durations, timespans) like in \emph{``the
+eggs will be cooked in 10 min''}.
+
+We call a system that do not account for time (\ie that permanently lives in
+present) \emph{atemporal}.
+
+
+\subsubsection{Context modeling}
+
+\emph{Knowledge is contextualized information}\fxfatal{Find someone respectable
+how said that :-)}: it is essential for the robot to associate the facts it
+represents to a \emph{context}. The context carries the keys for the
+interpretation of the information. It covers the \emph{domain of validity} of
+the facts, the \emph{common-sense} knowledge required to fill the gaps in the
+representation\fxfatal{give an example}, \fxfatal{What more?}.
+
+\subsubsection{Possible-Worlds and representing what others know}
+\label{sect|possible-worlds}
+
+    
+Linked to the context representation, but seen from another angle, knowledge
+representation systems may provide explicit ways to model other point of view
+on the world. This ability is often refered as the \emph{perspective taking}
+ability.
+
+\cite{Levesque2008}, p. 4
+
+\subsubsection{Introspection: knowledge about the knowledge}
+\label{sect|introspection}
+Support for introspection?
+
+\subsubsection{Modifying its knowledge}
+
+In DL -> always possible to modify the ABox, not always possible to alter the TBox
+
+
+%%%%%%%%%%
+\subsection{Reasoning Techniques}
+
+\subsubsection{Prediction and projection tasks}
+\label{sect|prediction-projection}
+
+Levesque~\cite{Levesque2008} distinguish two main tasks, the \emph{projection task} and the \emph{legality task}.
+
+\paragraph{Projection task}: determining whether or not some condition while hold after a sequence of actions.
+
+\paragraph{Legality task}: determining whether a sequence of action can be performed starting in some initial state.
+
+\subsubsection{Reasoning in uncertainty}
+
+
+\subsubsection{(Non) Monotonic Reasoning}
 
 \emph{Monotonic reasoning} means that addition of new assertions to a knowledge base
 can only extend the set of assertions that can be inferred, while a
@@ -366,50 +435,13 @@ likely to be often altered.  However it is a practical issue only if the
 reasoning process is \emph{continuous} during the whole robot's activity
 lifespan. It is often possible to stop the reasoner, alter the knowledge, and
 restart the inference process on a new domain.
+\fxfatal{Rephrase to emphazise that when new evidences appear, it is anyway often a
+good idea to restart the reasoner.}
 
-\paragraph{Knowledge alteration possibilities}
+\fxfatal{Mention that the 'change of world' issue can also be dealt with appropriate
+time representation.}
+\fxfatal{Mention that probabilistic reasoning lead to implicit non-monotonic reasoning}
 
-In DL -> always possible to modify the ABox, not always possible to alter the TBox
-
-\paragraph{Representation of uncertainty}
-
-\paragraph{Representation of time}
-
-
-\paragraph{Context and Microtheories}
-Explicit modeling of context of knowledge / domain of validity
-
-\subsubsection{Lazy evaluation}
-\label{sect|lazy-evaluation}
-
-\subsubsection{Possible-Worlds and Agent-dependent models}
-\label{sect|possible-worlds}
-
-\cite{Levesque2008}, p. 4
-
-\subsubsection{Introspection}
-\label{sect|introspection}
-Support for introspection?
-
-\subsubsection{Learning}
-\label{sect|learning}
-
-
-\subsection{Strategies to deal with the physical world}
-
-\subsubsection{Knowledge acquisition and modalities merging}
-\label{sect|knowledge-acquisition}
-
-\paragraph{Perception}
-\paragraph{Interaction}
-\paragraph{External sources (Web, upper ontologies, ...)}
-\paragraph{Learning}
-
-\subsubsection{Ability to automatically create new object instances}
-\label{sect|new-instances}
-
-\subsubsection{Grounding/anchoring strategies}
-\label{sect|grounding}
 
 \subsubsection{Presupposition accomodation}
 \label{sect|presupposition-accomodation}
@@ -435,33 +467,47 @@ environment. This article focuses on symbolic knowledge representation systems,
 but we shall mention when a KRS explicitely provides support for presupposition
 accomodation.
 
-%%%%%
-\subsection{Integration in robotic architectures}
+\subsubsection{Learning}
+\label{sect|learning}
+
+%%%%%%%%%%%%%%%%%
+\subsection{Acquiring Knowledge}
+
+\subsubsection{Knowledge acquisition and modalities merging}
+\label{sect|knowledge-acquisition}
+
+\paragraph{Perception}
+\paragraph{Interaction}
+\paragraph{External sources (Web, upper ontologies, ...)}
+\paragraph{Learning}
+
+\subsubsection{Grounding/anchoring strategies}
+\label{sect|grounding}
+
+\subsubsection{Ability to automatically create new object instances}
+\label{sect|new-instances}
+
+%%%%%%%%%%%%%%%%%
+\subsection{Practical Integration in Robotic Architectures}
 \label{sect|integration-robot}
 
-\subsubsection{Prediction and projection tasks}
-\label{sect|prediction-projection}
+\subsubsection{Lazy evaluation}
+\label{sect|lazy-evaluation}
 
-Levesque~\cite{Levesque2008} distinguish two main tasks, the \emph{projection task} and the \emph{legality task}.
 
-\paragraph{Projection task}: determining whether or not some condition while hold after a sequence of actions.
-
-\paragraph{Legality task}: determining whether a sequence of action can be performed starting in some initial state.
-
-\paragraph{Relation to task planning}
+\subsubsection{The planning task}
 
 \subsubsection{Integration with executive layers}
 \label{sect|integration-executive-layers}
 
+\paragraph{Language integration}
+
 \paragraph{Events}
 
-\subsubsection{Interaction with humans}
-\label{sect|hri}
+\subsubsection{Monitoring and debugging}
+\label{sect|debugging}
 
-Both as developers (KRS as a tool to make robot knowledge explicit to the
-robot designer) and end-users (like natural language processing,...)
-
-\subsubsection{Scalability and responsiveness}
+\subsubsection{Is it fast enough? Scalability and responsiveness}
 \label{sect|scalability}
 
 
