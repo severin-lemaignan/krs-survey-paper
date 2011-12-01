@@ -142,7 +142,7 @@ knowledge representation systems to include in this survey. Those systems must:
 \subsubsection{Desirable features of a knowledge representation system}
 \label{sect|evaluation-literature}
 
-Several authors from fields that are connex to the robotics have previously listed desirable features of systems aiming at cognitive abilities as rich as possible.
+Several authors from fields that are connected to the robotics have previously listed desirable features of systems aiming at cognitive abilities as rich as possible.
 
 \paragraph{McCarthy: Towards human-level AI}
 
@@ -160,7 +160,7 @@ to a \emph{human-level AI}.
 	\item the ability to deal with \emph{approximate concepts and approximate
 	theories} (that would include representing them, and reasoning with them),
 
-	\item nonmonotonic reasoning \fxfatal{give here a clear example},
+	\item non-monotonic reasoning \fxfatal{give here a clear example},
 
 	\item what McCarthy calls \emph{Elaboration Tolerance}, \ie, the ability to
 	extend \emph{on requirement} the closed domain of interpretation for a
@@ -193,7 +193,7 @@ ability to take into account the human perspective.
 \label{sect|benchmarking}
 
 \cite{Hawes2008}: benchmarking of "Information-Processing Architectures on Intelligent Systems"
-\subsubsection{Pyschological tests}
+\subsubsection{Psychological tests}
 \label{sect|evaluation-tests}
 
 \begin{itemize}
@@ -219,7 +219,7 @@ system}
 
 \subsubsection{Introduction: main logic formalisms}
 
-The main role of a knowledge represenation system is to provide an adequate
+The main role of a knowledge representation system is to provide an adequate
 representation system to store facts and concepts that can be informally
 described in natural language.
 
@@ -229,7 +229,7 @@ value of providing a tractable support for inference and reasoning.
 Most (but not all) of the systems we survey rely on a particular logic
 formalism. The choice of the formalism has a strong impact, on one side, on the
 range of ideas that can be expressed conveniently (\emph{practical
-expressiveness}) or at all (\emph{theoritical expressiveness}), on the other
+expressiveness}) or at all (\emph{theoretical expressiveness}), on the other
 side, on the ability to solve the inference problem (called
 \emph{decidability}: is a given logical sentence true in my model?) in a
 tractable manner.
@@ -260,7 +260,7 @@ related to description logics.
 \fxfatal{On modal logics, see the remark of McCarthy, in \cite{McCarthy2007}, section 3}
 
 One last class of logics that is of particular relevance for robotic
-applications is the \emph{probabilistic logics} or \emph{bayesian logics}.
+applications is the \emph{probabilistic logics} or \emph{Bayesian logics}.
 These logics provide a formal framework to reason on propositions whose truth
 or falsity is uncertain. We elaborate below on the representation of uncertainty.
 
@@ -288,7 +288,7 @@ representation system relying on the closed world assumption would then assume
 the bottle is \emph{not} on the table ($\lnot R^{CWA}_{isOn}(bottle, table)$)
 whereas with the open world assumption, the proposition $R^{OWA}_{isOn}(bottle,
 table)$ would be undecided. Example in table~\ref{table|cwa-owa-example} provides
-a simple, concerete example of consequences of the CWA/OWA choice on reasoning.
+a simple, concrete example of consequences of the CWA/OWA choice on reasoning.
 
 \begin{table}
 	\begin{center}
@@ -304,7 +304,7 @@ a simple, concerete example of consequences of the CWA/OWA choice on reasoning.
 	\caption{Assuming the question is: \emph{select actions that do not require
 	to move the arm}, a CWA reasoner would return {\tt PickSoftly} whereas an
 	OWA reasoner would not return anything if the {\tt PickSoftly} action is
-	not explicitely said not to involve the arm.}
+	not explicitly said not to involve the arm.}
 	\label{table|cwa-owa-example}
 \end{table}
 
@@ -319,7 +319,7 @@ Levesque~\cite{Levesque2008}, section 24.3.2 for a summary of those).
 Sources of uncertainty for a robot are two-fold: uncertainty \emph{intrinsic}
 to facts (like \emph{``It may rain tomorrow''}), uncertainty caused by
 imperfect perception of the world (\emph{``Is the bottle really on the
-table?''}). Most logics do not account explicitely for uncertainty. It must be
+table?''}). Most logics do not account explicitly for uncertainty. It must be
 either relied on specific logics (like Bayesian logics) or on extensions of
 classical logics.
 
@@ -395,7 +395,7 @@ fly. Clearly the axiom must be qualified in some way since penguins, dead birds
 and birds whose feet are encased in concrete can't fly. A careful construction
 of the axiom might succeed in including the exceptions of penguins and dead
 birds, but clearly we can think up as many additional exceptions like birds
-with their feet encased in concrete as we like. Formalized nonmonotonic
+with their feet encased in concrete as we like. Formalized non-monotonic
 reasoning provides a way of saying that a bird can fly unless there
 is an abnormal circumstance and reasoning that only the abnormal circumstances
 whose existence follows from the facts being taken into account will be
@@ -429,13 +429,13 @@ only \emph{within the closed world assumption}.
 
 \fxfatal{Give here an example of non-monotonic reasoning with Prolog}
 
-A monotonic system does not theoritically allow for knowledge retractation,
+A monotonic system does not theoretically allow for knowledge retractation,
 which is an important issue in the robotic context where the world model is
 likely to be often altered.  However it is a practical issue only if the
 reasoning process is \emph{continuous} during the whole robot's activity
 lifespan. It is often possible to stop the reasoner, alter the knowledge, and
 restart the inference process on a new domain.
-\fxfatal{Rephrase to emphazise that when new evidences appear, it is anyway often a
+\fxfatal{Rephrase to emphasize that when new evidences appear, it is anyway often a
 good idea to restart the reasoner.}
 
 \fxfatal{Mention that the 'change of world' issue can also be dealt with appropriate
@@ -443,10 +443,10 @@ time representation.}
 \fxfatal{Mention that probabilistic reasoning lead to implicit non-monotonic reasoning}
 
 
-\subsubsection{Presupposition accomodation}
+\subsubsection{Presupposition accommodation}
 \label{sect|presupposition-accomodation}
 
-\emph{Presupposition accomodation} is the ability for the system to
+\emph{Presupposition accommodation} is the ability for the system to
 automatically create a context allowing to make sense of a proposition.
 
 For instance, we can imagine a human telling a robot \emph{Please get me the
