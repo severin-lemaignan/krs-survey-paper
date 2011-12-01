@@ -24,6 +24,26 @@
 
 \begin{document}
 
+
+\section{Survey Inclusion criteria}
+
+\begin{itemize}
+\item  Run on \emph{service robot} (robots that interact with objects in a
+semantic-rich environment),
+
+\item  Ground their knowledge in the physical world (physically embedded),
+\begin{itemize}
+\item  Able to \emph{resolve entities}
+\item  Able to automatically create new object instances
+\end{itemize}
+
+\item  Be able to merge different knowledge modalities,
+\item  Be endowed with on-line, dynamic reasoning (not just a static
+		dictionary)
+
+\end{itemize}
+
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Compared Features}
 
@@ -55,14 +75,14 @@
 
         \item{\bf Representation of time}
 
-	As an agent acting at human-like time scale and dealing with temporal
-	concepts (like actions), a robot may want to represent, and possibly to
-	reason, about time. Time representation is split into two distinct
+	[...] Time representation is split into two distinct
 	abilities: representing time points (both in the past -- which is roughly
 	equivalent to assignment of timestamps to events the robot perceives -- and
 	in the future), and representing \emph{passing time} (durations, timespans)
 	like in \emph{``the eggs will be cooked in 10 min''}.
-	
+ 
+    Mention here \emph{Chronicles}.
+
 	We call a system that do not account for time (\ie that permanently lives
 	in present) \emph{atemporal}.
 
@@ -79,32 +99,36 @@
 	
 	Linked to the context representation, but seen from another angle,
 	knowledge representation systems may provide explicit ways to model other
-	point of view on the world. This ability is often refered as the
+	point of view on the world. This ability is often referred as the
 	\emph{perspective taking} ability.
 
         \cite{Levesque2008}, p. 4
 
-        \item{\bf Introspection: knowledge about the knowledge}
-
-        \item{\bf Modifying its knowledge}
-
-        In DL -> always possible to modify the ABox, not always possible to alter the TBox
+        \item{\bf Introspection: What can I do?}
+		\begin{itemize}
+			\item{\bf General introspection}
+			The ability for the robot to represent its own capabilities.
+			\item{\bf Meta-cognition: knowledge about the knowledge}
+		\end{itemize}
 
     \end{itemize}
 
     \item{\bf Reasoning Techniques}
 
     \begin{itemize}
-            \item{\bf Prediction and projection tasks}
+       
+        \item{\bf Standard Reasoning Techniques}
+		\begin{itemize} 
+			
+			\item{\bf Inferences and backtracking}
+			\item{\bf Classification}			
+			\item{\bf Inconsistencies detection}			
 
-            Levesque~\cite{Levesque2008} distinguish two main tasks, the \emph{projection task} and the \emph{legality task}.
-        
-        \begin{itemize}
-            \item{\bf Projection task}: determining whether or not some condition while hold after a sequence of actions.
-            \item{\bf Legality task}: determining whether a sequence of action can be performed starting in some initial state.
-        \end{itemize}
-        
-        \item{\bf Reasoning in uncertainty}
+		\end{itemize}
+
+
+
+        \item{\bf Reasoning with uncertainty}
 
         \item{\bf (Non) Monotonic Reasoning}
 
@@ -113,10 +137,34 @@
         \emph{non-monotonic} reasoning scheme may lead to retraction of facts.
         [...]
 
-        \item{\bf Presupposition accomodation}
+        \item{\bf Presupposition accommodation}
 
-        \emph{Presupposition accomodation} is the ability for the system to
+        \emph{Presupposition accommodation} is the ability for the system to
         automatically create a context allowing to make sense of a proposition.[...]
+
+			\item{\bf Prediction and projection tasks}
+
+			Levesque~\cite{Levesque2008} distinguish two main tasks, the
+			\emph{projection task} and the \emph{legality task}.
+        
+		\begin{itemize} 
+		
+		\item{\bf Projection task}: determining whether or not
+		some condition while hold after a sequence of actions.  
+		
+		\item{\bf Legality task}: determining whether a sequence of action can be
+		performed starting in some initial state.  
+		
+		\item{\bf Diagnosis}
+
+		\end{itemize}
+
+		\item{\bf Planning}
+ 
+		\item{\bf Modifying its knowledge}
+
+        In DL -> always possible to modify the ABox, not always possible to alter the TBox
+
 
         \item{\bf Learning}
     \end{itemize}
