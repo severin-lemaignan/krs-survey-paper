@@ -217,19 +217,16 @@ identify several new research directions that are not sufficiently addressed by
 the current state of the art.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{The Cognitive Scenario}
+\section{A Prototypical Scenario}
 
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Compared Features}
+\section{A taxonomy of features of knowledge representation systems}
 \label{sect|features}
 
-\subsection{What Can be Represented? The Expressiveness Question}
-\label{sect|intrinsic-features}
-
-%\subsubsection{Expressiveness}
-%\label{sect|expressiveness}
+\subsection{Expressiveness: What Can be Represented?}
+\label{sect|expressiveness}
 
 \subsubsection{Introduction: main logic formalisms}
 
@@ -337,8 +334,17 @@ table?''}). Most logics do not account explicitly for uncertainty. It must be
 either relied on specific logics (like Bayesian logics) or on extensions of
 classical logics.
 
+\subsubsection{Meta-cognition: knowledge on the knowledge}
 
-\subsubsection{Representation of time}
+Narrower, more technical dimension of the introspection.
+
+%%%%%%%%%%
+\subsection{How things are represented?}
+\label{sect|higher-level-domain-representation}
+
+\subsubsection{Spatio-Temporal Representations}
+
+\paragraph{Representation of time}
 
 As an agent acting at human-like time scale and dealing with temporal concepts
 (like actions), a robot may want to represent, and possibly to reason, about
@@ -353,6 +359,9 @@ eggs will be cooked in 10 min''}.
 We call a system that do not account for time (\ie that permanently lives in
 present) \emph{atemporal}.
 
+\paragraph{Representation of space}
+
+\paragraph{Representation of events and actions}
 
 \subsubsection{Context modeling}
 
@@ -374,19 +383,17 @@ ability.
 
 \cite{Levesque2008}, p. 4
 
-\subsubsection{Introspection: what can I do?}
+\subsubsection{Introspection: Who am I? What can I do?}
 \label{sect|introspection}
 
-\paragraph{General introspection}
+\paragraph{The introspective robot}
 
-Modelling of the robot capabilities.
+\paragraph{Modelling of the robot capabilities}
 
-\paragraph{Meta-cognition: knowledge on the knowledge}
-
-Narrower, more technical dimension of the introspection.
 
 %%%%%%%%%%
 \subsection{Reasoning Techniques}
+\label{sect|reasoning}
 
 \subsubsection{Standard reasoning techniques}
 
@@ -395,6 +402,10 @@ Backtracking,...
 \paragraph{Decidability}
 
 ...
+
+\subsubsection{Lazy evaluation}
+\label{sect|lazy-evaluation}
+
 
 \subsubsection{Reasoning with uncertainty}
 
@@ -484,7 +495,7 @@ environment. This article focuses on symbolic knowledge representation systems,
 but we shall mention when a KRS explicitly provides support for presupposition
 accommodation.
 
-\subsubsection{Prediction and projection and diagnosis tasks}
+\subsubsection{Prediction, projection and diagnosis tasks}
 \label{sect|prediction-projection}
 
 Levesque~\cite{Levesque2008} distinguish two main tasks, the \emph{projection
@@ -535,10 +546,10 @@ All systems allow to modify the ABox, not always possible to alter the TBox
 \subsection{Practical Integration in Robotic Architectures}
 \label{sect|integration-robot}
 
-\subsubsection{Lazy evaluation}
-\label{sect|lazy-evaluation}
+\subsubsection{Integration with sensori-motor layers}
+\label{sect|integration-sensorimotor}
 
-
+Ability to ``listen'' to the robot internal structures.
 
 \subsubsection{Integration with executive layers}
 \label{sect|integration-executive-layers}
@@ -554,7 +565,9 @@ All systems allow to modify the ABox, not always possible to alter the TBox
 \label{sect|scalability}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Underlying knowledge model}
+\subsection{Knowledge instanciation}
+
+How much knowledge is available? Which content? How big is the knowledge base?
 
 \begin{itemize}
 	\item  Which underlying knowledge (\emph{common-sense}, \emph{upper knowledge}\ldots{})
@@ -568,6 +581,7 @@ All systems allow to modify the ABox, not always possible to alter the TBox
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Surveyed systems}
+\label{sect|surveyed-systems}
 
 Table \ref{table|surveyed-systems} presents the fifteen knowledge representation systems surveyed
 in this article.
