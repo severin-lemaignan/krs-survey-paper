@@ -219,14 +219,179 @@ the current state of the art.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{A Prototypical Scenario}
 
+\fxnote{Add nice illustrations from MORSE}
+
+In order to illustrate what we consider to be the required features of a
+knowledge representation system for robotics, we propose the following
+scenario.
+
+While devising a scenario inevitably constraints the breadth of abilities we
+examine to the ones actually needed for this specific scenario, we insist on
+the fact that our main purpose is to demonstrate on a real case what
+representational features are desirable.
+
+We entitle our scenario ``the Brownie scenario''.
+
+Robi and Roba are two service robots. They are considered to be able to freely
+move and pick objects, but they are not expected to have the exact same
+hardware and softwares architectures, and especially, they are not expected to
+have the same knowledge representation system. These robots cooperate with a
+human in a kitchen environment.
+
+The main task of the scenario is the joint realization of a brownie, that
+starts with the human injunction ``Let's make a brownie for tonight!''.
+
+The scenario is successful if the task is achieved (the brownie is made) and:
+
+\begin{itemize} 
+
+	\item it took less time that it would have require for the human alone, 
+
+	\item it didn't require a heavier cognitive involvement from the human that
+	what would have been required without the robots' help.  
+
+\end{itemize}
+
+We voluntarily do not try to detail the subtasks of the scenario and to define
+how they are shared amongst agents. In our analysis we focus on the general,
+\textit{a priori} representational needs of the scenario.
+
+A ``first-order'' analysis of this task leads to a first list of categories of
+required features:
+
+\begin{enumerate}
+
+	\item Representation abilities related to the execution of a complex
+	spatio-temporal task,
+
+	\item Representation abilities related to cooperation with other agents.
+
+\end{enumerate}
+
+% Representation of a complex task
+The first category can be further refined: to prepare and bake a brownie, the
+robot first needs to make sense of the very term \emph{brownie}: what is it?
+what is it used for? what is it made of? etc. We call this knowledge
+\emph{common-sense knowledge} and the robot must be able not only to represent
+it, but also to have some kind of access to it (for instance through a initial
+set of facts that are made available at startup, or via access to a Web-based
+knowledge base like Wikipedia, etc.)
+
+In conjunction with the representation of the action \emph{make} (and it's
+possibly attached common-knowledge), this should lead the robot to build and
+represent a \emph{context}: we are in a scenario involving cooking. Actions
+related to cooking often take place in the kitchen, cooking requires ingredients, 
+utensils and a procedure that may be provided by a recipe, etc.
+
+This last sentence implies several other features for our knowledge
+representation system: ``cooking often takes place in the kitchen'' implies
+that representation of both uncertainty and likelihood is desirable. The fact
+that cooking is associated to a place further implies that the system models
+locations and is able to attach \emph{thematic relations} to concept
+(here, the likely location of the cooking action).
+
+``cooking requires ingredients that may be provided by a recipe'' hints about a
+very common feature available in most knowledge representation systems:
+\emph{reasoning}. The robot \emph{infers} that cooking may require a recipe
+since a list of ingredients is a pre-requisite of the cooking action, and a
+recipe may provided such a list. If we omit the ``may'', this is a typical
+example of first-order logic reasoning. Many other reasoning techniques exist
+(including probabilistic ones -- ones able to deal with the ``may''), we shall
+illustrate some of them further in this scenario.
+
+As mentioned, a recipe often provides a procedure (or a \emph{plan}). The robot
+should be able to store this plan in a way that allow later execution.  The
+plan is likely to contain \emph{spatio-temporal constraints} (like ``put
+the brownie in the oven for 20 min'') that must as well be appropriately
+represented.
+
+Moreover, procedures are often \emph{underspecified}: we can expect the recipe
+to provide a cooking duration, but we usually do not expect the recipe to tell
+us to first open the oven door, and then put the cake into it, since it is
+self-evident that the door must first be opened. Such underspecification should
+be detectable, representable, and ideally completable by the knowledge
+representation system.
+
+Besides representation of space and time, we may have
+
+% Representation feature that enable cooperation
+Then, we want our three agents to cooperate. This, in turn, leads to a very
+different set of cognitive abilities.
+
+Cooperation in our scenario can intervene at many levels: for instance, an
+agent may want to inform another one about the number of eggs that are
+necessary for the brownie. It makes sense to help in this way only if the first
+agent knows that the recipient agent both needs the information and does not
+know it. This in turn requires the robot to be able to model the knowledge of
+the other agents: to think \emph{from the perspective} of another agent (this
+idea is related to the so-called Theory of Mind~\cite{...}).
+
+Ability to communicate is one important pre-requisite to collaboration.
+Communication in general~\cite{Jakobson} requires the addresser and the
+addressee to share a common interpretative framework (shared common-sense
+knowledge -- or cultural background -- and a shared context). In our scenario,
+the agents are working in a kitchen. This element of context does not however
+suffice if, for example, an agent asks another agent to ``give {[him]} the
+bowl''. Besides the symbol ``bowl'', which physical entity are we actually
+talking about? If we want to act on the world, this \emph{grounding} operation
+is essential, and may be tightly bound to the underlying knowledge
+representation system. Note that grounding usually denotes the {\it top-down}
+operation: from the symbol to the percept. It is however commonly bundled with
+the converse operation, that retrieve (or create) symbols from perception.
+
+A related ability is called \emph{pre-supposition accomodation}: if one of the
+agent moves behind another one, with the brownie dough in its arm, and says
+``be careful, I'm behind you!'', we want the first agent to be able to
+represent both symbolically and geometrically (because, for instance, if the
+agent want to move, it must take into account the new obstacle) something that
+was not directly perceived. A knowledge representation system may be able to
+provide structures to represent and reason about such cases.
+
+Also central to cooperation are the notions of \emph{joint
+intentions} and \emph{joint goals}~\cite{Tomasello2005, Bratman2009}: to help
+the human during the cooking session, the robots need to store at least how far
+they are into the recipe, what is the next step the human is likely to go for,
+how task are currently split between agents, what action is currently
+blocking the procedure, etc. This knowledge should let the robot identify the
+intentions of other agents and create accordingly joint goals. Hence, a
+knowledge representation system aiming at dealing with cooperative behaviours
+is likely to have goal management structures taking explicitly into account
+other agents' actions and goals.
+
+In order to effectively share tasks, the robot must also know what it is
+capable of: \emph{capability introspection} (both in term of general capability
+and of immediate ability) is thus often desirable. More general introspection
+(like the ability to tell ``who I am'' or ``what do I think of'' does not
+appear to be necessary in our scenario. This may however enrich the human-robot
+interaction.
+
+Last but not least, our scenario assumes implicitly \emph{natural interaction}
+between humans and robots (as showed by the casual style of the
+order ``Let's make a brownie!''). While natural language processing {\it
+per-se} is usually out of the scope of a knowledge representation system, we
+may want to be sure these systems successfully interoperate, \ie that the
+knowledge representation system provides efficient support to the natural
+language processing module (for instance by adopting models and vocabulary that
+are both well suited for machine processing and remain as close as possible to
+the humans own structures and vocabulary).
+
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{A taxonomy of features of knowledge representation systems}
+\section{A typology of features of knowledge representation systems}
 \label{sect|features}
 
-\fxnote{Should we also mention the general dynamics of the knowledge representation system? ie, the
-system from the point of view of an on-going cognitive process. See \cite{Henderson2011}}
+The previous section detailed an imaginary cooking scenario. We identified, in
+no particular order, numerous desirable features for a knowledge representation
+system for robotics.
+
+This section proposes a more formal typology of desirable features for a such a
+system. For each feature, we provide a short definition along with links to
+relevant literature.
+
+\fxnote{Should we also mention the general dynamics of the knowledge
+representation system? ie, the system from the point of view of an on-going
+cognitive process. See \cite{Henderson2011}}
 
 \subsection{Expressiveness: What Can be Represented?}
 \label{sect|expressiveness}
@@ -328,7 +493,7 @@ Prolog. Thus, several approaches exists to \emph{locally close} a domain (\cf
 Levesque~\cite{Levesque2008}, section 24.3.2 for a summary of those).
 
 
-\subsubsection{Representation of uncertainty}
+\subsubsection{Representation of uncertainty and likelihood}
 
 Sources of uncertainty for a robot are two-fold: uncertainty \emph{intrinsic}
 to facts (like \emph{``It may rain tomorrow''}), uncertainty caused by
@@ -345,7 +510,9 @@ Narrower, more technical dimension of the introspection.
 \subsection{How things are represented?}
 \label{sect|higher-level-domain-representation}
 
-\subsubsection{Spatio-Temporal Representations}
+\subsubsection{Role Representations}
+
+Spatio-Temporal Representations:
 
 \paragraph{Representation of time}
 
