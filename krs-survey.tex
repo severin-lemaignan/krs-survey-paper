@@ -227,26 +227,27 @@ the current state of the art.
 \end{figure*}
 
 In order to illustrate what we consider to be the required features of a
-knowledge representation system for robotics, we propose the following
-scenario.
+knowledge representation system for robotics, we introduce in this section a
+demonstration scenario.
 
 While devising a scenario inevitably constraints the breadth of abilities we
-examine to the ones actually needed for this specific scenario, we insist on
-the fact that our main purpose is to demonstrate on a real case what
-representational features are desirable.
+examine, we insist on the fact that our main purpose here is to ground into a
+real case the set of representational features we consider as desirable.  We
+will \emph{not} evaluate any of the systems we survey in this article by
+judging their applicability to this particular scenario.
 
 We entitle our scenario ``the Brownie scenario'' (Fig.~\ref{fig|scenario}).
 
 Robi and Roba are two service robots. They are considered to be able to freely
 move and pick objects, but they are not expected to have the exact same
-hardware and softwares architectures, and especially, they are not expected to
+hardware and softwares architectures, and specially, they are not expected to
 have the same knowledge representation system. These robots cooperate with a
 human in a kitchen environment.
 
-The main task of the scenario is the joint realization of a brownie, that
-starts with the human injunction ``Let's make a brownie for tonight!''.
+The main task of the scenario is the joint realization of a brownie, initiated
+by the human injunction ``Let's make a brownie for tonight!''.
 
-The scenario is successful if the task is achieved (the brownie is made) and:
+The scenario is successful if the task is achieved (the brownie is baked) and:
 
 \begin{itemize} 
 
@@ -257,12 +258,12 @@ The scenario is successful if the task is achieved (the brownie is made) and:
 
 \end{itemize}
 
-We voluntarily do not try to detail the subtasks of the scenario and to define
+We voluntarily do not detail the subtasks of the scenario, neither we define
 how they are shared amongst agents. In our analysis we focus on the general,
 \textit{a priori} representational needs of the scenario.
 
-A ``first-order'' analysis of this task leads to a first list of categories of
-required features:
+A ``first-order'' analysis of this task leads to a first partition of the
+required representation abilities:
 
 \begin{enumerate}
 
@@ -274,7 +275,7 @@ required features:
 \end{enumerate}
 
 % Representation of a complex task
-The first category can be further refined: to prepare and bake a brownie, the
+We can further refine these categories: to prepare and bake a brownie, the
 robot first needs to make sense of the very term \emph{brownie}: what is it?
 what is it used for? what is it made of? etc. We call this knowledge
 \emph{common-sense knowledge} and the robot must be able not only to represent
@@ -282,8 +283,7 @@ it, but also to have some kind of access to it (for instance through a initial
 set of facts that are made available at startup, or via access to a Web-based
 knowledge base like Wikipedia, etc.)
 
-In conjunction with the representation of the action \emph{make} (and it's
-possibly attached common-knowledge), this should lead the robot to build and
+Bound to the action \emph{make}, this should lead the robot to build and
 represent a \emph{context}: we are in a scenario involving cooking. Actions
 related to cooking often take place in the kitchen, cooking requires ingredients, 
 utensils and a procedure that may be provided by a recipe, etc.
@@ -299,37 +299,46 @@ locations and is able to attach \emph{thematic relations} to concept
 very common feature available in most knowledge representation systems:
 \emph{reasoning}. The robot \emph{infers} that cooking may require a recipe
 since a list of ingredients is a pre-requisite of the cooking action, and a
-recipe may provided such a list. If we omit the ``may'', this is a typical
+recipe may provide such a list. If we omit the ``may'', this is a typical
 example of first-order logic reasoning. Many other reasoning techniques exist
 (including probabilistic ones -- ones able to deal with the ``may''), we shall
-illustrate some of them further in this scenario.
+illustrate some of them later in this scenario.
 
-As mentioned, a recipe often provides a procedure (or a \emph{plan}). The robot
+We mentioned that a recipe often provides a procedure (or a \emph{plan}). The robot
 should be able to store this plan in a way that allow later execution.  The
 plan is likely to contain \emph{spatio-temporal constraints} (like ``put
 the brownie in the oven for 20 min'') that must as well be appropriately
 represented.
 
-Moreover, procedures are often \emph{underspecified}: we can expect the recipe
+To make decision, a robot may also want to \emph{predict} the state of the world
+after some action (``if I leave the cake 2h in the oven, it will be burned'').
+Such ability to project itself in future or, generally speaking, in other
+possible state of the world is related to several cognitive ability and
+reasoning techniques: \emph{planning}, \emph{representation of possible worlds}
+and \emph{non-monotonic reasoning}, in addition to common-sense knowledge and
+\emph{physics-based reasoning}.
+
+Procedures are in addition often \emph{underspecified}: we can expect the recipe
 to provide a cooking duration, but we usually do not expect the recipe to tell
 us to first open the oven door, and then put the cake into it, since it is
-self-evident that the door must first be opened. Such underspecification should
-be detectable, representable, and ideally completable by the knowledge
-representation system.
-
-Besides representation of space and time, we may have
+self-evident that the door must first be opened to put the cake in the oven.
+Such underspecification should be detectable, representable, and ideally
+completable by the knowledge representation system\footnote{Note that we do not
+assume here the {\it knowledge representation system} to be a single software
+component: it may well be the result of the aggregation of several modules
+working together}.
 
 % Representation feature that enable cooperation
-Then, we want our three agents to cooperate. This, in turn, leads to a very
-different set of cognitive abilities.
+Then, we want our three agents to cooperate. This, in turn, leads to another
+set of cognitive abilities.
 
-Cooperation in our scenario can intervene at many levels: for instance, an
+Cooperation in our scenario can intervene at many places. For instance, an
 agent may want to inform another one about the number of eggs that are
-necessary for the brownie. It makes sense to help in this way only if the first
-agent knows that the recipient agent both needs the information and does not
-know it. This in turn requires the robot to be able to model the knowledge of
-the other agents: to think \emph{from the perspective} of another agent (this
-idea is related to the so-called Theory of Mind~\cite{...}).
+necessary for the brownie. This \emph{helping} behaviour makes sense only if
+the first agent knows that the recipient agent both needs the information but
+does not know it. This in turn requires the robot to be able to model the
+knowledge of the other agents: to think \emph{from the perspective} of another
+agent (this idea is related to the so-called Theory of Mind~\cite{...}).
 
 Ability to communicate is one important pre-requisite to collaboration.
 Communication in general~\cite{Jakobson} requires the addresser and the
@@ -338,8 +347,8 @@ knowledge -- or cultural background -- and a shared context). In our scenario,
 the agents are working in a kitchen. This element of context does not however
 suffice if, for example, an agent asks another agent to ``give {[him]} the
 bowl''. Besides the symbol ``bowl'', which physical entity are we actually
-talking about? If we want to act on the world, this \emph{grounding} operation
-is essential, and may be tightly bound to the underlying knowledge
+talking about? If we want to act on the world, this so-called \emph{grounding}
+operation is essential, and may be tightly bound to the underlying knowledge
 representation system. Note that grounding usually denotes the {\it top-down}
 operation: from the symbol to the percept. It is however commonly bundled with
 the converse operation, that retrieve (or create) symbols from perception.
@@ -354,7 +363,7 @@ provide structures to represent and reason about such cases.
 
 Also central to cooperation are the notions of \emph{joint
 intentions} and \emph{joint goals}~\cite{Tomasello2005, Bratman2009}: to help
-the human during the cooking session, the robots need to store at least how far
+the human during the cooking session, the robots need to track how far
 they are into the recipe, what is the next step the human is likely to go for,
 how task are currently split between agents, what action is currently
 blocking the procedure, etc. This knowledge should let the robot identify the
@@ -374,13 +383,11 @@ Last but not least, our scenario assumes implicitly \emph{natural interaction}
 between humans and robots (as showed by the casual style of the
 order ``Let's make a brownie!''). While natural language processing {\it
 per-se} is usually out of the scope of a knowledge representation system, we
-may want to be sure these systems successfully interoperate, \ie that the
+may want to be sure these systems may successfully interoperate, \ie that the
 knowledge representation system provides efficient support to the natural
 language processing module (for instance by adopting models and vocabulary that
 are both well suited for machine processing and remain as close as possible to
 the humans own structures and vocabulary).
-
-
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{A typology of features of KRS for robotics}
@@ -466,7 +473,7 @@ proposition may be considered either true, false or unknown.
 
 This distinction is important in robotics were the robot may have to manipulate
 concepts with only partial knowledge on them. For instance, let imagine a robot
-that sees a bottle over a table, whose bottom is hidden by another object. The
+that sees a bottle on a table, whose bottom is hidden by another object. The
 robot can not prove that the bottle is indeed \emph{on} the table. A knowledge
 representation system relying on the closed world assumption would then assume
 the bottle is \emph{not} on the table ($\lnot R^{CWA}_{isOn}(bottle, table)$)
@@ -686,6 +693,8 @@ performed starting in some initial state.
 in case of failure to provide possible explanation. This can be seen as the
 temporal reverse of the projection task.
 
+\subsubsection{Physics-based reasoning}
+\label{sect|physics}
 
 \subsubsection{Planning}
 \label{sect|planning}
