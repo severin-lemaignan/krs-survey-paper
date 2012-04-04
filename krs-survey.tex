@@ -65,6 +65,9 @@ representation and manipulation for the robotics research community.
 \section{Introduction}
 \label{sect|intro}
 
+\subsection{Knowledge as the Root of Cognitive Abilities}
+\label{sect|cognitive-abilities}
+
 The idea of \emph{Cognitive Robotics} was coined in the early 1990s by Reiter.
 In a chapter on that subject in \emph{Fondations of Artifical
 Intelligence}~\cite{Levesque2008}, Levesque reminds about the manifesto they
@@ -72,55 +75,70 @@ wrote together in 1998:
 
 \begin{quotation}
 
-	Central to this effort is to develop an understanding of the relationship
-	between the knowledge, the perception, and the action of such a robot. The
-	sorts of questions we want to be able to answer are
+    Central to this effort is to develop an understanding of the relationship
+    between the knowledge, the perception, and the action of \[...\] a robot. The
+    sorts of questions we want to be able to answer are
 
-	\begin{itemize} 
-	
-		\item to execute a program, what information does a robot need to have
-		at the outset vs. the information that it can acquire \emph{en route}
-		by perceptual means?
+    \begin{itemize} 
 
-		\item what does the robot need to know about its environment vs. what
-		need only be known by the designer?
+        \item to execute a program, what information does a robot need to have
+        at the outset vs. the information that it can acquire \emph{en route}
+        by perceptual means?
 
-		\item when should a robot use perception to find out if something is
-		true as opposed to reasoning about what it knows was true in the past?
+        \item what does the robot need to know about its environment vs. what
+        need only be known by the designer?
 
-		\item when should the inner workings of an action be available to the
-		robot for reasoning and when should the action be considered primitive
-		or atomic?
+        \item when should a robot use perception to find out if something is
+        true as opposed to reasoning about what it knows was true in the past?
 
-	\end{itemize}
+        \item when should the inner workings of an action be available to the
+        robot for reasoning and when should the action be considered primitive
+        or atomic?
 
-	and so on. With respect to robotics, our goal (like that of many in AI) is
-	\emph{high-level robotic control}: develop a system that is capable of
-	generating actions in the world that are appropriate as a function of some
-	current set of beliefs and desires.
+    \end{itemize}
+
+    and so on. With respect to robotics, our goal (like that of many in AI) is
+    \emph{high-level robotic control}: develop a system that is capable of
+    generating actions in the world that are appropriate as a function of some
+    current set of beliefs and desires.
 
 \end{quotation}
 
-This survey focuses on the knowledge issue: we aims at establishing the current
-landscape of approaches to the knowledge representation problem in the research
-community, at summarizing the major trends and identifying the possible
-shortcomings.
+Those questions have in common one prerequisite to be answered: the robot must
+be able to manipulate \emph{explicitely} knowledge, and hence, need a wayto
+represent the knowledge.
 
-We have identified over ten projects that either are explicitely advertised as
+This survey focuses on this knowledge representation issue: we aims at first
+establishing a as-exhaustive-as-possible typology of representation needs for
+robotics, and then at painting the current landscape of approaches to the
+knowledge representation problem in the research community, in order to
+summarize the major trends and to identify the possible shortcomings.
+
+We have classified the features of knowledge representation systems (KRS) into
+six broad categories: \emph{what can be represented?} or the
+\emph{expresiveness} question ; \emph{how things are represented?} ; \emph{what
+reasoning techniques are offered?} ; \emph{how knowledge is acquired and
+anchored?} ; \emph{how the knowledge is made available and used by the other
+components of the robot?} and \emph{which actual knowledge is stored?} or the
+\emph{knowledge instanciation} question.
+
+We have identified over ten projects that are either explicitely advertised as
 knowledge representation systems or involve explicit knowledge manipulation
 within a robot. By knowledge manipulation, we mean symbolic representation of
 assertions, be it static statements on the world or spatio-temporal events, and
-reasoning on this representation.
+reasoning on this representation. Proeminent features of each of these systems
+illustrate how the various features of a knowledge representation system are
+currently implemented.
 
-We also try, for each project, to make clear \begin{inparaenum} \item how new
-facts can be acquired, \ie how informations from perception or interaction are
-turned into knowledge, \item how, in return, symbolic concept are
-\emph{anchored} into the robot sensori-motor space, \item how the knowledge
-representation system integrates with the decisional layers of the robot, and
-how this leads to better robotic control.\end{inparaenum}
+We have also tried, for each project, to make clear \begin{inparaenum} \item
+how informations from perception or interaction are turned into knowledge,
+\item how, in return, symbolic concept are \emph{anchored} into the robot
+sensori-motor space, \item how the knowledge representation system integrates
+with the decisional layers of the robot, and how this can improve or ease
+robotic control.\end{inparaenum}
 
 
-\subsection{Definition of inclusion criteria}
+\subsection*{Survey Inclusion Criteria}
 \label{sect|inclusion-criteria}
 
 Every robotic system has, implicitely or not, some knowledge representation
@@ -134,36 +152,29 @@ partially unknown environments with a large range of different entities which
 may have interactions). The typical scenario that would involve such robots is
 a service robot in a human-friendly environment like a kitchen.
 
-More precisely, we have established the following criteria to select the
-knowledge representation systems to include in this survey. Those systems must:
+We have limited ourselves to systems that
+\begin{inparaenum} 
+    \item  run on \emph{service robot} (that is, robots that interact with 
+    objects in a semantic-rich environment primarly designed for humans),
+    \item  ground the knowledge in the physical world (physically embedded
+    systems able to assess their environment),
+    \item  are able to merge different knowledge modalities,
+    \item  are endowed with on-line, dynamic reasoning (\ie not a simple static
+    database).
+\end{inparaenum}
 
-\begin{itemize}
-	\item  Run on \emph{service robot} (robots that interact with objects in a
-	semantic-rich environment),
-
-	\item  Ground their knowledge in the physical world (physically embedded),
-	\begin{itemize}
-		\item  Able to \emph{resolve entities}
-		\item  Able to automatically create new object instances
-	\end{itemize}
-
-	\item  Be able to merge different knowledge modalities,
-	\item  Be endowed with on-line, dynamic reasoning (not just a static
-	dictionary)
-
-\end{itemize}
-
-\subsubsection{What to expect from a knowledge representation system}
+\subsection{Previous Work}
 \label{sect|evaluation-literature}
 
-Several authors from fields that are connected to the robotics have previously
-listed desirable features of systems aiming at cognitive abilities as rich as
-possible.
+To the extend of our knowledge, no previous published work attempted to identify
+knowledge-bound cognitive abilities required by service robotics.
 
-\paragraph{McCarthy: Towards human-level AI}
+However, several authors from fields that are connected to the robotics have
+previously listed desirable features of artificial systems aiming at cognitive
+abilities as rich as possible.
 
-In~\cite{McCarthy2007}, McCarthy lists the challenges he identifies on the road
-to a \emph{human-level AI}.
+In~\cite{McCarthy2007}, McCarthy recently listed the challenges he identifies
+on the road to a \emph{human-level AI}.
 
 \begin{itemize}
 
@@ -176,10 +187,10 @@ to a \emph{human-level AI}.
 	\item the ability to deal with \emph{approximate concepts and approximate
 	theories} (that would include representing them, and reasoning with them),
 
-	\item non-monotonic reasoning \fxfatal{give here a clear example},
+	\item non-monotonic reasoning,
 
-	\item what McCarthy calls \emph{Elaboration Tolerance}, \ie, the ability to
-	extend \emph{on requirement} the closed domain of interpretation for a
+	\item what McCarthy calls \emph{Elaboration Tolerance}: the ability to
+	extend \emph{on demand} the closed domain of interpretation for a
 	given assertion,
 
 	\item the ability to formalize and reason about contexts,
@@ -193,27 +204,32 @@ to a \emph{human-level AI}.
 
 \end{itemize}
 
-Knowledge representation systems are concerned by most, if not all, of this
-points.
+Several surveys compare global cognitive architectures (\cite{Vernon2007, Chong2009}).
+Vernon et al.~\cite{Vernon2007} split these architectures into two broad
+categories: the \emph{cognitivist} ones (where cognition is considered as an
+explicit computation problem, often based on symbol manipulation), and the
+\emph{emergent} ones (where cognition only exists as a result of the
+interaction of the system with its environment). The approaches presented in
+this paper are, at a few exceptions, prototypical \emph{cognitivist} approaches
+that aim at making knowledge explicit within the robot architecture. Vernon et
+al. propose twelve \emph{characteristics of cognitive system} to compare
+architectures. Amongst them, they mention the \emph{inter-agent epistemology} (how
+the structure of the world is captured in a representation and shared), the
+relation to \emph{embodiement}, the ability to \emph{anticipate} and to
+\emph{adapt}, and the mechanisms of \emph{motivation}. While presented at the
+level of the whole robotic architecture, these features also translate into
+knowledge representation strategies and are relevant to our study.
 
-\paragraph{Natural language processing in situated context}
-
-In~\cite{Roy2005}, Roy and Reiter summarize what they see as the main
-challenges to be tackled: cross-modal representation systems, association of
+Coming from the perspective of natural language processing in situated context,
+Roy and Reiter, in~\cite{Roy2005}, summarize what they see as the main
+challenges to be tackled by KRS: cross-modal representation systems, association of
 words with perceptual and action categories, modeling of context, figuring out
 the right granularity of models, integrating temporal modeling and planning,
 ability to match past (learned) experiences with the current interaction and
 ability to take into account the human perspective.
 
-\cite{Hawes2008}: benchmarking of "Information-Processing Architectures on Intelligent Systems"
-
-
-\subsection{Methodology}
-\label{sect|methodology}
-
-
-\fxnote{Mention here that each team was proposed to complete/amend the description of their
-system}
+Knowledge representation systems in robotics are concerned by most, if not all,
+of these points, and we shall reuse them later, in slightly reformulated ways.
 
 \subsection{Article overview}
 \label{sect|overview}
@@ -223,14 +239,17 @@ The paper is organized in four main sections.
 The next section proposes a prototypical scenario in a rich semantic
 environment. We will not survey knowledge representation systems based on this
 scenario: we merely use it to ground the selection and illustrate the set
-features (Section~\ref{sect|features}) that define the dimensions of a
+features that define the dimensions of a
 knowledge representation system for robotics.
+
+Section~\ref{sect|features} presents these features in detail, and organize
+them into a typology.
 
 Section~\ref{sect|surveyed-systems} then presents each of the systems we
 examinated, and underlines their specificities.
 
-We try in section~\ref{sect|summary} to summarize the current approaches and to
-relate them to the previously identified set of features. This leads us to
+We finally summarize in section~\ref{sect|summary} the current approaches in
+relation to the previously identified set of features. This leads us to
 identify several new research directions that are not sufficiently addressed by
 the current state of the art.
 
