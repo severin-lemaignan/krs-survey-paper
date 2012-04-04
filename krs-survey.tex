@@ -150,7 +150,8 @@ Besides, we have decided to restraint the set of systems to those actually
 implemented on robots, and used in semantic-rich environments (\ie , dynamic,
 partially unknown environments with a large range of different entities which
 may have interactions). The typical scenario that would involve such robots is
-a service robot in a human-friendly environment like a kitchen.
+a service robot in a human-friendly environment like a kitchen (as described in
+section~\ref{sect|scenario}).
 
 We have limited ourselves to systems that
 \begin{inparaenum} 
@@ -159,9 +160,13 @@ We have limited ourselves to systems that
     \item  ground the knowledge in the physical world (physically embedded
     systems able to assess their environment),
     \item  are able to merge different knowledge modalities,
-    \item  are endowed with on-line, dynamic reasoning (\ie not a simple static
-    database).
+    \item  are able of on-line, dynamic knowledge acquisition and reasoning 
+    (\ie not a simple static database).
 \end{inparaenum}
+
+This exclude \textit{de facto} classical cognitive systems like {\sc Soar} or
+{\sc ACT-R} for which we could not find recent implementations on full-scale
+service robots.
 
 \subsection{Previous Work}
 \label{sect|evaluation-literature}
@@ -255,6 +260,7 @@ the current state of the art.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{A Prototypical Scenario}
+\label{sect|scenario}
 
 \begin{figure*}
 	\centering
@@ -428,20 +434,16 @@ are both well suited for machine processing and remain as close as possible to
 the humans own structures and vocabulary).
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{A typology of features of KRS for robotics}
+\section{A Typology of Knowledge Representation Systems Requirements for Robotics}
 \label{sect|features}
 
-The previous section detailed an imaginary cooking scenario. We identified, in
-no particular order, numerous desirable features for a knowledge representation
-system for robotics.
+We have detailed an imaginary cooking scenario where numerous desirable
+features for a knowledge representation system for robotics have been
+identified in no particular order.
 
 This section proposes a more formal typology of desirable features for a such a
 system. For each feature, we provide a short definition along with links to
 relevant literature.
-
-\fxnote{Should we also mention the general dynamics of the knowledge
-representation system? ie, the system from the point of view of an on-going
-cognitive process. See \cite{Henderson2011}}
 
 \subsection{Expressiveness: What Can be Represented?}
 \label{sect|expressiveness}
@@ -742,6 +744,10 @@ Making decision based on prediction
 \subsubsection{Modifying the knowledge structure}
 
 All systems allow to modify the ABox, not always possible to alter the TBox
+
+\subsubsection{Memory}
+\label{sect|memory}
+
 
 
 \subsubsection{Learning}
