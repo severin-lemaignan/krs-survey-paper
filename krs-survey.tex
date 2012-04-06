@@ -38,6 +38,15 @@
 \newcommand{\cf}{{\textit{cf~}}}
 \newcommand{\eg}{{\textit{e.g.~}}}
 
+\newcommand{\stmt}[1]{{\footnotesize \tt $\langle$ #1\relax$\rangle$}}
+%\newcommand{\stmt}[1]{{\footnotesize $\langle$\stmttt#1\relax$\rangle$}}
+\newcommand{\rawstmt}[1]{{\footnotesize \stmttt#1\relax}}
+\def\stmttt#1 #2 #3\relax{{\tt#1} {\bf{\tt #2}} {\tt #3}}
+
+\newcommand{\setstmt}[1]{{\footnotesize [\setstmttt#1\relax]}}
+\def\setstmttt#1,#2\relax{\rawstmt{#1}, \rawstmt{#2}}
+
+
 \begin{document}
 
 \maketitle
@@ -556,7 +565,20 @@ classical logics.
 
 \subsubsection{Meta-cognition: knowledge on the knowledge}
 
-Narrower, more technical dimension of the introspection.
+As stated by Josyula and Raja, meta-cognition is composed of both
+\emph{``meta-level control of cognitive activities and the introspective
+monitoring of such activities to evaluate and to explain them"}.
+
+A knowledge representation system endowed with \emph{meta-cognition} is not
+only able to manipulate knowledge but also to exhibit and manipulate the
+structure of its knowledge and the reasoning process. For instance, the ability
+to explain a logical inconsistency in a KRS is a meta-cognitive function.
+Sloman~\cite{Sloman2011}
+
+At section~\ref{sect|introspection} below, we discuss the idea of
+introspection.  Meta-cognition can be viewed as the technical facet of the
+introspection in general.
+
 
 %%%%%%%%%%
 \subsection{How things are represented?}
@@ -610,8 +632,32 @@ ability.
 
 \paragraph{The introspective robot}
 
+Introspection is the ability to self-describe: what are my capabilities, what
+is my state (performing some action, idling, etc.), what are my beliefs (\ie my
+knowledge), what are my intentions and my plans?
+
+Introspection must be distinguished from meta-cognition: While introspection
+may require meta-cognition (for instance to be able to expose its internal
+knowledge), it is not always mandatory. The current state of the robot can be
+represented as a simple instanciation of a specific category (for instance, if
+the robot give an object to the human, this state could be represented with the
+triplets \setstmt{robot performs action1, action1 isA Give}.
+
 \paragraph{Modelling of the robot capabilities}
 
+A particularly important aspect of introspection relates to the description of
+its own capabilities: which sensors/actuators/computation services exist and
+are currently available ?  While at a first level, these descriptions can be
+static (\eg the robot has one laser scanner and two arms), at a second level,
+the description is updated and reflect the current (and possibly past and
+future) state of the robot. Note that these description may also invlove
+geometric descriptions (a kinematic chain, the pose of a device, etc.) that may
+be deported outside of the main knowledge base. Efforts trying to formalize,
+maintain and expose the capabilities and state of a robot are not new (and
+ground themselves in work and techniques for self-descriptive remote procedure
+calls in computing science), but take a renewed importance with applications
+for high-level multi-robot cooperation. Recent work in that direction
+include~\cite{Kunze2011}.
 
 %%%%%%%%%%
 \subsection{Reasoning Techniques}
