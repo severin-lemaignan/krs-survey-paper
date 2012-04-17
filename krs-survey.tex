@@ -34,6 +34,7 @@
 
 \graphicspath{{figs/}}
 
+\newcommand{\concept}[1]{{\footnotesize \texttt{#1}}}
 \newcommand{\ie}{{\textit{i.e.~}}}
 \newcommand{\cf}{{\textit{cf~}}}
 \newcommand{\eg}{{\textit{e.g.~}}}
@@ -726,11 +727,76 @@ include~\cite{Kunze2011}.
 
 \subsubsection{Standard reasoning techniques}
 
-Backtracking,...
+Being based on logical languages to represent the knowledge, most of the
+systems we survey allow various forms of \emph{reasoning}.
 
-\paragraph{Decidability}
+We call \emph{standard reasoning techniques} techniques based on logical
+inference, using resolution algorithms like \emph{forward chaining},
+\emph{backward chaining} or \emph{semantic tableaux}.
 
-...
+Main reasoning problems include \emph{concept satisfiability},
+\emph{consistency checking} and \emph{instance checking}.
+
+Concept satisfiability verifies if it is possible to find a non-empty
+\emph{interpretation} of a concept (or an expression defining a concept) in the
+knowledge model. For instance, the formula \concept{Plant} $\land$
+\concept{isRed}, which defines the concept of red plants, is satisfiable in a
+model \concept{KB} iff $\exists a, $ \concept{Plant}$(a) \land$
+\concept{isRed}$(a)$, \ie if we can find at least one red plant $a$ in our
+model.
+
+Checking the consistency of a model is equivalent to checking the
+satisfiability of each of the concept defined in the knowledge model.
+
+Instance checking consists in verifying that an individual $a$ is an
+interpretation of a concept (or concept expression) $C$ in the knowledge model.
+A typical example would be that we are provided with an instance
+\concept{object1} and we want to know if this object is a kind of
+\concept{Bottle} or \concept{Glass}.
+
+Reasoners can then provide other type of inferences, like:
+
+\begin{itemize}
+    \item class subsumption (similar to inheritance)
+
+    \item reasoning on roles properties, including:
+        \begin{itemize}
+        \item entailments based on roles domain and range (for instance, if the
+        domain of the role \concept{thinksOf} is known to be
+        \concept{ThinkingAgent}, then \concept{thinksOf}$(a, b) \to
+        $\concept{ThinkingAgent}$(a)$),
+
+        \item universal, existantial and cardinality constraints (including \concept{allValue}, 
+        \concept{someValue}, \concept{hasValue}),
+
+        \item property characteristics (symmetry, transitivity, etc.)
+
+        \end{itemize}
+
+    \item complex concept expressions like: \par \footnotesize \concept{Bottle}
+    $\equiv$ \concept{Artifact} {\bf that} (\concept{hasShape} {\bf value}
+    \concept{cylinderShape})\footnote{This example uses the \emph{Manchester
+    syntax}, \url{http://www.w3.org/TR/owl2-manchester-syntax/}} \normalsize
+
+    \item set operations like: \par \footnotesize \concept{Color} $\equiv$ {\bf
+    unionOf}(\concept{blue}, \concept{green}, \concept{orange},
+    \concept{black}...) \normalsize
+
+\end{itemize}
+
+\paragraph{Rule Languages}
+\item generic SWRL ({\em Semantic Web Rule Language}) rules like: \par
+        \footnotesize \concept{looksAt(?agt, ?obj)} $\land$
+        \concept{pointsAt(?agt,?obj)} \par $\Rightarrow$ \concept{focusesOn(?agt, ?obj)}
+        \normalsize 
+
+
+\subsubsection{Alteration of the knowledge structure}
+
+In systems
+
+All systems allow to modify the ABox, not always possible to alter the TBox
+
 
 \subsubsection{Lazy evaluation}
 \label{sect|lazy-evaluation}
