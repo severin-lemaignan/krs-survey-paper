@@ -457,10 +457,14 @@ This section proposes a more formal typology of desirable features for a such a
 system. For each feature, we provide a short definition along with links to
 relevant literature.
 
+Table~\ref{table|contribution-by-systems}, at the end of the article,
+summarizes all these features with the main domain of contribution of each
+surveyed KRS.
+
 \subsection{Expressiveness: What Can be Represented?}
 \label{sect|expressiveness}
 
-\subsubsection{Introduction: main logic formalisms}
+\subsubsection{Introduction: Main Logic Formalisms}
 
 The main role of a knowledge representation system is to provide an adequate
 representation system to store facts and concepts that can be informally
@@ -494,18 +498,35 @@ in second-order logic. Description logics are notable because most of them are
 known to be decidable. In description logic, axioms are build from
 \emph{concepts}, \emph{roles} (that are unary or binary predicates) and
 \emph{individuals}. The W3C OWL-DL standard is a widely-used language to describe
-domain with the description logic.
+domains with the description logic.
 
-\emph{Modal logics}, that allow for statement qualification
-like \emph{possibility} or \emph{necessity}, have been shown to be closely
-related to description logics.
+Because Description Logics have been originally created from the perspective of
+a \emph{knowledge representation language} and not a logic language, their
+terminology (\emph{concept} or \emph{class}, \emph{role} or \emph{property},
+\emph{individual},...) is well-suited to knowledge description and we may use
+it in the remaining of this paper outside of the strict context of  Description
+Logics.
+
+\emph{Modal logic}, that allow for statement qualification like
+\emph{possibility} or \emph{necessity}, have been shown to be closely related
+to description logics. Modal logic allows to represent conveniently parallel
+possible worlds and facts like ``the robot knows \emph{that the human knows}
+how to read a recipe''.
 
 \fxfatal{On modal logics, see the remark of McCarthy, in \cite{McCarthy2007}, section 3}
+
+\emph{Temporal logic} are designed to represent and manipulate assertions whose
+truth value may vary in time.
 
 One last class of logics that is of particular relevance for robotic
 applications is the \emph{probabilistic logics} or \emph{Bayesian logics}.
 These logics provide a formal framework to reason on propositions whose truth
 or falsity is uncertain. We elaborate below on the representation of uncertainty.
+
+Note that most of these logic formalisms are still active research field by
+their own, and practical considerations (especially the availability of
+reasoners performant enough for on-line use on a robot) often constraint the
+choice of a logical formalism and a level of expressive power.
 
 
 \paragraph{Some examples}
@@ -514,6 +535,43 @@ or falsity is uncertain. We elaborate below on the representation of uncertainty
 
 \emph{The robot knows that the human knows about the position of the bottle,
 but the robot does not know what the human actually know about it.}
+
+\subsubsection{Expressive Power}
+
+Logical formalisms each bring a certain level of expressive power. For
+instance, the following classical syllogism can not be represented in
+propositional logic because of the use of \emph{universal quantification}:
+
+\begin{quote}
+\begin{enumerate}
+    \item All men are mortal,
+    \item Socrates is a man,
+    \item Therefore, Socrates is mortal
+\end{enumerate}
+\end{quote}
+
+However, the following weak version of the syllogism can be represented in
+propositional logic:
+
+\begin{quote}
+\begin{enumerate}
+    \item If Socrates is a man, then Socrates is mortal,
+    \item Socrates is a man,
+    \item Therefore, Socrates is mortal
+\end{enumerate}
+\end{quote}
+
+Generally speaking, expressive power comes at the cost of ease of
+\emph{satisfiability} and \emph{consistency}\footnote{We precise these concepts
+at section~\ref{sect|reasoning}.} tests, possibly leading to undecidable formal
+systems, \ie systems where it is proven that a proposition can not be decided
+to be true or false.
+
+The relationship between expressive power and the complexity of reasoning problem that
+follow has been partially formalized for Description Logics.
+Zolin~\cite{ZolinDLComplexityNavigator} maintains a ``complexity navigator''
+for Description Logics that allows to conveniently explore this relationship
+and indexes most of the litterature on that subject.
 
 \subsubsection{Open World and Close World Assumptions}
 
