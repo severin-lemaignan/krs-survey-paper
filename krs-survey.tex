@@ -742,6 +742,36 @@ calls in computing science), but take a renewed importance with applications
 for high-level multi-robot cooperation. Recent work in that direction
 include~\cite{Kunze2011}.
 
+\subsubsection{Memory}
+\label{sect|memory}
+
+Memory has been studied at lenght in the cognitive psychology and
+neuropsychology communities: Atkinson and Shiffrin~\cite{Atkinson1968}
+introduce the idea of \emph{short-term} and \emph{long-term} memory,
+Anderson~\cite{Anderson1976} splits memory into \emph{declarative} (explicit)
+and \emph{procedural} (implicit) memories, Tulving~\cite{Tulving1985} organizes
+the concepts of \emph{procedural}, \emph{semantic} and \emph{episodic} memories
+into a hierarchy. Short-term memory is refined with the concept of
+\emph{working memory} by Baddeley~\cite{Baddeley2010}
+(Figure~\ref{fig|memory_models}).
+
+\begin{figure}
+    \centering
+    \includegraphics[width=0.9\columnwidth]{memory_models.pdf}
+    \caption{Overview of the main types of memories}
+    \label{fig|memory_models}
+\end{figure}
+
+Most knowledge representation systems offers some kind of memory as a pool of
+facts that are not forgotten by the robot until it is halted (this memory is
+often refered as a \emph{working memory}, but with a meaning unrelated to
+Baddeley's definition). Some systems may propose persistent storages that allow
+the robot knowledge to grow over time, while other may offer a larger range of
+memory categories, like short term memory (that lasts for a couple of seconds)
+or episodic memory (that allows the robot to selectively remember facts
+associated to specific events).
+
+
 %%%%%%%%%%
 \subsection{Reasoning Techniques}
 \label{sect|reasoning}
@@ -954,35 +984,6 @@ Making decision based on prediction
 In systems
 
 All systems allow to modify the ABox, not always possible to alter the TBox
-
-\subsubsection{Memory}
-\label{sect|memory}
-
-Memory has been studied at lenght in the cognitive psychology and
-neuropsychology communities: Atkinson and Shiffrin~\cite{Atkinson1968}
-introduce the idea of \emph{short-term} and \emph{long-term} memory,
-Anderson~\cite{Anderson1976} splits memory into \emph{declarative} (explicit)
-and \emph{procedural} (implicit) memories, Tulving~\cite{Tulving1985} organizes
-the concepts of \emph{procedural}, \emph{semantic} and \emph{episodic} memories
-into a hierarchy. Short-term memory is refined with the concept of
-\emph{working memory} by Baddeley~\cite{Baddeley2010}
-(Figure~\ref{fig|memory_models}).
-
-\begin{figure}
-    \centering
-    \includegraphics[width=0.9\columnwidth]{memory_models.pdf}
-    \caption{Overview of the main types of memories}
-    \label{fig|memory_models}
-\end{figure}
-
-Most knowledge representation systems offers some kind of memory as a pool of
-facts that are not forgotten by the robot until it is halted (this memory is
-often refered as a \emph{working memory}, but with a meaning unrelated to
-Baddeley's definition). Some systems may propose persistent storages that allow
-the robot knowledge to grow over time, while other may offer a larger range of
-memory categories, like short term memory (that lasts for a couple of seconds)
-or episodic memory (that allows the robot to selectively remember facts
-associated to specific events).
 
 \subsubsection{Learning}
 \label{sect|learning}
