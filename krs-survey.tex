@@ -993,6 +993,38 @@ associated to specific events).
 \subsubsection{Knowledge acquisition and modalities merging}
 \label{sect|knowledge-acquisition}
 
+In the survey inclusion criteria, we have insisted on only considering robotic
+systems that acquire knowledge by themselves, during their runtime.
+
+\emph{Acquiring knowledge} means in our context building new statements
+(usually as new logical facts) connected to our existing knowledge from
+external sources of information. We consider mainly three of them:
+proprioceptive/exteroceptive sensors, interaction with other agents, humans or
+robots, and remote databases. This process has generally at least two steps:
+the information acquisition by itself, and the \emph{transformation} of the
+information into knowledge, \emph{aligned} with the robot existing model
+(following our terminology for information and knowledge, as discussed in the
+introduction).
+
+Knowledge acquision is generally not done directly in the knowledge
+representation system. On the contrary, several, if not numerous, external
+components are usually required to convert percepts into symbolic facts and to
+ground them.
+
+While we do not review in this article all these systems, the whole process of
+knowledge acquisition is central in cognitive robotic architecture and the
+design of knowledge representation systems can influence or be influenced by
+the approach to knowledge acquisition.
+
+In particular, complex robotic systems often require multi-modal perception
+capabilities (for instance, a robot can only interpret an utterance like ``this
+is a plate'' if it is able to understand gestures, understand natural language
+and merge them in a timely manner). Multi-modal interpretation can take place
+at various levels, but in many cases (especially if the modalities are of very
+different natures, like in the example above) merging will require
+symbolic-level reasoning. The KRS has a direct impact on the feasability and
+ease of such operations.
+
 \paragraph{Perception}
 \paragraph{Interaction}
 \paragraph{External sources (Web, upper ontologies, ...)}
