@@ -829,11 +829,13 @@ Another important application of non-monotonic reasoning is representation of
 change: for example, to make an omelette, you need to crack eggs and wipe them.
 The eggs disappear and are replaced by an omelette:
 
-$Egg(a) \wedge Egg(b) \wedge MakeOmelette(a, b, c) \to \lnot Egg(a) \wedge
-\lnot Egg(b) \wedge Omelette(c)$
+\concept{Egg}$(a) \wedge $ \concept{Egg} $(b) \wedge $
+\concept{MakeOmelette}$(a, b, c) \to \lnot $ \concept{Egg}$(a) \wedge \lnot $
+\concept{Egg}$(b) \wedge $ \concept{Omelette}$(c)$
 
-The insertion of the proposition $MakeOmelette(a, b, c)$ leads to retraction of
-other facts. This rule requires non-monotonic reasoning to be applied.
+The insertion of the proposition \concept{MakeOmelette}$(a, b, c)$ leads to
+retraction of other facts. This rule requires non-monotonic reasoning to be
+applied.
 
 \emph{Default logic} is one of the formal logic that account for representing
 general truth and exceptions to it. However, due to computational complexity of
