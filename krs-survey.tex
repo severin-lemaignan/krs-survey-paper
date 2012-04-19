@@ -914,12 +914,12 @@ retraction of other facts. This rule requires non-monotonic reasoning to be
 applied.
 
 \emph{Default logic} is one of the formal logic that account for representing
-general truth and exceptions to it. However, due to computational complexity of
-these model (most of inferences in default logic are known to be $NP$-complete
-problem), classical logics and most of the existing reasoners do not allow
-non-monotonic reasoning. For instance, the SWRL rule language, usually
-associated to the OWL-DL ontology language, do not allow non-monotonic
-reasoning.
+general truth and exceptions to it (for instance, \emph{tomatoes are red, in
+general}). However, due to computational complexity of these model (most of
+inferences in default logic are known to be $NP$-complete problem), classical
+logics and most of the existing reasoners do not allow non-monotonic reasoning.
+For instance, the SWRL rule language, usually associated to the OWL-DL ontology
+language, do not allow non-monotonic reasoning.
 
 \fxfatal{Make clear 'who does not allow non-monotonic-reasoning': logics? rule
 languages? reasoner?}
@@ -944,7 +944,7 @@ time representation.}
 \fxfatal{Mention that probabilistic reasoning lead to implicit non-monotonic reasoning}
 
 
-\subsubsection{Presupposition accommodation}
+\subsubsection{Presupposition Accommodation}
 \label{sect|presupposition-accomodation}
 
 \emph{Presupposition accommodation} is the ability for the system to
@@ -1003,12 +1003,6 @@ that carries the geometries and physical properties of objects.
 \label{sect|planning}
 
 Making decision based on prediction
-
-\subsubsection{Alteration of the knowledge structure}
-
-In systems
-
-All systems allow to modify the ABox, not always possible to alter the TBox
 
 \subsubsection{Learning}
 \label{sect|learning}
@@ -1116,7 +1110,7 @@ This section briefly presents each of them.
 %\begin{tabularx}{\textheight}{p{2cm}p{4cm}p{3cm}p{4cm}p{2.3cm}p{2cm}p{2cm}}
 \begin{tabular}{p{2.2cm}p{1.6cm}p{4cm}lp{2.4cm}p{3.4cm}p{2.8cm}p{1.5cm}}
 \hiderowcolors
-{\bf Project} & {\bf Category} & {\bf Authors (Institution)} & {\bf Project homepage} & {\bf Programming language} & {\bf Knowledge model} & {\bf Reasoner} & Main reference \\
+{\bf Project} & {\bf Category} & {\bf Authors (Institution)} & {\bf Project homepage} & {\bf Programming language} & {\bf Knowledge model/Logical Formalism} & {\bf Reasoner} & Main reference \\
 \hline
 \showrowcolors
 {\sc KnowRob} & KRS & Tenorth, Beetz \par (TU Munich) & \url{http://ias.in.tum.de/kb/wiki} & {\sc Prolog} & {\sc Prolog} + OWL-DL & Custom \par ({\sc Prolog}) & \cite{Tenorth2009a} \\
@@ -1126,7 +1120,7 @@ CAST Proxies & Ubiquitous & Wyatt, Hawes, Jacobsson, Kruijff (Brimingham Univ., 
 Golog & Language & Levesque (Toronto Univ.) & & {\sc Prolog} & & & \\
 NKRL & Language & Zarri et al. \par (Paris Est Créteil Univ.) & & NKRL & & & \cite{Sabri2011} \\
 GSM & & Mavridis, Roy \par (MIT MediaLab) & & & & & \cite{Mavridis2006} \\
-OMKRF & & Suh et al. \par (Hanyang Univ.) & & & & & \cite{Suh2007} \\
+OMRKF & & Suh et al. \par (Hanyang Univ.) & \url{incorl.hanyang.ac.kr/xe/?mid=symbolic_reasoning} & ? & Horn Clauses & ? & \cite{Suh2007} \\
 DY-KNOW & & Heintz, Dowerty \par (Linköping Univ.) & & & & & \cite{Heintz2004} \\
 Ke Jia & & Chen et al. \par (Univ. of Science and Technology of China) & & & & & \cite{Chen2010} \\
  & & Varadarajan, Vincze \par (TU Wien) & & & & & \cite{Varadarajan2011} \\
@@ -1185,10 +1179,7 @@ We survey here the semantic layer~\cite{Daoutis2009}, referred as \emph{PEIS KR\
 % - template based natural language
 % - experiment conducted in a "smart" indoor environmement + simple robot
 
-\subsubsection{Intrinsic features}
-\label{sect|peis-intrinsic-features}
-
-\paragraph{Expressiveness} The PEIS Knowledge representation system relies on
+\paragraph{Knowledge model} The PEIS Knowledge representation system relies on
 the {\sc ResearchCyc} and {\sc CycL} language to represent knowledge. The {\sc CycL} language
 allows to represent first order logic sentences and has extensions for modal logics and higher order logics.
 
@@ -1199,9 +1190,6 @@ As a system relying on {\sc CycL}, contexts can be expressed as
 \emph{microtheory} in which these statements are evaluated.
 
 \fxfatal{OWA/CWA?}
-
-\subsubsection{Anchoring strategies}
-\label{sect|peis-anchoring}
 
 \begin{figure}
 	\centering
@@ -1222,6 +1210,8 @@ modalities are available (like human tracking, ambient environment monitoring).
 A template-based natural language parsing system may also be used to add new
 assertions to the system.
 
+The system can ask the human for help to disambiguate between concept names.
+
 \paragraph{Anchoring} Daoutis et al. formalize the issue of anchoring as
 finding a \emph{predicate grounding relation} $g \subseteq \mathcal{P} \times
 \Phi \times D(\Phi)$, where $\mathcal{P}$ is a set of predicate symbols, $\Phi$
@@ -1232,7 +1222,7 @@ classifier), color, location, spatial relations (both topological -- \emph{at},
 \emph{near} -- and relative to the robot -- \emph{left}, \emph{behind}, etc.)
 and visibility are the five classes of extracted attributes.
 
-\subsubsection{Integration in the robot architecture}
+\paragraph{Integration in the robot architecture}
 \label{sect|peis-integration}
 
 The PEIS framework offers through the \emph{PEIS middleware} a practical way to
@@ -1294,6 +1284,48 @@ module is called back, and can add this new information to its model.
 In the presented implementation, the CAST knowledge model does no allow for
 effectively representing actions or temporal information.\fxfatal{What about reasoning? can they retrieve for example 'all proxies for colorful objects'?}
 
+\subsection{OMRKF}
+\label{sect|omrkf}
+
+The Ontology-based Multi-layered Robot Knowledge Framework~\cite{Suh2007}
+(OMKRF) is a knowledge representation system based on four inter-related
+\emph{classes} of knowledge (Figure~\ref{fig|omrkf}). It proposes a layered
+approach to knowledge representation that allows to integrate the grounding
+process to the knowledge representation process. OMRKF knowledge model is
+implemented with Horn clauses.
+
+\begin{figure}
+    \centering
+    \includegraphics[width=0.8\columnwidth]{omrkf.pdf}
+
+    \caption{OMRKF organizes knowledge into four \emph{classes}, each composed
+    of three \emph{levels}. The figure shows some examples of link between
+    knowledge classes and knowledge levels. Based on~\ref{Suh2007}.}
+
+    \label{fig|omrkf}
+\end{figure}
+
+Each level of knowledge is build as three stages of ontological realization: a
+\emph{meta-concept} (the level itself, like ``temporal context'', ``behaviour''
+or ``object feature'', a taxonomy of concepts inside this level (for instance
+$cup : Object \sqsubseteq tableware : Object$) and an instanciation of the
+taxonomy ($cup1 : cup$).
+
+Environment is represented in OMRKF in the $space : Model$ knowledge level as a
+classical three layers mapping (metric, topological and semantic maps). Objects
+(in $object : Model$) are localized in $space : Model$ through Voronoi nodes.
+
+The knowledge class $Context$ proposes an explicit statement of spatial context
+(mostly geometric relations between objects), temporal context and a more
+general \emph{high-level} context, inferred from spatial and temporal contexts.
+
+Finally, the $Activity$ knowledge class store coumpound actions in a HTN-like
+structure, exploited at run-time by a planner.
+
+\paragraph{Experiments} Experiments conducted with OMRKF include finding
+kitchen objects and reporting about their state to a human.  This experiment
+also shows how OMRKF can deal with objects only partially matched by their
+descriptor by introducing a $candidate()$ function.
 
 %%%%%%%%%% Underlying knowledge model table %%%%%%%%
 \begin{table}
@@ -1309,7 +1341,7 @@ effectively representing actions or temporal information.\fxfatal{What about rea
 ORO & {\sc OpenCyc}, custom OWL-DL ontology \\
 PEIS Ecology & {\sc ResearchCyc} \\
 DY-KNOW & \\
-OMKRF & \\
+OMRKF & {\it A priori} knowledge structure and axioms, custom set of instances\\
 GSM &  \\
 NKLR &  None \\
 CAST Proxies &  None \\
@@ -1339,34 +1371,48 @@ Hertzberg (Osnabrück) & \\
 \rowcolors{2}{lightgray}{codegray}
 
 %\begin{tabularx}{\textheight}{p{2cm}p{4cm}p{3cm}p{4cm}p{2.3cm}p{2cm}p{2cm}}
-\begin{tabular}{l|ccccccccc}
+\begin{tabular}{p{4.5cm}|ccccccccc}
 \hiderowcolors
 
-{} & {\sc KnowRob} & {ORO} & {\sc PEIS} & {\sc CAST} & {\sc Golog} & {\sc NKRL} & {\sc GSM} & {\sc OMKRF} & {\sc DY-KNOW} \\
+{} & {\sc KnowRob} & {ORO} & {\sc PEIS} & {\sc CAST} & {\sc Golog} & {\sc NKRL} & {\sc GSM} & {\sc OMRKF} & {\sc DY-KNOW} \\
 
 
 \hline
 \showrowcolors
 {\bf Expressiveness} & & & & & & & & &  \\
-Formal Logic & Prolog & OWL-DL & {\sc CycL} &  &  &  & & & \\
+Logical formalism & Prolog & OWL-DL & {\sc CycL} &  &  &  & & Horn clauses & \\
+Expressive power & & & & & & & & &  \\
 OWA/CWA & CWA & OWA & & & & & & & \\
-Modeling uncertainty & +++ (add-on) & & & & & & & & \\
+Modeling uncertainty & +++ (extension) & & & & & & & + (\emph{candidate} entities) & \\
 Meta-cognition & ++ & ++ & & & & & & & \\
 {\bf Model} & & & & & & & & &  \\
+Representation of space & & & & & & & & ++ &  \\
+Representation of temporality & & & & & & & & + &  \\
+Context & & & & & & & & ++ &  \\
+Alternative worlds & & +++ & & & & & & &  \\
+Introspection & + (SRDF) & & & & & & & &  \\
+Memory & & + & & & & & & &  \\
 {\bf Reasoning} & & & & & & & & &  \\
 Standard FOL reasoning & +++ & +++ & & & & & & &  \\
+Knowledge structure alteration & & ++ & & & & & & &  \\
 Lazy evaluation & +++ & & & & & & & &  \\
-Reasoning under uncertainty & ++ (add-on) & & & & & & & & \\
+Reasoning under uncertainty & ++ (extension) & & & & & & & & \\
 Non-monotonic reasoning & & & & & & & & &  \\
 Presupposition accomodation & & & & & & & +++ & &  \\
 Prediction, projection, diagnosis & & & & & & & & &  \\
-Physics-based reasoning & +++ (add-on) & & & & & & & &  \\
+Physics-based reasoning & +++ (extension) & & & & & & & &  \\
 Planning & + & +++ (external module) & & & & & & &  \\
-Knowledge structure alteration & & ++ & & & & & & &  \\
 Learning & & & & & & & & &  \\
 {\bf Knowledge Acquisition} & & & & & & & & &  \\
+Acquisition techniques & & & & & & & & &  \\
+Grounding & & & & & & & & &  \\
+Instanciation & & & & & & & & &  \\
 {\bf Integration} & & & & & & & & &  \\
-{\bf Knowledge Instanciation} & & & & & & & & &  \\
+...with sensori-motor layers & & & & & & & & &  \\
+...with executive layers & & & & & & & & &  \\
+Monitoring and debugging & & & & & & & & &  \\
+Performances & & & & & & & & &  \\
+
 \hline
 
 %\end{tabularx}
