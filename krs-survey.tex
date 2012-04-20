@@ -1308,6 +1308,52 @@ module is called back, and can add this new information to its model.
 In the presented implementation, the CAST knowledge model does no allow for
 effectively representing actions or temporal information.\fxfatal{What about reasoning? can they retrieve for example 'all proxies for colorful objects'?}
 
+\subsection{GSM}
+\label{sect|gsm}
+
+GSM (for \emph{Grounded Situation Model})~\cite{Mavridis2006} is a knowledge
+representation system primarly built to ``facilitate cross-modal
+interoperability'',  especially in the context of verbal interaction with a
+robot.
+
+Unlike most of the previously presented systems, GSM does not rely on any
+formal language but rather on a layered datastructure (Figure~\ref{fig|gsm})
+that organizes the surrounding world into agents and relations between agents.
+Each agent (any animate or inanimate object) is attached to a physical model (made
+of \emph{body parts} that have properties like their position, color, etc.) and
+a mental model (which is a recursively embedded GSM, thus allowing a sort of
+theory of mind).
+
+\begin{figure}
+    \centering
+    \includegraphics[width=0.9\columnwidth]{gsm.pdf}
+
+    \caption{Simplified hierachical structure of the Grounded Situation Model,
+    based on~\cite{Mavridis2006}}
+
+    \label{fig|gsm}
+   \end{figure}
+
+Properties are represented in three layers: a stochastic representation, close
+to sensory percepts, a \emph{continous single-valued} encoding of the
+stochastic model, and a discrete, categorical model.
+
+One notable feature of GSM is the \emph{bidirectionality} of the grounding
+process: not only sensor percepts are abstracted into categories suitable for
+human conversation, but human utterance (like ``There is a red ball in the
+center of the table'') can also be turned into property descriptions. This
+basically enable the knowledge representation system of the robot to
+\emph{imagine} entities.
+
+GSM also features several strategies for managing time and events.
+\emph{Moments} are created by storing timestamped snap-shots of GSM, and
+\emph{event classifiers} allow to define and detect events.
+
+\paragraph{Experiments} GSM has mostly been tested on table-top manipulation
+and interaction tasks (a ``conversational helping hand'' as stated by the
+authors) realized on a 7-DOF arm equipped with force feedback, cameras for blob
+tracking and speech recognition (Sphinx4).
+
 \subsection{OMRKF}
 \label{sect|omrkf}
 
@@ -1362,10 +1408,10 @@ descriptor by introducing a $candidate()$ function.
 {\sc KnowRob} & {\sc OpenCyc}, processed web content, custom OWL-DL ontology \\
 ORO & {\sc OpenCyc}, custom OWL-DL ontology \\
 PEIS Ecology & {\sc ResearchCyc} \\
-OMRKF & {\it A priori} knowledge structure and axioms, custom set of instances\\
-GSM &  \\
 NKLR &  None \\
 CAST Proxies &  None \\
+GSM &  Predefined categories \\
+OMRKF & {\it A priori} knowledge structure and axioms, custom set of instances\\
 Wrighteagle & \\
 Vincze & \\
 ARMAR &  \\
@@ -1399,33 +1445,34 @@ Hertzberg & \\
 \multirow{5}{0.7cm}[-0.2cm]{\turn[1.5cm]{90}{\bf Expressive power}} & Logical formalism & Prolog & OWL-DL & {\sc CycL} &  &  &  & & Horn clauses \\
  & Expressive power & & & & & & & &  \\
  & OWA/CWA & CWA & OWA & & & & & & \\
- & Modeling uncertainty & +++ (extension) & & & & & & & + (\emph{candidate} entities) \\
+ & Modeling uncertainty & +++ (extension) & & & & & & ++ (stochastic) & + (\emph{candidate} entities) \\
  & Meta-cognition & ++ & ++ & & & & & & \\
 \hline
 \multirow{6}{0.2cm}{\turn{90}{\bf Model}} & Representation of space & & & & & & & & ++  \\
- & Representation of temporality & & & & & & & & +  \\
+ & Representation of temporality & & & & & & & + (snapshots) & +  \\
  & Context & & & & & & & & ++  \\
- & Alternative worlds & & +++ & & & & & &  \\
+ & Alternative worlds & & +++ & & & & ++ & &  \\
  & Introspection & + (SRDF) & & & & & & &  \\
- & Memory & & + & & & & & &  \\
+ & Memory models & & + & & & & & &  \\
 \hline
 \multirow{10}{0.2cm}{\turn{90}{\bf Reasoning}} & Standard FOL reasoning & +++ & +++ & & & & & & +  \\
  & Knowledge structure alteration & & ++ & & & & & &  \\
  & Lazy evaluation & +++ & & & & & & &  \\
- & Reasoning under uncertainty & ++ (extension) & & & & & & & \\
+ & Reasoning under uncertainty & ++ (extension) & & & & & + & & \\
  & Non-monotonic reasoning & & & & & & & &  \\
  & Presupposition accomodation & & & & & & & +++ & \\
  & Prediction, projection, diagnosis & & & & & & & & \\
  & Physics-based reasoning & +++ (extension) & & & & & & &  \\
- & Planning & + & +++ (external module) & & & & & & + \\
+ & Planning & + & +++ (external) & & & & & & + \\
  & Learning & & & & & & & &  \\
 \hline
 \multirow{3}{0.7cm}{\turn[1cm]{90}{\bf Knw. acq.}} & Acquisition techniques & & & & & & & & \\
- & Grounding & & & & & & & & ++ \\
+ & Grounding & & & & & & & ++ & ++ \\
+ & Interaction & & +++ (external) & & & & & +++ & \\
  & Instanciation & & & & & & & & \\
 \hline
-\multirow{4}{0.2cm}{\turn{90}{\bf Integ.}} & ...with sensori-motor layers & & & & & & & & ++ \\
- & ...with executive layers & & & & & & & & ++ \\
+\multirow{4}{0.2cm}{\turn{90}{\bf Integ.}} & ...with sensori-motor layers & & & & & & & + & + \\
+ & ...with executive layers & & & & & & & + & ++ \\
  & Monitoring and debugging & & & & & & & & \\
  & Performances & & & & & & & & \\
 
