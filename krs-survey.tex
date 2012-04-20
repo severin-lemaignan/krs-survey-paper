@@ -203,6 +203,9 @@ We have limited ourselves to systems that
     (\ie not a simple static database).
 \end{inparaenum}
 
+This exclude \textit{de-facto} platforms like {\sc DyKnow}~\cite{Heintz2004}
+which are focused on data fusion and knowledge grounding at lower levels.
+
 While classical cognitive systems like {\sc Soar} or {\sc ACT-R} have
 declarative knowledge modules and have been recently used on service robots
 (see {\sc ACT-R/E}~\cite{Kennedy2009} for instance), they are absent from this
@@ -216,9 +219,39 @@ To the extend of our knowledge, no previous published work attempt to build a
 typology of cognitive abilities related to knowledge and required by service
 robotics.
 
-However, several authors from fields that are connected to the robotics have
-previously listed desirable features of artificial systems aiming at cognitive
-abilities as rich as possible.
+In a slightly broader context, Heintz et al.~\cite{Heintz2008} define
+\emph{knowledge processing middlewares} as systems supporting ``declarative
+specifications for flexible configuration and dynamic reconfiguration of
+context dependent processing at many different levels of abstraction''. They
+identify six characteristics: the system must be able to merge informations
+from different, possibly distributed sources; it should support quantitative as
+well as qualitative processing of information, it should offer bottom-up and
+top-down processing, it should be able to deal with uncertainty, allow for
+``flexible configuration and reconfiguration'' (which require what we call
+\emph{non-monotonicity} in this article) and eventually Heintz et al. call for
+meta-knowledge and introspective capacities (``declarative specification of the
+processing functionalities''). In this paper, we focus our analysis on similar
+system with however an emphazise on the symbolic capabilities.
+
+Several surveys compare global cognitive architectures (\cite{Vernon2007, Chong2009}).
+Vernon et al.~\cite{Vernon2007} split these architectures into two broad
+categories: the \emph{cognitivist} ones (where cognition is considered as an
+explicit computation problem, often based on symbol manipulation), and the
+\emph{emergent} ones (where cognition only exists as a result of the
+interaction of the system with its environment). The approaches presented in
+this paper are, at a few exceptions, prototypical \emph{cognitivist} approaches
+that aim at making knowledge explicit within the robot architecture. Vernon et
+al. propose twelve \emph{characteristics of cognitive system} to compare
+architectures. Amongst them, they mention the \emph{inter-agent epistemology} (how
+the structure of the world is captured in a representation and shared), the
+relation to \emph{embodiement}, the ability to \emph{anticipate} and to
+\emph{adapt}, and the mechanisms of \emph{motivation}. While presented at the
+level of the whole robotic architecture, these features also translate into
+knowledge representation strategies and are relevant to our study.
+
+At a broader scope, several authors from fields that are connected to robotics
+have previously listed desirable features of artificial systems aiming at
+cognitive abilities as rich as possible.
 
 For instance, in~\cite{McCarthy2007}, McCarthy recently listed the challenges
 he identifies on the road to a \emph{human-level AI}.
@@ -250,22 +283,6 @@ he identifies on the road to a \emph{human-level AI}.
 	heuristics for decision making.
 
 \end{itemize}
-
-Several surveys compare global cognitive architectures (\cite{Vernon2007, Chong2009}).
-Vernon et al.~\cite{Vernon2007} split these architectures into two broad
-categories: the \emph{cognitivist} ones (where cognition is considered as an
-explicit computation problem, often based on symbol manipulation), and the
-\emph{emergent} ones (where cognition only exists as a result of the
-interaction of the system with its environment). The approaches presented in
-this paper are, at a few exceptions, prototypical \emph{cognitivist} approaches
-that aim at making knowledge explicit within the robot architecture. Vernon et
-al. propose twelve \emph{characteristics of cognitive system} to compare
-architectures. Amongst them, they mention the \emph{inter-agent epistemology} (how
-the structure of the world is captured in a representation and shared), the
-relation to \emph{embodiement}, the ability to \emph{anticipate} and to
-\emph{adapt}, and the mechanisms of \emph{motivation}. While presented at the
-level of the whole robotic architecture, these features also translate into
-knowledge representation strategies and are relevant to our study.
 
 Coming from the perspective of natural language processing in situated context,
 Roy and Reiter, in~\cite{Roy2005}, summarize what they see as the main
@@ -1129,7 +1146,6 @@ Golog & Language & Levesque (Toronto Univ.) & & {\sc Prolog} & & & \\
 NKRL & Language & Zarri et al. \par (Paris Est Créteil Univ.) & & NKRL & & & \cite{Sabri2011} \\
 GSM & & Mavridis, Roy \par (MIT MediaLab) & & & & & \cite{Mavridis2006} \\
 OMRKF & & Suh et al. \par (Hanyang Univ.) & \url{incorl.hanyang.ac.kr/xe/?mid=symbolic_reasoning} & ? & Horn Clauses & ? & \cite{Suh2007} \\
-DY-KNOW & & Heintz, Dowerty \par (Linköping Univ.) & & & & & \cite{Heintz2004} \\
 Ke Jia & & Chen et al. \par (Univ. of Science and Technology of China) & & & & & \cite{Chen2010} \\
  & & Varadarajan, Vincze \par (TU Wien) & & & & & \cite{Varadarajan2011} \\
  & & Kaelbling, Lozano-Pérez \par (MIT CSAIL) & & & & & \cite{Kaelbling2011} \\
@@ -1338,17 +1354,14 @@ descriptor by introducing a $candidate()$ function.
 %%%%%%%%%% Underlying knowledge model table %%%%%%%%
 \begin{table}
 \begin{center}
-\rowcolors{2}{lightgray}{codegray}
 
 \begin{tabular}{lp{4cm}}
-\hiderowcolors
+\toprule
 {\bf Project} & {\bf Common-sense \par knowledge source} \\
-\hline
-\showrowcolors
+\midrule
 {\sc KnowRob} & {\sc OpenCyc}, processed web content, custom OWL-DL ontology \\
 ORO & {\sc OpenCyc}, custom OWL-DL ontology \\
 PEIS Ecology & {\sc ResearchCyc} \\
-DY-KNOW & \\
 OMRKF & {\it A priori} knowledge structure and axioms, custom set of instances\\
 GSM &  \\
 NKLR &  None \\
@@ -1356,11 +1369,11 @@ CAST Proxies &  None \\
 Wrighteagle & \\
 Vincze & \\
 ARMAR &  \\
-Hertzberg (Osnabrück) & \\
+Hertzberg & \\
 (DFKI Bremen) & \\
 (JSK) & \\
 
-\hline
+\bottomrule
 
 \end{tabular}
 \end{center}
@@ -1379,42 +1392,42 @@ Hertzberg (Osnabrück) & \\
 
 \begin{tabular}{cp{4.5cm}ccccccccc}
 \toprule
-\multicolumn{2}{c}{\bf Category} & {\sc KnowRob} & {ORO} & {\sc PEIS} & {\sc CAST} & {\sc Golog} & {\sc NKRL} & {\sc GSM} & {\sc OMRKF} & {\sc DY-KNOW} \\
+\multicolumn{2}{c}{\bf Category} & {\sc KnowRob} & {ORO} & {\sc PEIS} & {\sc CAST} & {\sc Golog} & {\sc NKRL} & {\sc GSM} & {\sc OMRKF} \\
 
 \midrule
 
-\multirow{5}{0.7cm}[-0.2cm]{\turn[1.5cm]{90}{\bf Expressive power}} & Logical formalism & Prolog & OWL-DL & {\sc CycL} &  &  &  & & Horn clauses & \\
- & Expressive power & & & & & & & & &  \\
- & OWA/CWA & CWA & OWA & & & & & & & \\
- & Modeling uncertainty & +++ (extension) & & & & & & & + (\emph{candidate} entities) & \\
- & Meta-cognition & ++ & ++ & & & & & & & \\
+\multirow{5}{0.7cm}[-0.2cm]{\turn[1.5cm]{90}{\bf Expressive power}} & Logical formalism & Prolog & OWL-DL & {\sc CycL} &  &  &  & & Horn clauses \\
+ & Expressive power & & & & & & & &  \\
+ & OWA/CWA & CWA & OWA & & & & & & \\
+ & Modeling uncertainty & +++ (extension) & & & & & & & + (\emph{candidate} entities) \\
+ & Meta-cognition & ++ & ++ & & & & & & \\
 \hline
-\multirow{6}{0.2cm}{\turn{90}{\bf Model}} & Representation of space & & & & & & & & ++ &  \\
- & Representation of temporality & & & & & & & & + &  \\
- & Context & & & & & & & & ++ &  \\
- & Alternative worlds & & +++ & & & & & & &  \\
- & Introspection & + (SRDF) & & & & & & & &  \\
- & Memory & & + & & & & & & &  \\
+\multirow{6}{0.2cm}{\turn{90}{\bf Model}} & Representation of space & & & & & & & & ++  \\
+ & Representation of temporality & & & & & & & & +  \\
+ & Context & & & & & & & & ++  \\
+ & Alternative worlds & & +++ & & & & & &  \\
+ & Introspection & + (SRDF) & & & & & & &  \\
+ & Memory & & + & & & & & &  \\
 \hline
-\multirow{10}{0.2cm}{\turn{90}{\bf Reasoning}} & Standard FOL reasoning & +++ & +++ & & & & & & &  \\
- & Knowledge structure alteration & & ++ & & & & & & &  \\
- & Lazy evaluation & +++ & & & & & & & &  \\
- & Reasoning under uncertainty & ++ (extension) & & & & & & & & \\
- & Non-monotonic reasoning & & & & & & & & &  \\
- & Presupposition accomodation & & & & & & & +++ & &  \\
- & Prediction, projection, diagnosis & & & & & & & & &  \\
- & Physics-based reasoning & +++ (extension) & & & & & & & &  \\
- & Planning & + & +++ (external module) & & & & & & &  \\
- & Learning & & & & & & & & &  \\
+\multirow{10}{0.2cm}{\turn{90}{\bf Reasoning}} & Standard FOL reasoning & +++ & +++ & & & & & & +  \\
+ & Knowledge structure alteration & & ++ & & & & & &  \\
+ & Lazy evaluation & +++ & & & & & & &  \\
+ & Reasoning under uncertainty & ++ (extension) & & & & & & & \\
+ & Non-monotonic reasoning & & & & & & & &  \\
+ & Presupposition accomodation & & & & & & & +++ & \\
+ & Prediction, projection, diagnosis & & & & & & & & \\
+ & Physics-based reasoning & +++ (extension) & & & & & & &  \\
+ & Planning & + & +++ (external module) & & & & & & + \\
+ & Learning & & & & & & & &  \\
 \hline
-\multirow{3}{0.7cm}{\turn[1cm]{90}{\bf Knw. acq.}} & Acquisition techniques & & & & & & & & &  \\
- & Grounding & & & & & & & & &  \\
- & Instanciation & & & & & & & & &  \\
+\multirow{3}{0.7cm}{\turn[1cm]{90}{\bf Knw. acq.}} & Acquisition techniques & & & & & & & & \\
+ & Grounding & & & & & & & & ++ \\
+ & Instanciation & & & & & & & & \\
 \hline
-\multirow{4}{0.2cm}{\turn{90}{\bf Integ.}} & ...with sensori-motor layers & & & & & & & & &  \\
- & ...with executive layers & & & & & & & & &  \\
- & Monitoring and debugging & & & & & & & & &  \\
- & Performances & & & & & & & & &  \\
+\multirow{4}{0.2cm}{\turn{90}{\bf Integ.}} & ...with sensori-motor layers & & & & & & & & ++ \\
+ & ...with executive layers & & & & & & & & ++ \\
+ & Monitoring and debugging & & & & & & & & \\
+ & Performances & & & & & & & & \\
 
 \bottomrule
 
