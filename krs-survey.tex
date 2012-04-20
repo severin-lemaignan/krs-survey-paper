@@ -6,7 +6,15 @@
 \usepackage{hyperref}
 \usepackage{graphicx}
 \usepackage{tabularx}
+\usepackage{booktabs}
 \usepackage{supertabular}
+\usepackage{multirow}
+\usepackage{varwidth}
+
+\newcommand{\turn}[3][10em]{% \turn[<width>]{<angle>}{<stuff>}
+  \rlap{\rotatebox{#2}{\begin{varwidth}[t]{#1}\bfseries#3\end{varwidth}}}%
+  }
+
 \usepackage{pdflscape} %% Used for very big table
 \usepackage{moreverb}
 \usepackage[table]{xcolor}
@@ -1368,52 +1376,47 @@ Hertzberg (Osnabrück) & \\
 \begin{landscape}
 \begin{table}
 \begin{center}
-\rowcolors{2}{lightgray}{codegray}
 
-%\begin{tabularx}{\textheight}{p{2cm}p{4cm}p{3cm}p{4cm}p{2.3cm}p{2cm}p{2cm}}
-\begin{tabular}{p{4.5cm}|ccccccccc}
-\hiderowcolors
+\begin{tabular}{cp{4.5cm}ccccccccc}
+\toprule
+\multicolumn{2}{c}{\bf Category} & {\sc KnowRob} & {ORO} & {\sc PEIS} & {\sc CAST} & {\sc Golog} & {\sc NKRL} & {\sc GSM} & {\sc OMRKF} & {\sc DY-KNOW} \\
 
-{} & {\sc KnowRob} & {ORO} & {\sc PEIS} & {\sc CAST} & {\sc Golog} & {\sc NKRL} & {\sc GSM} & {\sc OMRKF} & {\sc DY-KNOW} \\
+\midrule
 
-
+\multirow{5}{0.7cm}[-0.2cm]{\turn[1.5cm]{90}{\bf Expressive power}} & Logical formalism & Prolog & OWL-DL & {\sc CycL} &  &  &  & & Horn clauses & \\
+ & Expressive power & & & & & & & & &  \\
+ & OWA/CWA & CWA & OWA & & & & & & & \\
+ & Modeling uncertainty & +++ (extension) & & & & & & & + (\emph{candidate} entities) & \\
+ & Meta-cognition & ++ & ++ & & & & & & & \\
 \hline
-\showrowcolors
-{\bf Expressiveness} & & & & & & & & &  \\
-Logical formalism & Prolog & OWL-DL & {\sc CycL} &  &  &  & & Horn clauses & \\
-Expressive power & & & & & & & & &  \\
-OWA/CWA & CWA & OWA & & & & & & & \\
-Modeling uncertainty & +++ (extension) & & & & & & & + (\emph{candidate} entities) & \\
-Meta-cognition & ++ & ++ & & & & & & & \\
-{\bf Model} & & & & & & & & &  \\
-Representation of space & & & & & & & & ++ &  \\
-Representation of temporality & & & & & & & & + &  \\
-Context & & & & & & & & ++ &  \\
-Alternative worlds & & +++ & & & & & & &  \\
-Introspection & + (SRDF) & & & & & & & &  \\
-Memory & & + & & & & & & &  \\
-{\bf Reasoning} & & & & & & & & &  \\
-Standard FOL reasoning & +++ & +++ & & & & & & &  \\
-Knowledge structure alteration & & ++ & & & & & & &  \\
-Lazy evaluation & +++ & & & & & & & &  \\
-Reasoning under uncertainty & ++ (extension) & & & & & & & & \\
-Non-monotonic reasoning & & & & & & & & &  \\
-Presupposition accomodation & & & & & & & +++ & &  \\
-Prediction, projection, diagnosis & & & & & & & & &  \\
-Physics-based reasoning & +++ (extension) & & & & & & & &  \\
-Planning & + & +++ (external module) & & & & & & &  \\
-Learning & & & & & & & & &  \\
-{\bf Knowledge Acquisition} & & & & & & & & &  \\
-Acquisition techniques & & & & & & & & &  \\
-Grounding & & & & & & & & &  \\
-Instanciation & & & & & & & & &  \\
-{\bf Integration} & & & & & & & & &  \\
-...with sensori-motor layers & & & & & & & & &  \\
-...with executive layers & & & & & & & & &  \\
-Monitoring and debugging & & & & & & & & &  \\
-Performances & & & & & & & & &  \\
-
+\multirow{6}{0.2cm}{\turn{90}{\bf Model}} & Representation of space & & & & & & & & ++ &  \\
+ & Representation of temporality & & & & & & & & + &  \\
+ & Context & & & & & & & & ++ &  \\
+ & Alternative worlds & & +++ & & & & & & &  \\
+ & Introspection & + (SRDF) & & & & & & & &  \\
+ & Memory & & + & & & & & & &  \\
 \hline
+\multirow{10}{0.2cm}{\turn{90}{\bf Reasoning}} & Standard FOL reasoning & +++ & +++ & & & & & & &  \\
+ & Knowledge structure alteration & & ++ & & & & & & &  \\
+ & Lazy evaluation & +++ & & & & & & & &  \\
+ & Reasoning under uncertainty & ++ (extension) & & & & & & & & \\
+ & Non-monotonic reasoning & & & & & & & & &  \\
+ & Presupposition accomodation & & & & & & & +++ & &  \\
+ & Prediction, projection, diagnosis & & & & & & & & &  \\
+ & Physics-based reasoning & +++ (extension) & & & & & & & &  \\
+ & Planning & + & +++ (external module) & & & & & & &  \\
+ & Learning & & & & & & & & &  \\
+\hline
+\multirow{3}{0.7cm}{\turn[1cm]{90}{\bf Knw. acq.}} & Acquisition techniques & & & & & & & & &  \\
+ & Grounding & & & & & & & & &  \\
+ & Instanciation & & & & & & & & &  \\
+\hline
+\multirow{4}{0.2cm}{\turn{90}{\bf Integ.}} & ...with sensori-motor layers & & & & & & & & &  \\
+ & ...with executive layers & & & & & & & & &  \\
+ & Monitoring and debugging & & & & & & & & &  \\
+ & Performances & & & & & & & & &  \\
+
+\bottomrule
 
 %\end{tabularx}
 \end{tabular}
