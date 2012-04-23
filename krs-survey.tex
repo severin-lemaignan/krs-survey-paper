@@ -1492,9 +1492,22 @@ Vincze & \\
 \end{table}
 
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Summary of Approaches}
-\label{sect|summary}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Towards the next generation of Knowledge Representation Systems for Robotics}
+\label{sect|conclusion}
+
+This section tries to summary the various approaches we surveyed in the
+previous sections and to draw some research perspectives. This section does not
+exactly follow the list of compared features presented in
+section~\ref{sect|features}. We have organized it along four axis: \emph{what
+can be represented?}, \emph{How knowledge is created and grounded?}, \emph{What
+can be done with the knowledge?} and \emph{How to use knowledge in the whole,
+larger robot architecture?}.
+
+Table~\ref{table|contribution-by-systems} proposes a summary of the main scopes
+of \emph{contribution} of the systems we have surveyed. This overview helps to
+identify the main weaknesses of current approaches of knowledge representation
+regarding the long-term goal of \emph{human-level robots}.
 
 \begin{landscape}
 \begin{table}\footnotesize
@@ -1550,18 +1563,19 @@ the system does not consider this domain.}
 \end{table}
 \end{landscape}
 
-This section tries to summary the various approaches we surveyed in the
-previous section.  This summary does not exactly follow the list of compared
-features presented in section~\ref{sect|features}. We have organized
-it along four axis: \emph{what can be represented?}, \emph{How knowledge is
-created and grounded?}, \emph{What can be done with the knowledge?} and
-\emph{How to use knowledge in the whole, larger robot architecture?}.
-
 \subsection{Expressiveness: what can we represent in the current state-of-the-art?}
 \label{sect|summary-expressiveness}
 
 \begin{itemize}
-	\item expressiveness
+    \item common-sense knowledge
+    \begin{itemize}
+        \item \emph{default reasoning}
+        \item \emph{uncertainty representation/reasoning}
+        \item \emph{physics-based reasoning}
+    \end{itemize}
+    \item Spatio-temporal representations
+    \item Meta-cognition and introspection
+    \item Context
 \end{itemize}
 
 
@@ -1594,10 +1608,6 @@ created and grounded?}, \emph{What can be done with the knowledge?} and
 	\item relation with planning (action representation, temporal representation...)
 	\item API/bindings/integration into executive layers
 \end{itemize}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Towards the next generation of Knowledge Representation Systems for Robotics}
-\label{sect|conclusion}
 
 \subsection{Current shotcomings: what is not successfully covered by current systems}
 
