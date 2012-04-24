@@ -1014,6 +1014,11 @@ performed starting in some initial state.
 in case of failure to provide possible explanation. This can be seen as the
 temporal reverse of the projection task.
 
+\subsubsection{Planning}
+\label{sect|planning}
+
+Making decision based on prediction
+
 \subsubsection{Physics-based reasoning}
 \label{sect|physics}
 
@@ -1028,11 +1033,6 @@ Some systems \cite{Kunze2011a} rely on external dedicated physics engine to
 compute symbolic facts from on-demand physics simulation. This, however,
 requires a tight integration between the symbolic model and a geometric model
 that carries the geometries and physical properties of objects.
-
-\subsubsection{Planning}
-\label{sect|planning}
-
-Making decision based on prediction
 
 \subsubsection{Learning}
 \label{sect|learning}
@@ -1112,10 +1112,43 @@ Varadarajan2011}.
 \subsection{Practical Integration in Robotic Architectures}
 \label{sect|integration-robot}
 
+Knowledge representation systems do not mean anything to robots if they are
+considered in isolation. This section proposes categories of features related
+to the integration of the KRS into a larger software architecture that includes
+perception routines, decision-making processes and actuation control.
+
+We also mention some practical aspects of a real-world system, like
+performances and monitoring tools that come along with the KRS.
+
 \subsubsection{Integration with sensori-motor layers}
 \label{sect|integration-sensorimotor}
 
-Ability to ``listen'' to the robot internal structures.
+We have previously discussed (section~\ref{sect|grounding}) the principles of
+the grounding process that aims at establishing and maintaining a connection
+between percepts (and to a lesser extend, low-level actions) and symbols.
+
+While every real-world cognitive robot need some kind of grounding, the actual
+implementations lead to very different information flows.
+
+The systems can be roughly split into two classes: \emph{passive} knowledge
+repositories that process symbolic facts produced by lower-level sensori-motor
+layers (\emph{push} flow); \emph{active} knowledge managers that directly query
+(possibly by polling or on-demand) low-level layers.
+
+This macroscopic distinction is however mostly a matter of defining the
+frontiers of the KRS: some systems like KnowRob~\cite{Tenorth2009a} encompass
+geometric reasoning layers that would be considered as external by other
+systems like ORO~\cite{Lemaignan2010} that focus on the symbolic fact storage
+and rely on a ecosystem of independent modules to provide and consume symbolic
+knowledge.
+
+\fxwarning{Some archi with the ability to ``listen'' to the robot internal
+structures -> which ones?}
+
+Other systems do not fit either in such a partition between active and passive
+systems because they do not stand as independent modules but exist as diffuse,
+\emph{ubiquitous} knowledge manipulation system~\cite{Jacobsson2008}, for
+instance because they are primarily language~\cite{Ferrein2008, Sabri2011}.
 
 \subsubsection{Integration with executive layers}
 \label{sect|integration-executive-layers}
@@ -1150,8 +1183,50 @@ rebuild natural language.
 \subsubsection{Monitoring and debugging}
 \label{sect|debugging}
 
-\subsubsection{Is it fast enough? Scalability and responsiveness}
-\label{sect|scalability}
+It is common to have knowledge representation systems at the heart of a
+cognitive robotic architecture, and therefore KRS are easily ``burried'' in the
+system.
+
+At the same time, the symbolic model often provides a valuable synthetic view
+on the whole state of the robot, furthermore easily understandable by the human
+developer (the fact \concept{human1 issitting true} is easier to interpret than
+the suite of relative coordinates of each joints of the human skeleton, as
+provided by the human tracker, for instance).
+
+That is the reason why having at hand good tools to trace and visualize at
+run-time the evolution of the knowledge structure and contents, as well as
+post-processing tools that can be run on the trace to precisely analyze the
+cognitive behaviour of the robot, is useful.
+
+\subsubsection{Evaluation of performances}
+\label{sect|performances}
+
+Benchmarks of symbolic systems for robots are notoriously hard to conduct for
+several reasons: identifying good metrics for robotic experiments in general is
+difficult because of the complex interactions between tenth of modules running
+in parallel. Isolating the role of one specific component is thus hard.
+Furthermore, knowledge representation systems are usually tightly connected to
+numerous other modules, and the lack of standard API for knowledge services
+makes it especially hard to switch between KRS to compare them. Also, because
+service robots are design to act in rich, dynamic environments, possibly with
+humans, building repeatable experiments is challenging.
+
+Cognitive architectures and KRS in particular are consequently often
+benchmarked with synthetic datasets (which leads to other issues: how to assess
+the meaningfulness of the performance of a reasoner on an artificial
+ontology?~\cite{Bail2010}) or \emph{toy} experiments~\cite{Chong2009} that do
+not reflect real-world complexity.
+
+While evaluating the performances of knowledge representation systems
+themselves may be difficult, the cognitive performances of the robot as a whole
+can be aptly evaluated through ``classical'' tests from the psychology (like
+False-Belief experiments~\cite{Leslie2000} or the Token
+test~\cite{DiSimoni1978}).
+
+However, the performance evaluation of current tools is mostly qualitative and
+scenario-specific (``did my system do the job for my task?''), and amongst the
+surveyed KRS, only few systems proposes an evaluation of their performances
+that could be compared to other system.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Knowledge instantiation}
@@ -1193,7 +1268,7 @@ NKRL & Language & Zarri et al. \par (Paris Est Créteil Univ.) & & NKRL & & & \c
 GSM & KRS & Mavridis, Roy \par (MIT MediaLab) & & ? & & & \cite{Mavridis2006} \\
 OMRKF & KRS & Suh et al. \par (Hanyang Univ.) & \url{incorl.hanyang.ac.kr/xe} & ? & Horn Clauses & ? & \cite{Suh2007} \\
 Ke Jia Project & KRS & Chen et al. \par (Univ. of Science and Technology of China) & \url{www.wrighteagle.org/en} & ASP & ASP & ASP & \cite{Chen2010} \\
-ARMAR/Tapas & KRS & Holzapfel, Waible \par (Karlsruhe TH) & & ? & TFS (Typed Feature Structures) & & \cite{Holzapfel2008}\\
+ARMAR/Tapas & KRS & Holzapfel, Waibel \par (Karlsruhe TH) & & ? & TFS (Typed Feature Structures) & & \cite{Holzapfel2008}\\
 Golog & Language & Levesque (Toronto Univ.) & & {\sc Prolog} & & & \\
 OBOC & KRS & Mendoza & & & & & \cite{Mendoza2005} \\
 % & & Varadarajan, Vincze \par (TU Wien) & & & & & \cite{Varadarajan2011} \\ % -> affordances, but no implementation on a robot
@@ -1403,7 +1478,9 @@ GSM also features several strategies for managing time and events.
 \paragraph{Experiments} GSM has mostly been tested on table-top manipulation
 and interaction tasks (a ``conversational helping hand'' as stated by the
 authors) realized on a 7-DOF arm equipped with force feedback, cameras for blob
-tracking and speech recognition (Sphinx4).
+tracking and speech recognition (Sphinx4). Mavridis and Roy provide in addition
+an in-depth analysis of the performance of GSM by the mean of a standard
+psycholinguistic test, the \emph{Token test}~\cite{DiSimoni1978}.
 
 \subsection{OMRKF}
 \label{sect|omrkf}
@@ -1580,7 +1657,7 @@ regarding the long-term goal of \emph{human-level robots}.
  & ...with executive layers & & & & & & & + & ++ \\
  & NLP & & +++ (external) & & & +++ & & +++ & & +++ & \\
  & Monitoring and debugging & & & & & & & & \\
- & Performances & & & & & + & & & \\
+ & Performances & & & & & + & & +++ (Token test) & & & \\
 
 \bottomrule
 
