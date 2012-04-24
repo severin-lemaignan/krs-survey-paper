@@ -123,7 +123,7 @@ wrote together in 1998:
 \end{quotation}
 
 Those questions have in common one prerequisite to be answered: the robot must
-be able to manipulate \emph{explicitely} knowledge, and hence, need a wayto
+be able to manipulate \emph{explicitly} knowledge, and hence, need a way to
 represent the knowledge.
 
 This survey focuses on this knowledge representation issue: we aims at first
@@ -134,17 +134,17 @@ summarize the major trends and to identify the possible shortcomings.
 
 We have classified the features of knowledge representation systems (KRS) into
 six broad categories: \emph{what can be represented?} or the
-\emph{expresiveness} question ; \emph{how things are represented?} ; \emph{what
+\emph{expressiveness} question ; \emph{how things are represented?} ; \emph{what
 reasoning techniques are offered?} ; \emph{how knowledge is acquired and
 anchored?} ; \emph{how the knowledge is made available and used by the other
 components of the robot?} and \emph{which actual knowledge is stored?} or the
-\emph{knowledge instanciation} question.
+\emph{knowledge instantiation} question.
 
-We have identified over ten projects that are either explicitely advertised as
+We have identified over ten projects that are either explicitly advertised as
 knowledge representation systems or involve explicit knowledge manipulation
 within a robot. By knowledge manipulation, we mean symbolic representation of
 assertions, be it static statements on the world or spatio-temporal events, and
-reasoning on this representation. Proeminent features of each of these systems
+reasoning on this representation. Prominent features of each of these systems
 illustrate how the various features of a knowledge representation system are
 currently implemented.
 
@@ -180,7 +180,7 @@ the robot would be proper knowledge.
 \subsection*{Survey Inclusion Criteria}
 \label{sect|inclusion-criteria}
 
-Every robotic system has, implicitely or not, some knowledge representation
+Every robotic system has, implicitly or not, some knowledge representation
 systems. It may range from a simple state vector to an explicit symbolic
 knowledge base.  This survey focuses on the right end of this spectrum:
 symbolic systems, suited for abstract reasoning.
@@ -195,7 +195,7 @@ section~\ref{sect|scenario}).
 We have limited ourselves to systems that
 \begin{inparaenum} 
     \item  run on \emph{service robot} (that is, robots that interact with 
-    objects in a semantic-rich environment primarly designed for humans),
+    objects in a semantic-rich environment primarily designed for humans),
     \item  ground the knowledge in the physical world (physically embedded
     systems able to assess their environment),
     \item  are able to merge different knowledge modalities,
@@ -210,7 +210,7 @@ While classical cognitive architectures like {\sc Soar} or {\sc ACT-R} have
 declarative knowledge modules~\cite{Derbinsky2010} and have been recently used
 on service robots (see {\sc ACT-R/E}~\cite{Kennedy2009} for instance), they are
 also absent from this survey because we did not find much references in the
-litterature on knowledge manipulation and representation applied to robotic
+literature on knowledge manipulation and representation applied to robotic
 scenarii in these architectures.
 
 \subsection{Previous Work}
@@ -232,7 +232,7 @@ top-down processing, it should be able to deal with uncertainty, allow for
 \emph{non-monotonicity} in this article) and eventually Heintz et al. call for
 meta-knowledge and introspective capacities (``declarative specification of the
 processing functionalities''). In this paper, we focus our analysis on similar
-system with however an emphazise on the symbolic capabilities.
+system with however an emphasize on the symbolic capabilities.
 
 Several surveys compare global cognitive architectures (\cite{Vernon2007, Chong2009}).
 Vernon et al.~\cite{Vernon2007} split these architectures into two broad
@@ -245,7 +245,7 @@ that aim at making knowledge explicit within the robot architecture. Vernon et
 al. propose twelve \emph{characteristics of cognitive system} to compare
 architectures. Amongst them, they mention the \emph{inter-agent epistemology} (how
 the structure of the world is captured in a representation and shared), the
-relation to \emph{embodiement}, the ability to \emph{anticipate} and to
+relation to \emph{embodiment}, the ability to \emph{anticipate} and to
 \emph{adapt}, and the mechanisms of \emph{motivation}. While presented at the
 level of the whole robotic architecture, these features also translate into
 knowledge representation strategies and are relevant to our study.
@@ -311,7 +311,7 @@ Section~\ref{sect|features} presents these features in detail, and organize
 them into a typology.
 
 Section~\ref{sect|surveyed-systems} then presents each of the systems we
-examinated, and underlines their specificities.
+examined, and underlines their specificities.
 
 We finally summarize in section~\ref{sect|summary} the current approaches in
 relation to the previously identified set of features. This leads us to
@@ -457,7 +457,7 @@ representation system. Note that grounding usually denotes the {\it top-down}
 operation: from the symbol to the percept. It is however commonly bundled with
 the converse operation, that retrieve (or create) symbols from perception.
 
-A related ability is called \emph{pre-supposition accomodation}: if one of the
+A related ability is called \emph{pre-supposition accommodation}: if one of the
 agent moves behind another one, with the brownie dough in its arm, and says
 ``be careful, I'm behind you!'', we want the first agent to be able to
 represent both symbolically and geometrically (because, for instance, if the
@@ -580,7 +580,7 @@ or falsity is uncertain. We elaborate below on the representation of uncertainty
 
 Note that most of these logic formalisms are still active research field by
 their own, and practical considerations (especially the availability of
-reasoners performant enough for on-line use on a robot) often constraint the
+reasoners efficient enough for on-line use on a robot) often constraint the
 choice of a logical formalism and a level of expressive power.
 
 
@@ -625,12 +625,12 @@ proposition can not be decided to be true or false) problems.
 \begin{figure}
     \centering
     \includegraphics[width=0.6\columnwidth]{expressive_overlap_dl_horn.pdf}
-    \caption{Expresiveness overlap of Description Logics and logic programs
+    \caption{expressiveness overlap of Description Logics and logic programs
     based on Horn clauses, taken from~\cite{Grosof2003}}
     \label{fig|overlap_dl_horn}
 \end{figure}
 
-Figure~\ref{fig|overlap_dl_horn} shows that the expresive power of description
+Figure~\ref{fig|overlap_dl_horn} shows that the expressive power of description
 logics and Horn clauses partially overlaps. In section~\ref{sect|reasoning} we
 mention extensions to description logics based on rule systems to bring closer
 the two approaches.
@@ -639,7 +639,7 @@ The relationships between expressive power and reasoning complexity that follow
 has been extensively studied for Description Logics.
 Zolin~\cite{ZolinDLComplexityNavigator} maintains a ``complexity navigator''
 that allows to conveniently explore these relationships and indexes most of the
-litterature on that subject.
+literature on that subject.
 
 \subsubsection{Open World and Close World Assumptions}
 
@@ -768,7 +768,7 @@ knowledge), what are my intentions and my plans?
 Introspection must be distinguished from meta-cognition: While introspection
 may require meta-cognition (for instance to be able to expose its internal
 knowledge), it is not always mandatory. The current state of the robot can be
-represented as a simple instanciation of a specific category (for instance, if
+represented as a simple instantiation of a specific category (for instance, if
 the robot give an object to the human, this state could be represented with the
 triplets \setstmt{robot performs action1, action1 isA Give}.
 
@@ -779,7 +779,7 @@ its own capabilities: which sensors/actuators/computation services exist and
 are currently available ?  While at a first level, these descriptions can be
 static (\eg the robot has one laser scanner and two arms), at a second level,
 the description is updated and reflect the current (and possibly past and
-future) state of the robot. Note that these description may also invlove
+future) state of the robot. Note that these description may also involve
 geometric descriptions (a kinematic chain, the pose of a device, etc.) that may
 be deported outside of the main knowledge base. Efforts trying to formalize,
 maintain and expose the capabilities and state of a robot are not new (and
@@ -791,7 +791,7 @@ include~\cite{Kunze2011}.
 \subsubsection{Memory}
 \label{sect|memory}
 
-Memory has been studied at lenght in the cognitive psychology and
+Memory has been studied at length in the cognitive psychology and
 neuropsychology communities: Atkinson and Shiffrin~\cite{Atkinson1968}
 introduce the idea of \emph{short-term} and \emph{long-term} memory,
 Anderson~\cite{Anderson1976} splits memory into \emph{declarative} (explicit)
@@ -810,7 +810,7 @@ into a hierarchy. Short-term memory is refined with the concept of
 
 Most knowledge representation systems offers some kind of memory as a pool of
 facts that are not forgotten by the robot until it is halted (this memory is
-often refered as a \emph{working memory}, but with a meaning unrelated to
+often referred as a \emph{working memory}, but with a meaning unrelated to
 Baddeley's definition). Some systems may propose persistent storages that allow
 the robot knowledge to grow over time, while other may offer a larger range of
 memory categories, like short term memory (that lasts for a couple of seconds)
@@ -863,7 +863,7 @@ Reasoners can then provide other type of inferences, like:
         \concept{ThinkingAgent}, then \concept{thinksOf}$(a, b) \to
         $\concept{ThinkingAgent}$(a)$),
 
-        \item universal, existantial and cardinality constraints (including \concept{allValue}, 
+        \item universal, existential and cardinality constraints (including \concept{allValue}, 
         \concept{someValue}, \concept{hasValue}),
 
         \item property characteristics (symmetry, transitivity, etc.)
@@ -883,7 +883,7 @@ Reasoners can then provide other type of inferences, like:
 
 \paragraph{Rule Languages}
 
-As mentionned earlier, knowledge models based on description logics can be extended through rule languages.
+As mentioned earlier, knowledge models based on description logics can be extended through rule languages.
 
 Intersection of properties is an example of expression that can only be represented with rules: for instance, 
 
@@ -957,7 +957,7 @@ only \emph{within the closed world assumption}.
 \fxfatal{Give here an example of non-monotonic reasoning with Prolog}
 \fxwarning{Do we mention here Answer Set Programming?}
 
-A monotonic system does not theoretically allow for knowledge retractation,
+A monotonic system does not theoretically allow for knowledge retraction,
 which is an important issue in the robotic context where the world model is
 likely to be often altered.  However it is a practical issue only if the
 reasoning process is \emph{continuous} during the whole robot's activity
@@ -972,7 +972,7 @@ time representation.}
 
 
 \subsubsection{Presupposition Accommodation}
-\label{sect|presupposition-accomodation}
+\label{sect|presupposition-accommodation}
 
 \emph{Presupposition accommodation} is the ability for the system to
 automatically create a context allowing to make sense of a proposition.
@@ -982,7 +982,7 @@ bottle that is behind you}. If the robot has not yet see what is behind it, it
 needs to assume (and represents in its knowledge model) that a undefined bottle
 can be found somewhere in the half of space behind it.
 
-A knowledge representation system able to copte with presupposition
+A knowledge representation system able to cope with presupposition
 accommodation would be able to take into account this (usually under-defined)
 information that is not grounded into perception for later inferences.
 
@@ -1016,7 +1016,7 @@ temporal reverse of the projection task.
 
 As embodied entities, robots have to interact with physical entities.
 \emph{Naive physics reasoning} covers all the everyday reasoning the humans
-unconsciouly perform, like taking into account gravity (``if I drop a ball, it
+unconsciously perform, like taking into account gravity (``if I drop a ball, it
 falls down'') or common physical properties of objects (``a glass may break if
 dropped'', etc.). Many of the interactions with our everyday environments are
 ruled by such laws that are difficult to exhaustively encode.
@@ -1053,7 +1053,7 @@ information into knowledge, \emph{aligned} with the robot existing model
 (following our terminology for information and knowledge, as discussed in the
 introduction).
 
-Knowledge acquision is generally not done directly in the knowledge
+Knowledge acquisition is generally not done directly in the knowledge
 representation system. On the contrary, several, if not numerous, external
 components are usually required to convert percepts into symbolic facts and to
 ground them.
@@ -1069,17 +1069,17 @@ is a plate'' if it is able to understand gestures, understand natural language
 and merge them in a timely manner). Multi-modal interpretation can take place
 at various levels, but in many cases (especially if the modalities are of very
 different natures, like in the example above) merging will require
-symbolic-level reasoning. The KRS has a direct impact on the feasability and
+symbolic-level reasoning. The KRS has a direct impact on the feasibility and
 ease of such operations.
 
 \subsubsection{Grounding/anchoring strategies}
 \label{sect|grounding}
 
-\emph{Grounding} (also called \emph{anchoring} when specifically refering to
+\emph{Grounding} (also called \emph{anchoring} when specifically referring to
 building links between \emph{percepts} and \emph{physical
 objects}~\cite{Coradeschi2003}) is the task consisting in building and
 maintaining a bi-directional link between sub-symbolic representations (sensors
-data, low-level actuation) and symbolic represtentations that can be
+data, low-level actuation) and symbolic representations that can be
 manipulated and reasoned about~\cite{Harnad1990}.
 
 Being embodied entities with interaction with other embodied entities as a
@@ -1151,7 +1151,7 @@ rebuild natural language.
 \label{sect|scalability}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Knowledge instanciation}
+\subsection{Knowledge instantiation}
 
 How much knowledge is available? Which content? How big is the knowledge base?
 
@@ -1169,8 +1169,8 @@ How much knowledge is available? Which content? How big is the knowledge base?
 \section{Surveyed systems}
 \label{sect|surveyed-systems}
 
-Table \ref{table|surveyed-systems} presents the fifteen knowledge representation systems surveyed
-in this article.
+Table \ref{table|surveyed-systems} presents the eight knowledge representation
+systems surveyed in this article.
 
 This section briefly presents each of them.
 
@@ -1192,17 +1192,22 @@ OMRKF & KRS & Suh et al. \par (Hanyang Univ.) & \url{incorl.hanyang.ac.kr/xe} & 
 Ke Jia Project & KRS & Chen et al. \par (Univ. of Science and Technology of China) & \url{www.wrighteagle.org/en} & ASP & ASP & ASP & \cite{Chen2010} \\
 ARMAR/Tapas & KRS & Holzapfel, Waible \par (Karlsruhe TH) & & ? & TFS (Typed Feature Structures) & & \cite{Holzapfel2008}\\
 Golog & Language & Levesque (Toronto Univ.) & & {\sc Prolog} & & & \\
- & & Varadarajan, Vincze \par (TU Wien) & & & & & \cite{Varadarajan2011} \\
- & & Kaelbling, Lozano-Pérez \par (MIT CSAIL) & & & & & \cite{Kaelbling2011} \\
- & & Hertzberg (Osnabrück Univ.) \\
- (based on {\sc KnowRob} & & (JSK) \\
- OBOC & KRS & Mendoza & & & & & \cite{Mendoza2005} \\
+OBOC & KRS & Mendoza & & & & & \cite{Mendoza2005} \\
+% & & Varadarajan, Vincze \par (TU Wien) & & & & & \cite{Varadarajan2011} \\ % -> affordances, but no implementation on a robot
+% & & Kaelbling, Lozano-Pérez \par (MIT CSAIL) & & & & & \cite{Kaelbling2011} \\ % -> mostly planning under uncertainty
+% & & Hertzberg (Osnabrück Univ.) \\ % -> affordances, semantic mapping
+% (based on {\sc KnowRob} & & (JSK) \\
 
 \bottomrule
 
 \end{tabular}
 \end{center}
-\caption{List of surveyed systems. Projects are listed by category (\emph{KRS} for systems that are explicit knowledge representation and reasoning modules, \emph{Ubiquitous} for systems where knowledge processing is fully distributed, \emph{Language} for languages used as KRS on robots), then names.}
+
+\caption{List of surveyed systems. Projects are listed by category (\emph{KRS}
+for systems that are explicit knowledge representation and reasoning modules,
+\emph{Ubiquitous} for systems where knowledge processing is fully distributed,
+\emph{Language} for languages used as KRS on robots), then names.}
+
 \label{table|surveyed-systems}
 \end{table}
 \end{landscape}
@@ -1234,7 +1239,7 @@ We survey here the semantic layer~\cite{Daoutis2009}, referred as \emph{PEIS KR\
 
 % More in details:
 % - object identification based on viewpoint independent SIFT features
-% - formalized anchoring system that explicitely match percieved attributes to predicates
+% - formalized anchoring system that explicitly match percieved attributes to predicates
 % - Cyc predicates
 % - ground 12 colors, based on a paper on color perception. Could be useful for us.
 % - idem, they cite a paper on what spatial relations to compute
@@ -1294,7 +1299,7 @@ and visibility are the five classes of extracted attributes.
 
 The PEIS framework offers through the \emph{PEIS middleware} a practical way to
 insert a new component into the shared \emph{tuple space}.  Thus, the KR\&R
-module can be seemlessly integrated into the PEIS ecosystem.
+module can be seamlessly integrated into the PEIS ecosystem.
 
 \subsubsection{Notable experiments}
 \label{sect|peis-expe}
@@ -1303,7 +1308,7 @@ module can be seemlessly integrated into the PEIS ecosystem.
 \label{sect|nkrl}
 
 \emph{NKRL} stands for \emph{Narrative Knowledge Representation Language}.
-While this language is developped since a long time by Zarri~\cite{Zarri1997,
+While this language is developed since a long time by Zarri~\cite{Zarri1997,
 Zarri2008}, recent research direction include application to the robotic
 field~\cite{Sabri2011}. NKRL is not {\it per-se} a knowledge representation
 system, as it is primarily a language. However, it is used as the
@@ -1324,18 +1329,18 @@ representation and reasoning mechanism for robots by Sabri et al.
 \label{sect|cast}
 
 CAS (\emph{CoSy Architecture Schema}) Toolkit~\cite{Hawes2007} is a
-comprehensive toolkit aimed at builduing cognitive architectures for robots
+comprehensive toolkit aimed at building cognitive architectures for robots
 through a set of interconnected SAs (\emph{subarchitectures}). The CAS does not
 expose a central knowledge base as seen in previous works. It instead
-represents knowledge as unrooted \emph{proxies}. Thoses proxies are formally
+represents knowledge as unrooted \emph{proxies}. Those proxies are formally
 defined in \cite{Jacobsson2008} as $p= \langle F_p, u_p \rangle$ where $F_p$ is
-a set of instanciated features (like $\phi^{Colour}_{red}$) and $u_p$ a
+a set of instantiated features (like $\phi^{Colour}_{red}$) and $u_p$ a
 \emph{proxies union} that form an equivalence class corresponding to one
 entity.
 
 A union of proxies forms a global amodal representation of an entity, that can
-be explicitely shared and manipulated. Being not centralized, the knowledge
-model can be qualified of \emph{ubiquitous}. Futhermore, knowledge source in
+be explicitly shared and manipulated. Being not centralized, the knowledge
+model can be qualified of \emph{ubiquitous}. Furthermore, knowledge source in
 the CAS architecture is tightly bound to the on-line grounding process (be it
 grounded in perception or in dialogue). While nothing seems to prevent it, no
 {\it a priori} knowledge (including common-sense knowledge) is used.
@@ -1355,12 +1360,12 @@ effectively representing actions or temporal information.\fxfatal{What about rea
 \label{sect|gsm}
 
 GSM (for \emph{Grounded Situation Model})~\cite{Mavridis2006} is a knowledge
-representation system primarly built to ``facilitate cross-modal
+representation system primarily built to ``facilitate cross-modal
 interoperability'',  especially in the context of verbal interaction with a
 robot.
 
 Unlike most of the previously presented systems, GSM does not rely on any
-formal language but rather on a layered datastructure (Figure~\ref{fig|gsm})
+formal language but rather on a layered data structure (Figure~\ref{fig|gsm})
 that organizes the surrounding world into agents and relations between agents.
 Each agent (any animate or inanimate object) is attached to a physical model (made
 of \emph{body parts} that have properties like their position, color, etc.) and
@@ -1371,14 +1376,14 @@ theory of mind).
     \centering
     \includegraphics[width=0.9\columnwidth]{gsm.pdf}
 
-    \caption{Simplified hierachical structure of the Grounded Situation Model,
+    \caption{Simplified hierarchical structure of the Grounded Situation Model,
     based on~\cite{Mavridis2006}}
 
     \label{fig|gsm}
 \end{figure}
 
 Properties are represented in three layers: a stochastic representation, close
-to sensory percepts, a \emph{continous single-valued} encoding of the
+to sensory percepts, a \emph{continuous single-valued} encoding of the
 stochastic model, and a discrete, categorical model.
 
 One notable feature of GSM is the \emph{bidirectionality} of the grounding
@@ -1401,7 +1406,7 @@ tracking and speech recognition (Sphinx4).
 \label{sect|omrkf}
 
 The Ontology-based Multi-layered Robot Knowledge Framework~\cite{Suh2007}
-(OMKRF) is a knowledge representation system based on four inter-related
+(OMRKF) is a knowledge representation system based on four inter-related
 \emph{classes} of knowledge (Figure~\ref{fig|omrkf}). It proposes a layered
 approach to knowledge representation that allows to integrate the grounding
 process to the knowledge representation process. OMRKF knowledge model is
@@ -1421,7 +1426,7 @@ implemented with Horn clauses.
 Each level of knowledge is build as three stages of ontological realization: a
 \emph{meta-concept} (the level itself, like ``temporal context'', ``behaviour''
 or ``object feature'', a taxonomy of concepts inside this level (for instance
-$cup : Object \sqsubseteq tableware : Object$) and an instanciation of the
+$cup : Object \sqsubseteq tableware : Object$) and an instantiation of the
 taxonomy ($cup1 : cup$).
 
 Environment is represented in OMRKF in the $space : Model$ knowledge level as a
@@ -1432,7 +1437,7 @@ The knowledge class $Context$ proposes an explicit statement of spatial context
 (mostly geometric relations between objects), temporal context and a more
 general \emph{high-level} context, inferred from spatial and temporal contexts.
 
-Finally, the $Activity$ knowledge class store coumpound actions in a HTN-like
+Finally, the $Activity$ knowledge class store compound actions in a HTN-like
 structure, exploited at run-time by a planner.
 
 \paragraph{Experiments} Experiments conducted with OMRKF include finding
@@ -1460,7 +1465,7 @@ system support acquisition of new logical rules at run-time.
 \paragraph{Experiments} The Ke Jia robot has been demonstrated in several tasks
 involving human-robot interaction with natural language. These tasks include a
 task with multiple \emph{pick \& carry} that are globally optimized, naive
-physics reasoning via teached rules or more complex scenarii with the robot
+physics reasoning via taught rules or more complex scenarii with the robot
 delivering drinks, taking into account changing and mutually exclusive
 preferences of users.
 
@@ -1484,7 +1489,7 @@ understand dialogue.
 
 Another focus is put on handling unknown words and objects. {\sc Tapas}
 provides routines to recognize unknown entities, and propose and interactive
-and iterative verbal process to categorize (including adding new caterogies)
+and iterative verbal process to categorize (including adding new categories)
 those new concepts.
 
 %%%%%%%%%% Underlying knowledge model table %%%%%%%%
@@ -1504,8 +1509,6 @@ GSM &  Predefined categories \\
 OMRKF & {\it A priori} knowledge structure and axioms, custom set of instances\\
 Ke Jia & None \\
 ARMAR/{\sc Tapas} & Custom ontology related to the kitchen\\
-Vincze & \\
-(JSK) & \\
 
 \bottomrule
 
@@ -1560,7 +1563,7 @@ regarding the long-term goal of \emph{human-level robots}.
  & Lazy evaluation & +++ & & & & & & &  \\
  & Reasoning under uncertainty & ++ (extension) & & & & & + & & \\
  & Non-monotonic reasoning & & & & & +++ & & &  \\
- & Presupposition accomodation & & & & & & & +++ & \\
+ & Presupposition accommodation & & & & & & & +++ & \\
  & Prediction, projection, diagnosis & & & & & & & & \\
  & Physics-based reasoning & +++ (extension) & & & & & & &  \\
  & Planning & + & +++ (external) & & & ++ & & & + \\
@@ -1568,7 +1571,7 @@ regarding the long-term goal of \emph{human-level robots}.
 \hline
 \multirow{3}{0.7cm}{\turn[1cm]{90}{\bf Knw. acq.}} & Acquisition techniques & & & & & & & & \\
  & Grounding & +++ \par (semantic maps) & ++ (external amodal model) & & & & & ++ & ++ \\
- & Instanciation & & & & & & & & \\
+ & instantiation & & & & & & & & \\
 \hline
 \multirow{4}{0.2cm}{\turn{90}{\bf Integ.}} & ...with sensori-motor layers & & & & & & & + & + \\
  & ...with executive layers & & & & & & & + & ++ \\
@@ -1633,7 +1636,7 @@ the system does not consider this domain.}
 	\item API/bindings/integration into executive layers
 \end{itemize}
 
-\subsection{Current shotcomings: what is not successfully covered by current systems}
+\subsection{Current shortcomings: what is not successfully covered by current systems}
 
 \subsection{Towards a new design}
 
