@@ -1153,7 +1153,20 @@ instance because they are primarily language~\cite{Ferrein2008, Sabri2011}.
 \subsubsection{Integration with executive layers}
 \label{sect|integration-executive-layers}
 
-\paragraph{Events}
+Conversely, the knowledge management module need a tight integration with the
+decision-making processes. As for the integration with sensori-motor
+layers, the borders of the KRS can be fuzzy and vary from one architecture to
+another: many consider symbolic task planning as an integral role of the KRS,
+while other have dedicated extensions for planning, some integrate learning as
+an on-the-flight process that is part of the KRS, others as an independent
+deliberative process, etc.
+
+The actual integration techniques vary also widely, from language extensions
+(like the integration of CRAM~\cite{Beetz2010} with KnowRob) and client-server
+architectures, to event-driven models (SHARY and ORO~\cite{Alami2011}). Choices
+at this level have notable consequences on the whole design of the upper
+control architecture of the robot, in particular regarding its modularity and
+the ease of addition of new components.
 
 \subsubsection{Language Processing}
 \label{sect|nlp}
@@ -1189,7 +1202,7 @@ system.
 
 At the same time, the symbolic model often provides a valuable synthetic view
 on the whole state of the robot, furthermore easily understandable by the human
-developer (the fact \concept{human1 issitting true} is easier to interpret than
+developer (the fact \stmt{human1 isSitting true} is easier to interpret than
 the suite of relative coordinates of each joints of the human skeleton, as
 provided by the human tracker, for instance).
 
