@@ -5,6 +5,10 @@
 \usepackage{hyperref}
 \usepackage{graphicx}
 
+% typology diagrams
+\usepackage{tikz}
+\usetikzlibrary{shapes}
+
 %tables
 \usepackage{booktabs}
 \usepackage{supertabular}
@@ -490,10 +494,41 @@ summarizes all these features with the main domain of contribution of each
 surveyed KRS.
 
 As previously mentioned, we propose six main categories.
-\fxfatal{figure taxonomy}
+
+\begin{scriptsize}
+\begin{center}
+\begin{tikzpicture}[grow=right, level distance = 3cm, level 1/.style={sibling distance=5mm}]
+    %[edge from parent fork east]
+    %every node/.style={fill=black!30,rounded corners},
+    %[parent anchor=east,child anchor=west,grow=east,
+    %edge from parent/.style={thick,draw}]
+    \node {Dimensions}
+        child {node {Instantiation}}
+        child {node {Integration}}
+        child {node {Acquisition}}
+        child {node {Reasoning}}
+        child {node {Representation}}
+        child {node {Expressiveness}};
+\end{tikzpicture}
+\end{center}
+\end{scriptsize}
 
 \subsection{Expressiveness: What Can be Represented?}
 \label{sect|expressiveness}
+
+\begin{scriptsize}
+\begin{center}
+\begin{tikzpicture}[grow=right, sibling distance=5mm, level distance = 3.5cm]
+    \node {\bf Expressiveness}
+            child {node {Meta-cognition}}
+            child {node {Uncertainty}}
+            child {node {Open/Closed world assumption}}
+            child {node {Expressive power}}
+            child {node {Logic formalism}};
+\end{tikzpicture}
+\end{center}
+\end{scriptsize}
+
 
 \subsubsection{Main Logic Formalisms}
 
@@ -689,6 +724,20 @@ introspection in general.
 \subsection{How things are represented?}
 \label{sect|higher-level-domain-representation}
 
+\begin{scriptsize}
+\begin{center}
+\begin{tikzpicture}[grow=right, sibling distance=5mm, level distance = 3cm]
+    \node {\bf Representation}
+            child {node {Memory}}
+            child {node {Introspection}}
+            child {node {Possible Worlds}}
+            child {node {Context}}
+            child {node {Roles}};
+\end{tikzpicture}
+\end{center}
+\end{scriptsize}
+
+
 \subsubsection{Role Representations}
 
 Thematic roles
@@ -803,6 +852,25 @@ human-like memory organization.
 %%%%%%%%%%
 \subsection{Reasoning Techniques}
 \label{sect|reasoning}
+
+\begin{scriptsize}
+\begin{center}
+\begin{tikzpicture}[grow=right, sibling distance=5mm, level distance = 4cm]
+    \node {\bf Reasoning}
+            child {node {Learning}}
+            child {node {Naive physics}}
+            child {node {Planning}}
+            child {node {Prediction}}
+            child {node {Presupposition}}
+            child {node {Non-monotonicity}}
+            child {node {Uncertainty}}
+            child {node {Lazy evaluation}}
+            child {node {Structural alteration}}
+            child {node {Standard reasoning}};
+\end{tikzpicture}
+\end{center}
+\end{scriptsize}
+
 
 \subsubsection{Standard reasoning techniques}
 
@@ -1018,7 +1086,18 @@ that carries the geometries and physical properties of objects.
 %%%%%%%%%%%%%%%%%
 \subsection{Acquiring Knowledge}
 
-\subsubsection{Knowledge acquisition and modalities merging}
+\begin{scriptsize}
+\begin{center}
+\begin{tikzpicture}[grow=right, sibling distance=5mm, level distance = 3cm]
+    \node {\bf Acquisition}
+            child {node {Dynamic instantiation}}
+            child {node {Grounding}}
+            child {node {Acquisition and fusion}};
+\end{tikzpicture}
+\end{center}
+\end{scriptsize}
+
+\subsubsection{Knowledge acquisition and modalities fusion}
 \label{sect|knowledge-acquisition}
 
 In the survey inclusion criteria, we have insisted on only considering robotic
@@ -1083,12 +1162,27 @@ Varadarajan2011}.
     \label{fig|semanticmap}
 \end{figure}
 
-\subsubsection{Ability to automatically create new object instances}
+\subsubsection{Dynamic instantiation}
 \label{sect|new-instances}
+Ability to automatically create new object instances
 
 %%%%%%%%%%%%%%%%%
 \subsection{Practical Integration in Robotic Architectures}
 \label{sect|integration-robot}
+
+\begin{scriptsize}
+\begin{center}
+\begin{tikzpicture}[grow=right, sibling distance=5mm, level distance = 3cm]
+    \node {\bf Integration}
+            child {node {Performances}}
+            child {node {Monitoring}}
+            child {node {Natural Language}}
+            child {node {Executive layers}}
+            child {node {Sensori-motor}};
+\end{tikzpicture}
+\end{center}
+\end{scriptsize}
+
 
 Knowledge representation systems do not mean anything to robots if they are
 considered in isolation. This section proposes categories of features related
