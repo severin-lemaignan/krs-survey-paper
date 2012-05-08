@@ -116,7 +116,7 @@ be able to manipulate \emph{explicitly} knowledge, and hence, need a way to
 represent the knowledge.
 
 This survey focuses on this knowledge representation issue: we aims at first
-establishing a as-exhaustive-as-possible typology of representation needs for
+establishing a comprehensive typology of representational needs for
 robotics in the specific context of service robotics, and then at painting the
 current landscape of approaches to the knowledge representation problem in the
 research community, in order to summarize the major trends and to identify the
@@ -836,6 +836,11 @@ into a hierarchy. Short-term memory is refined with the concept of
     \label{fig|memory_models}
 \end{figure}
 
+It worth emphasing that if memory is commonly associated to the process of
+forgetting facts after a variable amount of \emph{time}, it covers actually
+more mechanisms that are relevant to robotics, like selective remembering
+triggered by a specific context or reinforcement learning.
+
 Most knowledge representation systems offers some kind of memory as a pool of
 facts that are not forgotten by the robot until it is halted (this memory is
 often referred as a \emph{working memory}, but with a meaning unrelated to
@@ -1161,6 +1166,11 @@ Varadarajan2011}.
     \caption{Example of a semantic map, taken from~\cite{Nuechter2008}.}
     \label{fig|semanticmap}
 \end{figure}
+
+\subsubsection{Intrinsic Motivation}
+
+\cite{Oudeyer2007} -> page 2 gives a detailled account of psychological grounds.
+Curiosity, Pro-active behaviour...
 
 \subsubsection{Dynamic instantiation}
 \label{sect|new-instances}
@@ -1519,6 +1529,9 @@ module is called back, and can add this new information to its model.
 In the presented implementation, the CAST knowledge model does no allow for
 effectively representing actions or temporal information.\fxfatal{What about reasoning? can they retrieve for example 'all proxies for colorful objects'?}
 
+In~\cite{Hawes2011}, Hawes et al. also explore \emph{curiosity} mechanisms in
+the context of spatial representations.
+
 \subsection{GSM}
 \label{sect|gsm}
 
@@ -1736,7 +1749,8 @@ regarding the long-term goal of \emph{human-level robots}.
 \hline
 \multirow{3}{0.7cm}{\turn[1cm]{90}{\bf Knw. acq.}} & Acquisition techniques & & & & & & & & \\
  & Grounding & +++ \par (semantic maps) & ++ (external amodal model) & & & & & ++ & ++ \\
- & instantiation & & & & & & & & \\
+ & Intrinsic Motivation & & & & ++ & & & & \\
+ & Dynamic instantiation & & & & & & & & \\
 \hline
 \multirow{4}{0.2cm}{\turn{90}{\bf Integ.}} & \ldots with sensori-motor layers & & & & & & & + & + \\
  & \ldots with executive layers & & & & & & & + & ++ \\
