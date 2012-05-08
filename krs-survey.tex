@@ -503,12 +503,12 @@ As previously mentioned, we propose six main categories.
     %[parent anchor=east,child anchor=west,grow=east,
     %edge from parent/.style={thick,draw}]
     \node {Dimensions}
-        child {node {Instantiation}}
-        child {node {Integration}}
-        child {node {Acquisition}}
-        child {node {Reasoning}}
-        child {node {Representation}}
-        child {node {Expressiveness}};
+        child {node {{\bf F}. Instantiation}}
+        child {node {{\bf E}. Integration}}
+        child {node {{\bf D}. Acquisition}}
+        child {node {{\bf C}. Reasoning}}
+        child {node {{\bf B}. Representation}}
+        child {node {{\bf A}. Expressiveness}};
 \end{tikzpicture}
 \end{center}
 \end{scriptsize}
@@ -519,12 +519,12 @@ As previously mentioned, we propose six main categories.
 \begin{scriptsize}
 \begin{center}
 \begin{tikzpicture}[grow=right, sibling distance=5mm, level distance = 3.5cm]
-    \node {\bf Expressiveness}
-            child {node {Meta-cognition}}
-            child {node {Uncertainty}}
-            child {node {Open/Closed world assumption}}
-            child {node {Expressive power}}
-            child {node {Logic formalism}};
+    \node {\bf A. Expressiveness}
+            child {node {{\bf A.5}. Meta-cognition}}
+            child {node {{\bf A.4}. Uncertainty}}
+            child {node {{\bf A.3}. OWA/CWA}}
+            child {node {{\bf A.2}. Expressive power}}
+            child {node {{\bf A.1}. Logic formalism}};
 \end{tikzpicture}
 \end{center}
 \end{scriptsize}
@@ -727,12 +727,12 @@ introspection in general.
 \begin{scriptsize}
 \begin{center}
 \begin{tikzpicture}[grow=right, sibling distance=5mm, level distance = 3cm]
-    \node {\bf Representation}
-            child {node {Memory}}
-            child {node {Introspection}}
-            child {node {Possible Worlds}}
-            child {node {Context}}
-            child {node {Roles}};
+    \node {\bf B. Representation}
+            child {node {{\bf B.5}. Memory}}
+            child {node {{\bf B.4}. Introspection}}
+            child {node {{\bf B.3}. Possible Worlds}}
+            child {node {{\bf B.2}. Context}}
+            child {node {{\bf B.1}. Roles}};
 \end{tikzpicture}
 \end{center}
 \end{scriptsize}
@@ -798,7 +798,7 @@ may require meta-cognition (for instance to be able to expose its internal
 knowledge), it is not always mandatory. The current state of the robot can be
 represented as a simple instantiation of a specific category (for instance, if
 the robot give an object to the human, this state could be represented with the
-triplets \setstmt{robot performs action1, action1 isA Give}.
+triples \setstmt{robot performs action1, action1 isA Give}.
 
 \paragraph{Modelling of the robot capabilities}
 
@@ -861,17 +861,17 @@ human-like memory organization.
 \begin{scriptsize}
 \begin{center}
 \begin{tikzpicture}[grow=right, sibling distance=5mm, level distance = 4cm]
-    \node {\bf Reasoning}
-            child {node {Learning}}
-            child {node {Naive physics}}
-            child {node {Planning}}
-            child {node {Prediction}}
-            child {node {Presupposition}}
-            child {node {Non-monotonicity}}
-            child {node {Uncertainty}}
-            child {node {Lazy evaluation}}
-            child {node {Structural alteration}}
-            child {node {Standard reasoning}};
+    \node {\bf C. Reasoning}
+            child {node {{\bf C.10}. Learning}}
+            child {node {{\bf C.9}. Naive physics}}
+            child {node {{\bf C.8}. Planning}}
+            child {node {{\bf C.7}. Prediction}}
+            child {node {{\bf C.6}. Presupposition}}
+            child {node {{\bf C.5}. Non-monotonicity}}
+            child {node {{\bf C.4}. Uncertainty}}
+            child {node {{\bf C.3}. Lazy evaluation}}
+            child {node {{\bf C.2}. Structural alteration}}
+            child {node {{\bf C.1}. Standard reasoning}};
 \end{tikzpicture}
 \end{center}
 \end{scriptsize}
@@ -1094,10 +1094,11 @@ that carries the geometries and physical properties of objects.
 \begin{scriptsize}
 \begin{center}
 \begin{tikzpicture}[grow=right, sibling distance=5mm, level distance = 3cm]
-    \node {\bf Acquisition}
-            child {node {Dynamic instantiation}}
-            child {node {Grounding}}
-            child {node {Acquisition and fusion}};
+    \node {\bf D. Acquisition}
+            child {node {{\bf D.4} Dynamic instantiation}}
+            child {node {{\bf D.3} Motivation}}
+            child {node {{\bf D.2} Grounding}}
+            child {node {{\bf D.1} Acquisition and fusion}};
 \end{tikzpicture}
 \end{center}
 \end{scriptsize}
@@ -1183,12 +1184,12 @@ Ability to automatically create new object instances
 \begin{scriptsize}
 \begin{center}
 \begin{tikzpicture}[grow=right, sibling distance=5mm, level distance = 3cm]
-    \node {\bf Integration}
-            child {node {Performances}}
-            child {node {Monitoring}}
-            child {node {Natural Language}}
-            child {node {Executive layers}}
-            child {node {Sensori-motor}};
+    \node {\bf E. Integration}
+            child {node {{\bf D.5} Performances}}
+            child {node {{\bf D.4} Monitoring}}
+            child {node {{\bf D.3} Natural Language}}
+            child {node {{\bf D.2} Executive layers}}
+            child {node {{\bf D.1} Sensori-motor}};
 \end{tikzpicture}
 \end{center}
 \end{scriptsize}
@@ -1325,6 +1326,17 @@ that could be compared to other system.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Knowledge instantiation}
+
+\begin{scriptsize}
+\begin{center}
+\begin{tikzpicture}[grow=right, sibling distance=5mm, level distance = 3.5cm]
+    \node {\bf F. Knowledge instantiation}
+            child {node {{\bf F.2} Alignement with Standards}}
+            child {node {{\bf F.1} Self-Knowledge}}
+ \end{tikzpicture}
+\end{center}
+\end{scriptsize}
+
 
 How much knowledge is available? Which content? How big is the knowledge base?
 
