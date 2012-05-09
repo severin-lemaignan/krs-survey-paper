@@ -1331,22 +1331,60 @@ that could be compared to other system.
 \begin{center}
 \begin{tikzpicture}[grow=right, sibling distance=5mm, level distance = 3.5cm]
     \node {\bf F. Knowledge instantiation}
-            child {node {{\bf F.2} Alignement with Standards}}
-            child {node {{\bf F.1} Self-Knowledge}}
+            child {node {{\bf F.4} Alignement with Standards}}
+            child {node {{\bf F.3} Self-Knowledge}}
+            child {node {{\bf F.2} Metrics}}
+            child {node {{\bf F.1} Design Strategy}};
  \end{tikzpicture}
 \end{center}
 \end{scriptsize}
 
+\subsubsection{Design Strategy}
 
-How much knowledge is available? Which content? How big is the knowledge base?
+Ontology engineering has grown into a research field of its own\fxwarning{Give
+some idea about it? wikipedia?}.
+
+Two main approaches are common in the cognitive robotic community:
+\emph{top-down} design and \emph{bottom-up}.
+
+Several strategies ... Designing, implementing and feeding an ontological model of the beliefs of the robot
 
 \begin{itemize}
-	\item  Which underlying knowledge (\emph{common-sense}, \emph{upper knowledge}\ldots{})
-	\begin{itemize}
-		\item  top-down approach?
-	\end{itemize}
-
+    \item Dynamic, run-time instantiation
+    \item Static, a priori knowledge
+    \item Fetch from external resources (TBox and/or ABox)
 \end{itemize}
+
+\subsubsection{Metrics}
+
+Qualitative and quantitative metrics give an oversight of the size and
+expressive complexity of ontologies.
+
+Table~\ref{table|upper_onto_metrics} gives such metrics for four major
+upper-ontologies commonly used in the semantic Web community.
+
+\fxwarning{Add metrics for SUMO, OpenCyc, ResearchCyc}
+
+\begin{table}
+\begin{center}
+
+\begin{tabular}{llllll}
+\toprule
+{\bf Project} & {\bf Expressiveness} & {\bf Axioms} & {\bf Classes} & {\bf Properties} & {\bf Instances} \\
+\midrule
+OpenCyc \\
+ResearchCyc \\
+SUMO \\
+DBPedia \\
+\bottomrule
+
+\end{tabular}
+\end{center}
+\caption{Selection of metrics for the major upper-ontologies.}
+\label{table|upper_onto_metrics}
+\end{table}
+
+
 
 \subsubsection{Self-Knowledge}
 
@@ -1358,7 +1396,7 @@ For a robot to have at its disposal self-knowledge is closely link to the
 introspective capability that we have previously mentioned
 (section~\ref{sect|introspection})
 
-\subsubsection{Alignment with Standard Upper-Ontologies}
+\subsubsection{Alignment with Standard Upper-ontologies}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Surveyed systems}
