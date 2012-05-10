@@ -1310,12 +1310,12 @@ humans, building repeatable experiments is challenging.
 Cognitive architectures and KRS in particular are consequently often
 benchmarked with synthetic datasets (which leads to other issues: how to assess
 the meaningfulness of the performance of a reasoner on an artificial
-ontology?~\cite{Bail2010}) or \emph{toy} experiments~\cite{Chong2009} that do
+ontology?~\cite{Bail2010}) or toy experiments~\cite{Chong2009} that do
 not reflect real-world complexity.
 
 While evaluating the performances of knowledge representation systems
 themselves may be difficult, the cognitive performances of the robot as a whole
-can be aptly evaluated through ``classical'' tests from the psychology (like
+can be also evaluated through ``classical'' tests from the psychology (like
 False-Belief experiments~\cite{Leslie2000} or the Token
 test~\cite{DiSimoni1978}).
 
@@ -1838,6 +1838,27 @@ the system does not consider this domain.}
 \end{itemize}
 
 \subsection{Current shortcomings: what is not successfully covered by current systems}
+
+\subsubsection{Assessing performances}
+
+The systems we have presented share the property to have real implementations
+on real, physical robots. This simple fact allows to first assert that these
+tools are at least viable solutions to the question: how to endow a (real)
+robot with explicit knowledge manipulation capabilities?
+
+From a theoritical point of view, this work hopefully brings elements of
+comparison and evaluation of the existing systems.
+
+However, this do not suffice to assess and comment the suitability of such
+systems to real-world tasks. As hinted in section~\ref{sect|performances}, we
+think that first, the practical evaluation of knowledge representation systems
+for robots can not take place in isolation (links with perceptual and
+decisional layers are too important), then we should evaluate the robot
+behaviour at the scale of the whole system, basing experiments on established
+protocols, borrowed from other disciplines from cognitive sciences. We have
+already mentioned classical experiments like False-Beliefs in psychology or the
+Token test in linguistic. A systematic review of standard cognitive tests
+applicable to service robots is still to be made.
 
 \subsection{Towards a new design}
 
