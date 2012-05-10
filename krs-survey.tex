@@ -1138,6 +1138,53 @@ different natures, like in the example above) merging will require
 symbolic-level reasoning. The KRS has a direct impact on the feasibility and
 ease of such operations.
 
+Let review shortly the three sub-categories of knowledge acquisition.
+
+\begin{scriptsize}
+\begin{center}
+\begin{tikzpicture}[grow=right, sibling distance=5mm, level distance = 3cm]
+    \node {\bf D.1 Acquisition and fusion}
+            child {node {{\bf D.1.3} Linked Resources}}
+            child {node {{\bf D.1.2} Interaction}}
+            child {node {{\bf D.1.1} Sensing}};
+\end{tikzpicture}
+\end{center}
+\end{scriptsize}
+
+\paragraph{Sensing}
+
+\paragraph{Interaction}
+
+\paragraph{Linked Knowledge Resources}
+
+Robots, and in particular service robots, can access (with sometimes some
+security-related constraints) the World Wide Web and remote knowledge stores.
+
+The current shift towards the Semantic Web (\ie structured, annotated data that
+are easily machine-processable) makes increasingly easy to have robots to reuse
+autonomously this knowledge. The DBPedia project, for instance, illustrates
+well the tendency: it provides an automatically generated RDF version of the
+Wikipedia encyclopedia.
+
+In its current state, the relevance of the DBPedia project in our context is
+however limited: the triples that are extracted are mostly ``mechanical'' (like
+the categories of a term, or factual informations extracted from Wikipedia's
+InfoBox), and the vast majority of the knowledge actually contained in the
+encyclopedia pages remains out of reach of automated parsers. Efforts like {\sc
+ReVerb}~\cite{Fader2011} work however at automatic extraction of triples by
+examining subject-verb-object relations in plain text.
+
+Another notable project that seeks at providing large amount of
+machine-friendly common-sense knowledge is the MIT's OpenMind
+project~\cite{Singh2002}. The project is designed to let the general public
+easily add common-sense statements in semi-controlled natural language, that is
+then processed to a publicly available ontology.
+
+An other approach that is easier at short-term to let robots remotely access
+knowledge repositories consists is building robot-specific shared repositories,
+with declarative and/or procedural (\ie, plan library) knowledge. The
+RoboEarth~\cite{Waibel2011} project is an example of such an effort.
+
 \subsubsection{Grounding/anchoring strategies}
 \label{sect|grounding}
 
