@@ -1065,10 +1065,45 @@ performed starting in some initial state.
 in case of failure to provide possible explanation. This can be seen as the
 temporal reverse of the projection task.
 
-\subsubsection{Planning}
+\subsubsection{Task Planning}
 \label{sect|planning}
 
 Making decision based on prediction
+
+Symbolic task planning is the ability for a robot to select a sequence of
+actions in order to reach a given final state. This capability is closely
+related to the previously mentioned projection and legality tasks: for a robot
+to plan, it must be able to build hypothetical states of the world that would
+follow from the successive application of actions (prediction task), and at
+each step, select possible, legal actions based on their pre-conditions
+(legality task). As already mentioned, these tasks are highly non-monotonic.
+
+
+Symbolic task planning in general is a large research
+field\cite{Russell2009planning}. The so-called Classical Planning Problem,
+first, is characterised by a unique known initial state, durationless
+deterministic actions which can be taken only one at a time, and a single
+agent. STRIPS and PDDL are amongst the commonly used languages for representing
+such planning problems.
+
+Planning with nondeterministic durationless actions with probabilities can be
+represented as discrete-time \emph{Markov decision processes} (MDP), and when
+full observability is replaced by partial observability, we deal with
+\emph{partially observable Markov decision process} (POMDP).
+
+\emph{Hierarchical Task Networks} (HTN) are another common formalism for
+planning problems, where an initial set of tasks (\emph{High Level Tasks}, HLA)
+is decomposed into either primitive actions or a new set of subtasks.
+
+From the observation that the core reasoning techniques (back and forward
+chaining) are shared between planners and reasoners used in knowledge
+representation systems, task planning can be considered within the KRS.
+
+It is however common to rely on external components dedicated to symbolic task
+planning (in particular because of the non-monotonicity requirements) with a
+tight link to the KRS for domain retreival and/or resulting plan storage.
+
+%An extensive report on task modeling in OWL ontologies in appendix
 
 \subsubsection{Physics-based reasoning}
 \label{sect|physics}
