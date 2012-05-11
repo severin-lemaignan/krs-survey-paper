@@ -1145,23 +1145,22 @@ that carries the geometries and physical properties of objects.
 \subsubsection{Knowledge acquisition and modalities fusion}
 \label{sect|knowledge-acquisition}
 
-In the survey inclusion criteria, we have insisted on only considering robotic
-systems that acquire knowledge by themselves, during their runtime.
+In the survey inclusion criteria, we have chosen to only consider robotic
+systems that acquire knowledge by themselves, at runtime.
 
-\emph{Acquiring knowledge} means in our context building new statements
-(usually as new logical facts) connected to our existing knowledge from
-external sources of information. We consider mainly three of them:
-proprioceptive/exteroceptive sensors, interaction with other agents, humans or
-robots, and remote databases. This process has generally at least two steps:
-the information acquisition by itself, and the \emph{transformation} of the
-information into knowledge, \emph{aligned} with the robot existing model
-(following our terminology for information and knowledge, as discussed in the
-introduction).
+In our context, \emph{acquiring knowledge} means to build new logical
+statements from data sources and to anchor them into the existing knowledge. We
+consider three possible sources of data: proprioceptive/exteroceptive sensing,
+interaction with other agents, humans or robots, and remote knowledge bases.
+The acquisition process has generally two steps: the information acquisition by
+itself, and the \emph{transformation} of the information into knowledge,
+\emph{aligned} with the robot existing model (following our terminology for
+information and knowledge, as discussed in the introduction).
 
-Knowledge acquisition is generally not done directly in the knowledge
-representation system. On the contrary, several, if not numerous, external
-components are usually required to convert percepts into symbolic facts and to
-ground them.
+It must be observed that knowledge acquisition is generally not done directly
+in the knowledge representation system. External components (often aggregated
+into knowledge acquisition \emph{pipelines}) are usually required to convert
+percepts into symbolic facts and to ground them.
 
 While we do not review in this article all these systems, the whole process of
 knowledge acquisition is central in cognitive robotic architecture and the
@@ -1192,7 +1191,77 @@ Let review shortly the three sub-categories of knowledge acquisition.
 
 \paragraph{Sensing}
 
+From the point of view of knowledge representation, the sensing capability can
+be split into proprioceptive sensing (\ie, sensing of the robot own internal
+state) and exteroceptive sensing (sensing of the robot environment). The
+(physical) introspection capabilities of the robot relies on the former.
+
+\fxwarning{What to say here?}
+
 \paragraph{Interaction}
+
+Interaction with other intelligent agents (humans or robots) is another
+important source of knowledge acquisition. It relies obviously on some form of
+sensing (from speech recognition to gesture recognition) but we distinguish it
+from the previous section because \emph{interaction} implies a form of
+communication. Communication is associated to specific functions
+(figure~\ref{fig|communication-model}), and in particular, it implies a shared
+\emph{context} (usually implicit) between interactors.
+
+\begin{figure}
+    \centering
+    \includegraphics[width=0.8\columnwidth]{jakobson_communication_model.pdf}
+
+    \caption{The Jakobson~\ref{Jakobson1960} communication model. In italics,
+    the associated \emph{communication functions}.}
+
+    \label{fig|communication-model}
+\end{figure}
+
+We distinguish between two main interaction channels: verbal and deictic.
+
+\begin{scriptsize}
+\begin{center}
+\begin{tikzpicture}[taxonomy]
+    \node [taxon] {\bf D.1.2 Interaction}
+            child {node [taxon] {{\bf D.1.2.2} Deictic Interaction}}
+            child {node [taxon] {{\bf D.1.2.1} Verbal Interaction}};
+\end{tikzpicture}
+\end{center}
+\end{scriptsize}
+
+\label{sect|nlp}
+
+The field of verbal interaction processing for robots spans from pattern-based,
+constrainted sentences recognition to natural, bidirectional, unconstrained
+verbal communication. Kruijff et al. provides in~\cite{Kruijff2010} an
+up-to-date survey of literature on situated human-robot dialogue, focusing on
+formal representation systems, bi-directionality of the interaction and context
+building.
+
+Natural Language Processing (NLP) is a large research field by itself, and
+while the robotic community may be lagging behind on many theoretical aspects,
+it brings one important aspect: the embodiment. Because the interactors, both
+the robot and the human, are establishing a communication within a shared
+physical context, the verbal communication channel is complemented by deictic
+channels, back channels and possibly shared physical experiences: a human can
+show something to a robot, saying ``Give me this''. This is simply not possible
+for a virtual agent.
+
+Several of the knowledge representation systems we present have developed
+specific built-in mechanisms or extensions to parse, ground and possibly
+rebuild natural language.
+
+Deictic (used in the literal meaning of ``display, demonstration, reference'')
+interaction is also an established field of research in human-robot
+interaction. Common deictic forms of communication include attentional focus
+(via face and gaze tracking) and joint attention, pointing, emotional
+expressions (based on face expressions, postures, emotional gestures).
+
+Like other knowledge acquisition modalities, the recognition and interpretation
+of deictic communication is rarely directly included in a KRS, but, as
+previously mentioned, the symbolic representation of such communication acts is
+relevant and important to achieve successful multi-modal interactions.
 
 \paragraph{Linked Knowledge Resources}
 
@@ -1335,31 +1404,6 @@ architectures, to event-driven models (SHARY and ORO~\cite{Alami2011}). Choices
 at this level have notable consequences on the whole design of the upper
 control architecture of the robot, in particular regarding its modularity and
 the ease of addition of new components.
-
-\subsubsection{Language Processing}
-\label{sect|nlp}
-
-The scope of this survey is service robotic, which suggest human-robot
-interaction. While numerous modalities of communication between humans and
-robots do exist and have been extensively studied, the most challenging of
-these interactions is natural, bidirectional, unconstrained verbal
-communication. Kruijff et al. provides in~\cite{Kruijff2010} an up-to-date
-survey of literature on situated human-robot dialogue, focusing on formal
-representation systems, bi-directionality of the interaction and context
-building.
-
-Natural Language Processing (NLP) is a large research field by itself, and
-while the robotic community may be lagging behind on many theoretical aspects,
-it brings one important aspect: the embodiment. Because the interactors, both
-the robot and the human, are establishing a communication within a shared
-physical context, the verbal communication channel is complemented by deictic
-channels, back channels and possibly shared physical experiences: a human can
-show something to a robot, saying ``Give me this''. This is simply not possible
-for a virtual agent.
-
-Several of the knowledge representation systems we present have developed
-specific built-in mechanisms or extensions to parse, ground and possibly
-rebuild natural language.
 
 \subsubsection{Monitoring and debugging}
 \label{sect|debugging}
