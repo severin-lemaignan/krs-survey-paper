@@ -979,6 +979,27 @@ of the TBox.
 \subsubsection{Lazy evaluation}
 \label{sect|lazy-evaluation}
 
+\emph{Lazy evaluation} describes the ability for a KRS to delay active
+knowledge acquisition or resoning operations until the value is actually
+needed.
+
+For instance, a system that computes the symbolic relative placement of two
+objects only when this fact is required to answer a query would be said to
+adopt a lazy evaluation strategy, whereas a system that computes {\it a priori}
+such relations (and by consequence, carries out such computation for possibly
+all known objects) would be said to use a \emph{strict evaluation} policy.
+
+Lazy evaluation has an immediate impact on efficiency and scalability of the
+system, and some problems may even be only tractable with a lazy evaluation
+strategy (the relative placements of object is an example of combinatory
+explosion in strict evaluation approaches, although this issue is mitigated in
+real use-cases by heuristics that select a subset of objects to evaluate).
+
+One downside is that the knowledge base never contains explicitly the complete
+set of beliefs of the robot. This limits for instance the ability for the robot
+to react to logical conditions that involves fact that are lazily evaluated
+(``trigger a callback when object A is behind object B'' could be an example of
+a event triggered by a logical condition).
 
 \subsubsection{Reasoning with uncertainty}
 
