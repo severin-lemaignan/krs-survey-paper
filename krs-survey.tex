@@ -1379,27 +1379,66 @@ cognitive behaviour of the robot, is useful.
 \subsubsection{Evaluation of performances}
 \label{sect|performances}
 
-Benchmarks of symbolic systems for robots are notoriously hard to conduct for
+
+Benchmarks of symbolic systems for robots are hard to conduct for
 several reasons: identifying good metrics for robotic experiments in general is
 difficult because of the complex interactions between tenth of modules running
-in parallel. Isolating the role of one specific component is thus hard.
-Furthermore, knowledge representation systems are usually tightly connected to
-numerous other modules, and the lack of standard API for knowledge services
-makes it especially hard to switch between KRS to compare them. Also, because
+in parallel, and isolating one specific component is difficult.
+Also, knowledge representation systems are often tightly coupled to
+the other modules, and the lack of standard API for knowledge services
+makes it especially hard to switch between KRS to compare them. Finally, because
 service robots are design to act in rich, dynamic environments, possibly with
 humans, building repeatable experiments is challenging.
 
-Cognitive architectures and KRS in particular are consequently often
-benchmarked with synthetic datasets (which leads to other issues: how to assess
-the meaningfulness of the performance of a reasoner on an artificial
-ontology?~\cite{Bail2010}) or toy experiments~\cite{Chong2009} that do
-not reflect real-world complexity.
+\begin{scriptsize}
+\begin{center}
+\begin{tikzpicture}[grow=right, sibling distance=5mm, level distance = 3.5cm]
+    \node {\bf D.5 Performance Evaluation}
+            child {node {{\bf D.5.2} Cognitive Performances}}
+            child {node {{\bf D.5.1} Raw Performances}};
+ \end{tikzpicture}
+\end{center}
+\end{scriptsize}
 
-While evaluating the performances of knowledge representation systems
-themselves may be difficult, the cognitive performances of the robot as a whole
-can be also evaluated through ``classical'' tests from the psychology (like
-False-Belief experiments~\cite{Leslie2000} or the Token
-test~\cite{DiSimoni1978}).
+
+\paragraph{Raw Performances} The \emph{raw performance} is evaluated on
+quantitative benchmarks. The main metric is the \emph{scalability}
+$\mathcal{S}^{KRS}$ of the system with the size of the knowledge base
+$\sigma=|\Delta^{\mathcal{I}}|$  (in term of atoms or statements).
+
+We call \emph{relaxation time} $\mathcal{R}^{\mathcal{M}}$ the (averaged) time
+required by the system after a model modification of type $\mathcal{M}$ before
+being available for further interaction, and \emph{query time}
+$\mathcal{Q}^{\mathcal{M}'}$ the (averaged) time to execute a query of
+complexity $\mathcal{M}'$ on the KRS. The type $\mathcal{M}$ of model
+alteration is either an ABox modification (addition/removal of an instance) or
+a TBox alteration (addition/removal of a class, a class restriction or a rule).
+Query complexity $\mathcal{M}'$ is...\fxwarning{find references}.
+
+\emph{Temporal scalability} is defined in term of the nature of the function
+$f^{\mathcal{M}, \mathcal{M}'}(\sigma) = \mathcal{R}^{\mathcal{M}}(\sigma) +
+\mathcal{Q}^{\mathcal{M}'}(\sigma)$ (\ie the relation of the relaxation time
+and query time to the knowledge base size). \emph{Space scalability} is the
+relation of memory consumption to the size. The scalability is tightly coupled
+to the expressiveness of the underlying knowledge model, which need to be known
+for the scalability measurement to be meaningful.
+
+Note that robotic applications may have a knowledge base size relatively small
+compared to the complexity of its TBox. In that case the relaxation and query
+times for a constant, average knowledge size $\sigma$ may be more relevant as a
+metric for KRS raw performance.
+
+Because of coupling and repeatability issues we have mentioned, raw
+performances of KRS are often benchmarked with synthetic datasets (which leads
+to issues: how to assess the meaningfulness of the performance of a reasoner on
+an artificial ontology?~\cite{Bail2010}) or toy experiments~\cite{Chong2009}
+that do not always model the whole complexity of real-world application.
+
+\paragraph{Cognitive Performances} While evaluating the raw performances of
+knowledge representation systems in a relevant manner may be difficult, the cognitive
+performances of the robot as a whole can be also evaluated through
+``classical'' tests from the psychology (like False-Belief
+experiments~\cite{Leslie2000} or the Token test~\cite{DiSimoni1978}).
 
 However, the performance evaluation of current tools is mostly qualitative and
 scenario-specific (``did my system do the job for my task?''), and amongst the
