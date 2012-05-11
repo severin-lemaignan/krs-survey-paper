@@ -952,10 +952,29 @@ generic SWRL ({\em Semantic Web Rule Language}) rules like: \par
 
 \subsubsection{Alteration of the knowledge structure}
 
-In systems
+The content of a knowledge base is often conveniently divided into a
+\emph{structural part} that defines the conceptualisation of a domain in term
+of vocabulary and relations within the concepts, and an \emph{instantiation} of
+this structure into concrete entities.
 
-All systems allow to modify the ABox, not always possible to alter the TBox
+The terms TBox and ABox are commonly found to describe this two different types of
+statements in ontologies. TBox statements describe a system in terms of
+controlled vocabularies, for example, a set of classes and properties. ABox are
+TBox-compliant statements about that vocabulary.
 
+All knowledge representation systems allow to modify the ABox, which can be
+considered as the dynamic part of the knowledge base. It is however not always
+possible to alter the TBox because not all reasoning systems can dynamically
+take into account structural changes in the knowledge base.
+
+Example of TBox alteration include modification of the taxonomy (like addition
+or retractation of a \concept{subClassOf} relation), changes to the asserted
+domain or range of a predicate, addition or retractation of rules.
+
+Supporting TBox alteration has notable consequences on the learning
+capabilities of the system: teaching general facts (\ie, facts at the level of
+whole categories) like ``cars go on roads'' to a robot requires an alteration
+of the TBox.
 
 \subsubsection{Lazy evaluation}
 \label{sect|lazy-evaluation}
