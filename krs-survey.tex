@@ -46,6 +46,10 @@
 
 \begin{document}
 
+\tikzstyle {taxonomy} = [grow=right, level distance = 3cm, sibling distance=7mm]
+\tikzstyle {completetaxonomy} = [grow=right]
+\tikzstyle {taxon} = [text width=3cm, text centered,inner sep=0pt, outer sep=2pt] %, draw=blue!50,thick]
+
 \maketitle
 \tableofcontents
 
@@ -497,18 +501,18 @@ As previously mentioned, we propose six main categories.
 
 \begin{scriptsize}
 \begin{center}
-\begin{tikzpicture}[grow=right, level distance = 3cm, level 1/.style={sibling distance=5mm}]
+\begin{tikzpicture}[taxonomy]
     %[edge from parent fork east]
     %every node/.style={fill=black!30,rounded corners},
     %[parent anchor=east,child anchor=west,grow=east,
     %edge from parent/.style={thick,draw}]
-    \node {Dimensions}
-        child {node {{\bf F}. Instantiation}}
-        child {node {{\bf E}. Integration}}
-        child {node {{\bf D}. Acquisition}}
-        child {node {{\bf C}. Reasoning}}
-        child {node {{\bf B}. Representation}}
-        child {node {{\bf A}. Expressiveness}};
+    \node [taxon] {Dimensions}
+        child {node [taxon] {{\bf F}. Instantiation}}
+        child {node [taxon] {{\bf E}. Integration}}
+        child {node [taxon] {{\bf D}. Acquisition}}
+        child {node [taxon] {{\bf C}. Reasoning}}
+        child {node [taxon] {{\bf B}. Representation}}
+        child {node [taxon] {{\bf A}. Expressiveness}};
 \end{tikzpicture}
 \end{center}
 \end{scriptsize}
@@ -518,13 +522,13 @@ As previously mentioned, we propose six main categories.
 
 \begin{scriptsize}
 \begin{center}
-\begin{tikzpicture}[grow=right, sibling distance=5mm, level distance = 3.5cm]
-    \node {\bf A. Expressiveness}
-            child {node {{\bf A.5}. Meta-cognition}}
-            child {node {{\bf A.4}. Uncertainty}}
-            child {node {{\bf A.3}. OWA/CWA}}
-            child {node {{\bf A.2}. Expressive power}}
-            child {node {{\bf A.1}. Logic formalism}};
+\begin{tikzpicture}[taxonomy]
+    \node [taxon] {\bf A. Expressiveness}
+            child {node [taxon] {{\bf A.5}. Meta-cognition}}
+            child {node [taxon] {{\bf A.4}. Uncertainty}}
+            child {node [taxon] {{\bf A.3}. OWA/CWA}}
+            child {node [taxon] {{\bf A.2}. Expressive power}}
+            child {node [taxon] {{\bf A.1}. Logic formalism}};
 \end{tikzpicture}
 \end{center}
 \end{scriptsize}
@@ -726,13 +730,13 @@ introspection in general.
 
 \begin{scriptsize}
 \begin{center}
-\begin{tikzpicture}[grow=right, sibling distance=5mm, level distance = 3cm]
-    \node {\bf B. Representation}
-            child {node {{\bf B.5}. Memory}}
-            child {node {{\bf B.4}. Introspection}}
-            child {node {{\bf B.3}. Possible Worlds}}
-            child {node {{\bf B.2}. Context}}
-            child {node {{\bf B.1}. Roles}};
+\begin{tikzpicture}[taxonomy]
+    \node [taxon] {\bf B. Representation}
+            child {node [taxon] {{\bf B.5}. Memory}}
+            child {node [taxon] {{\bf B.4}. Introspection}}
+            child {node [taxon] {{\bf B.3}. Possible Worlds}}
+            child {node [taxon] {{\bf B.2}. Context}}
+            child {node [taxon] {{\bf B.1}. Roles}};
 \end{tikzpicture}
 \end{center}
 \end{scriptsize}
@@ -860,18 +864,18 @@ human-like memory organization.
 
 \begin{scriptsize}
 \begin{center}
-\begin{tikzpicture}[grow=right, sibling distance=5mm, level distance = 4cm]
-    \node {\bf C. Reasoning}
-            child {node {{\bf C.10}. Learning}}
-            child {node {{\bf C.9}. Naive physics}}
-            child {node {{\bf C.8}. Planning}}
-            child {node {{\bf C.7}. Prediction}}
-            child {node {{\bf C.6}. Presupposition}}
-            child {node {{\bf C.5}. Non-monotonicity}}
-            child {node {{\bf C.4}. Uncertainty}}
-            child {node {{\bf C.3}. Lazy evaluation}}
-            child {node {{\bf C.2}. Structural alteration}}
-            child {node {{\bf C.1}. Standard reasoning}};
+\begin{tikzpicture}[taxonomy]
+    \node [taxon] {\bf C. Reasoning}
+            child {node [taxon] {{\bf C.10}. Learning}}
+            child {node [taxon] {{\bf C.9}. Naive physics}}
+            child {node [taxon] {{\bf C.8}. Planning}}
+            child {node [taxon] {{\bf C.7}. Prediction}}
+            child {node [taxon] {{\bf C.6}. Presupposition}}
+            child {node [taxon] {{\bf C.5}. Non-monotonicity}}
+            child {node [taxon] {{\bf C.4}. Uncertainty}}
+            child {node [taxon] {{\bf C.3}. Lazy evaluation}}
+            child {node [taxon] {{\bf C.2}. Structural alteration}}
+            child {node [taxon] {{\bf C.1}. Standard reasoning}};
 \end{tikzpicture}
 \end{center}
 \end{scriptsize}
@@ -1128,12 +1132,12 @@ that carries the geometries and physical properties of objects.
 
 \begin{scriptsize}
 \begin{center}
-\begin{tikzpicture}[grow=right, sibling distance=5mm, level distance = 3cm]
-    \node {\bf D. Acquisition}
-            child {node {{\bf D.4} Dynamic instantiation}}
-            child {node {{\bf D.3} Motivation}}
-            child {node {{\bf D.2} Grounding}}
-            child {node {{\bf D.1} Acquisition and fusion}};
+\begin{tikzpicture}[taxonomy]
+    \node [taxon] {\bf D. Acquisition}
+            child {node [taxon] {{\bf D.4} Dynamic instantiation}}
+            child {node [taxon] {{\bf D.3} Motivation}}
+            child {node [taxon] {{\bf D.2} Grounding}}
+            child {node [taxon] {{\bf D.1} Acquisition and fusion}};
 \end{tikzpicture}
 \end{center}
 \end{scriptsize}
@@ -1177,11 +1181,11 @@ Let review shortly the three sub-categories of knowledge acquisition.
 
 \begin{scriptsize}
 \begin{center}
-\begin{tikzpicture}[grow=right, sibling distance=5mm, level distance = 3cm]
-    \node {\bf D.1 Acquisition and fusion}
-            child {node {{\bf D.1.3} Linked Resources}}
-            child {node {{\bf D.1.2} Interaction}}
-            child {node {{\bf D.1.1} Sensing}};
+\begin{tikzpicture}[taxonomy]
+    \node [taxon] {\bf D.1 Acquisition and fusion}
+            child {node [taxon] {{\bf D.1.3} Linked Resources}}
+            child {node [taxon] {{\bf D.1.2} Interaction}}
+            child {node [taxon] {{\bf D.1.1} Sensing}};
 \end{tikzpicture}
 \end{center}
 \end{scriptsize}
@@ -1265,13 +1269,12 @@ Ability to automatically create new object instances
 
 \begin{scriptsize}
 \begin{center}
-\begin{tikzpicture}[grow=right, sibling distance=5mm, level distance = 3cm]
-    \node {\bf E. Integration}
-            child {node {{\bf D.5} Performances}}
-            child {node {{\bf D.4} Monitoring}}
-            child {node {{\bf D.3} Natural Language}}
-            child {node {{\bf D.2} Executive layers}}
-            child {node {{\bf D.1} Sensori-motor}};
+\begin{tikzpicture}[taxonomy]
+    \node [taxon] {\bf E. Integration}
+            child {node [taxon] {{\bf D.4} Performances}}
+            child {node [taxon] {{\bf D.3} Monitoring}}
+            child {node [taxon] {{\bf D.2} Executive layers}}
+            child {node [taxon] {{\bf D.1} Sensori-motor}};
 \end{tikzpicture}
 \end{center}
 \end{scriptsize}
@@ -1392,10 +1395,10 @@ humans, building repeatable experiments is challenging.
 
 \begin{scriptsize}
 \begin{center}
-\begin{tikzpicture}[grow=right, sibling distance=5mm, level distance = 3.5cm]
-    \node {\bf D.5 Performance Evaluation}
-            child {node {{\bf D.5.2} Cognitive Performances}}
-            child {node {{\bf D.5.1} Raw Performances}};
+\begin{tikzpicture}[taxonomy]
+    \node [taxon] {\bf D.5 Performance \\Evaluation}
+            child {node [taxon] {{\bf D.5.2} Cognitive Performances}}
+            child {node [taxon] {{\bf D.5.1} Raw Performances}};
  \end{tikzpicture}
 \end{center}
 \end{scriptsize}
@@ -1450,12 +1453,12 @@ that could be compared to other system.
 
 \begin{scriptsize}
 \begin{center}
-\begin{tikzpicture}[grow=right, sibling distance=5mm, level distance = 3.5cm]
-    \node {\bf F. Knowledge instantiation}
-            child {node {{\bf F.4} Alignement with Standards}}
-            child {node {{\bf F.3} Self-Knowledge}}
-            child {node {{\bf F.2} Metrics}}
-            child {node {{\bf F.1} Design Strategy}};
+\begin{tikzpicture}[taxonomy]
+    \node [taxon] {\bf F. Knowledge instantiation}
+            child {node [taxon] {{\bf F.4} Alignement with Standards}}
+            child {node [taxon] {{\bf F.3} Self-Knowledge}}
+            child {node [taxon] {{\bf F.2} Metrics}}
+            child {node [taxon] {{\bf F.1} Design Strategy}};
  \end{tikzpicture}
 \end{center}
 \end{scriptsize}
