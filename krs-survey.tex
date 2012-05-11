@@ -1304,6 +1304,7 @@ previously mentioned, the symbolic representation of such communication acts is
 relevant and important to achieve successful multi-modal interactions.
 
 \paragraph{Linked Knowledge Resources}
+\label{sect|lod}
 
 Robots, and in particular service robots, can access (with sometimes some
 security-related constraints) the World Wide Web and remote knowledge stores.
@@ -1539,33 +1540,66 @@ that could be compared to other system.
 \begin{center}
 \begin{tikzpicture}[taxonomy]
     \node [taxon] {\bf F. Knowledge instantiation}
-            child {node [taxon] {{\bf F.4} Alignement with Standards}}
-            child {node [taxon] {{\bf F.3} Self-Knowledge}}
-            child {node [taxon] {{\bf F.2} Metrics}}
+            child {node [taxon] {{\bf F.5} Self-Knowledge}}
+            child {node [taxon] {{\bf F.4} Metrics}}
+            child {node [taxon] {{\bf F.3} Granularity}}
+            child {node [taxon] {{\bf F.2} Common-sense and Alignement}}
             child {node [taxon] {{\bf F.1} Design Strategy}};
  \end{tikzpicture}
 \end{center}
 \end{scriptsize}
 
+This last branch of our taxonomy looks at the actual \emph{content} of the
+knowledge base: the knowledge instantiation. Here, \emph{instantiation} does
+not only refer to the instantiation of the knowledge structure (what we have
+called the ABox), but also includes the knowledge structure itself (the TBox).
+
+While we have previously mentioned features of knowledge representation system
+that enable the robot to fill its knowledge base with content and alter the
+knowledge structure, most of the systems also come with a certain amount of
+initial knowledge that often includes \emph{common-sense} knowledge (\ie facts
+that widely known to humans, and hence often implicit: ``to put a cake in the
+oven, one must first open the oven's door'').
+
+The design strategy, the choice to rely on common-sense knowledge or not, the
+reuse of standard ontologies, the quantity of {\it a priori} knowledge are many
+parameters that lead to different knowledge models.
+
 \subsubsection{Design Strategy}
 
-Ontology engineering has grown into a research field of its own\fxwarning{Give
-some idea about it? wikipedia?}.
+Ontology engineering has grown into a research field of its own, covering
+formalized methodologies for ontology creation, reuse, modularisation, etc.
+
+The creation
 
 Two main approaches are common in the cognitive robotic community:
 \emph{top-down} design and \emph{bottom-up}.
 
-Several strategies ... Designing, implementing and feeding an ontological model of the beliefs of the robot
+\subsubsection{Common-sense and alignment with Standard Upper-ontologies}
 
-\begin{itemize}
-    \item Dynamic, run-time instantiation
-    \item Static, a priori knowledge
-    \item Fetch from external resources (TBox and/or ABox)
-\end{itemize}
+At section~\ref{sect|lod} we have presented how remote knowledge bases are a
+valuable source of knowledge, including common-sense knowledge, that robot can
+extract.
+
+\subsubsection{Granularity}
+
+The knowledge \emph{granularity} qualifies the level of details or refinement
+of the knowledge stored.
+
+...
+
+The storage of literal values is a particular case: while knowledge
+representation systems have been considered until now mostly as symbolic
+systems, they can often represent literal values (in particular, numerical
+values) as well.
+
+Depending on the representation language, literal values can be naturally
+represented and processed (common case in logic programming language) or not
+(storing numerical value, let alone matrices, in OWL is cumbersome).
 
 \subsubsection{Metrics}
 
-Qualitative and quantitative metrics give an oversight of the size and
+Qualitative and quantitative metrics give an insight on the size and
 expressive complexity of ontologies.
 
 Table~\ref{table|upper_onto_metrics} gives such metrics for four major
@@ -1605,7 +1639,6 @@ For a robot to have at its disposal self-knowledge is closely link to the
 introspective capability that we have previously mentioned
 (section~\ref{sect|introspection})
 
-\subsubsection{Alignment with Standard Upper-ontologies}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Surveyed systems}
