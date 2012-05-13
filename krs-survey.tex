@@ -754,7 +754,7 @@ cognitive capabilities (theory of mind, introspection, memory).
     \node [taxon] {\bf B. Representation}
             child {node [taxon] {{\bf B.5}. Memory}}
             child {node [taxon] {{\bf B.4}. Introspection}}
-            child {node [taxon] {{\bf B.3}. Possible Worlds}}
+            child {node [taxon] {{\bf B.3}. Modality}}
             child {node [taxon] {{\bf B.2}. Context}}
             child {node [taxon] {{\bf B.1}. Roles}};
 \end{tikzpicture}
@@ -918,16 +918,31 @@ interpretation of the information. It covers the \emph{domain of validity} of
 the facts, the \emph{common-sense} knowledge required to fill the gaps in the
 representation\fxfatal{give an example}, \fxfatal{What more?}.
 
-\subsubsection{Possible-Worlds and representing what others know}
+\subsubsection{Modality, Contingency and Theory of Mind}
 \label{sect|possible-worlds}
 
-    
 Linked to the context representation, but seen from another angle, knowledge
-representation systems may provide explicit ways to model other point of view
+representation systems may support logical \emph{modality}. A knowledge model
+is logically modal if is support the concept of \emph{possible worlds}, \ie,
+parallel beliefs models (or \emph{interpretations}) that can be independently
+accessed.
+
+A \emph{contingent} proposition is defined as neither always true (a tautology)
+nor always false (a contradiction) in every possible world. In knowledge
+representation systems for robotics that support logical modality,
+interpretations are often initialised with a common set of initial beliefs
+(like common-sense knowledge). This initial common knowledge is hence true in
+every possible worlds for the robot, and thus does not belong to the contingent
+knowledge.
+
+Alternative mental models may be used to represent different (possibly
+hypothetical or even imaginary) views on the world, from the robot own
+perspective, or from persepectives of other agents, as computed by the robot.
+
+provide explicit ways to model other point of view
 on the world. This ability is often referred as the \emph{perspective taking}
 ability.
 
-\cite{Levesque2008}, p. 4
 
 \subsubsection{Introspection: Who am I? What can I do?}
 \label{sect|introspection}
@@ -1295,7 +1310,7 @@ Since McCarthy's \emph{Situation Calculus} in 1963, numerous knowledge
 representation formalisms dedicated to representation and reasoning about
 actions and situation have emerged: besides situation calculs, \emph{fluent
 calculus} and \emph{event calculus} are the main ones.
-Thielscher~\cite{Thielscher2011}} recently proposed a unification of these
+Thielscher~\cite{Thielscher2011} recently proposed a unification of these
 approach in a new \emph{action calculus}.
 
 
