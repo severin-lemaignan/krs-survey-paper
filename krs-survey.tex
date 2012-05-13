@@ -831,11 +831,20 @@ timestamps to events the robot perceives -- and in the future), and
 representing \emph{passing time} (situations, durations, timespans) like in
 \emph{``the eggs will be cooked in 10 min''}.
 
-We call \emph{situations} all temporal concepts with a non-zero duration,
-whereas \emph{events} are durationless temporal concepts.
+This introduces the disjunction in time representation between
+\emph{situations}, that is, any temporal concept with a non-zero duration, and
+\emph{events}, that is, any durationless temporal concept.
+
+Other definitions of a situation do exist, notably in the context of
+\emph{situation calculus}~\cite{Levesque1998}, Reiter and Levesque consider a
+situation to be an history of actions.
 
 \fxfatal{Discuss time chronicles~\cite{Ghallab1996}}
 \fxfatal{Discuss Allen intervals}
+
+The concept of \emph{fluent} plays another important role for time
+representation. Fluents are properties (or \emph{conditions}) that change over
+time, like $sees(agent1, apple, t)$.
 
 We call a system that does not account for time (\ie that permanently lives in
 present) \emph{atemporal}.
@@ -846,11 +855,12 @@ present) \emph{atemporal}.
 Events and actions are two temporal concepts that are of particular importance to
 robotic systems, as systems that perceive, react and perform in their environment.
 
-While representation of events \fxwarning{revient à} to label a timestamp,
+While representation of events boils down to label a timestamp,
 representation of actions are more complex since they semantically imply
 interactions between concepts. From a taxonomy point of view, actions are a
 particular type of event that normaly leads to a situation corresponding to the
 action realization.
+
 
 \emph{Thematic roles}~\cite{Gruber1965} (also found as \emph{semantic roles} or
 \emph{theta roles} in the literature) allow to semantically qualify the
@@ -1240,8 +1250,6 @@ temporal reverse of the projection task.
 \subsubsection{Task Planning}
 \label{sect|planning}
 
-Making decision based on prediction
-
 Symbolic task planning is the ability for a robot to select a sequence of
 actions in order to reach a given final state. This capability is closely
 related to the previously mentioned projection and legality tasks: for a robot
@@ -1270,6 +1278,14 @@ is decomposed into either primitive actions or a new set of subtasks.
 From the observation that the core reasoning techniques (back and forward
 chaining) are shared between planners and reasoners used in knowledge
 representation systems, task planning can be considered within the KRS.
+
+Since McCarthy's \emph{Situation Calculus} in 1963, numerous knowledge
+representation formalisms dedicated to representation and reasoning about
+actions and situation have emerged: besides situation calculs, \emph{fluent
+calculus} and \emph{event calculus} are the main ones.
+Thielscher~\cite{Thielscher2011}} recently proposed a unification of these
+approach in a new \emph{action calculus}.
+
 
 It is however common to rely on external components dedicated to symbolic task
 planning (in particular because of the non-monotonicity requirements) with a
