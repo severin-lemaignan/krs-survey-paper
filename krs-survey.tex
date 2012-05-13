@@ -906,6 +906,9 @@ about them, as presented in section~\ref{sect|planning}).
 
 %An extensive report on task modeling in OWL ontologies in appendix
 
+
+
+
 \subsubsection{Context modeling}
 
 \emph{Knowledge is contextualized information}\fxfatal{Find someone respectable
@@ -1012,7 +1015,7 @@ human-like memory organization.
             child {node [taxon] {{\bf C.5}. Non-monotonicity}}
             child {node [taxon] {{\bf C.4}. Uncertainty}}
             child {node [taxon] {{\bf C.3}. Lazy evaluation}}
-            child {node [taxon] {{\bf C.2}. Structural alteration}}
+            child {node [taxon] {{\bf C.2}. Instantiation and structural alteration}}
             child {node [taxon] {{\bf C.1}. Standard reasoning}};
 \end{tikzpicture}
 \end{center}
@@ -1088,7 +1091,7 @@ generic SWRL ({\em Semantic Web Rule Language}) rules like: \par
         \normalsize 
 
 
-\subsubsection{Alteration of the knowledge structure}
+\subsubsection{Dynamic Instantiation and Alteration of the Knowledge Structure}
 
 The content of a knowledge base is often conveniently divided into a
 \emph{structural part} that defines the conceptualisation of a domain in term
@@ -1096,14 +1099,23 @@ of vocabulary and relations within the concepts, and an \emph{instantiation} of
 this structure into concrete entities.
 
 The terms TBox and ABox are commonly found to describe this two different types of
-statements in ontologies. TBox statements describe a system in terms of
+statements in ontologies: TBox statements describe a system in terms of
 controlled vocabularies, for example, a set of classes and properties. ABox are
 TBox-compliant statements about that vocabulary.
 
-All knowledge representation systems allow to modify the ABox, which can be
-considered as the dynamic part of the knowledge base. It is however not always
-possible to alter the TBox because not all reasoning systems can dynamically
-take into account structural changes in the knowledge base.
+Most knowledge representation systems allow to modify the ABox, which can be
+considered as the dynamic part of the knowledge base. Alteration of the ABox
+include the addition or retractation of relations between existing instances,
+and the addition or removal of instances. We call the later \emph{dynamic
+instantiation}: the capability for a system to create new instances at
+run-time. The term dynamic instantion applies primarily to concrete entities
+(typically, a new object is discovered by the robot, a symbolic instance is
+created for it), but may also apply to abstract entities (like an instance of
+action, of a feeling, etc.).
+
+KRS may also allow to alter the TBox. This requires the underlying reasoning
+systems to be able to dynamically take into account structural changes in the
+knowledge base.
 
 Example of TBox alteration include modification of the taxonomy (like addition
 or retractation of a \concept{subClassOf} relation), changes to the asserted
@@ -1318,7 +1330,6 @@ that carries the geometries and physical properties of objects.
 \begin{center}
 \begin{tikzpicture}[taxonomy]
     \node [taxon] {\bf D. Acquisition}
-            child {node [taxon] {{\bf D.4} Dynamic instantiation}}
             child {node [taxon] {{\bf D.3} Motivation}}
             child {node [taxon] {{\bf D.2} Grounding}}
             child {node [taxon] {{\bf D.1} Acquisition and fusion}};
@@ -1513,9 +1524,6 @@ Varadarajan2011}.
 \cite{Oudeyer2007} -> page 2 gives a detailled account of psychological grounds.
 Curiosity, Pro-active behaviour...
 
-\subsubsection{Dynamic instantiation}
-\label{sect|new-instances}
-Ability to automatically create new object instances
 
 %%%%%%%%%%%%%%%%%
 \subsection{Practical Integration in Robotic Architectures}
