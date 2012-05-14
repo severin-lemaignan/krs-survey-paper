@@ -4,6 +4,7 @@
 
 \usepackage{hyperref}
 \usepackage{graphicx}
+\usepackage{subfigure}
 
 % typology diagrams
 \usepackage{tikz}
@@ -954,19 +955,44 @@ The idea of a \emph{theory of mind}~\cite{Premack1978} emerges from the
 perspective taking ability. It can be defined as the ability for one to
 understand and acknowledge that other intelligent agents can have their own
 mental state (that includes beliefs, intents, desires, knowledge) that is
-possibly different from one's own.
+possibly different from one's own. The \emph{attention} plays a central to the
+development and recognition of a theory of mind~\cite{Baron-Cohen1985,
+Leslie2000}.
+
+A notable consequence of having a theory of mind is the representation of
+\emph{false beliefs}, \ie, facts that are believed to be true for an agent, but
+false for other ones. The ``Sally and Ann'' experiment
+(figure~\ref{fig|sally-ann}) is a classical example of a false belief
+situation. In~\ref{fig|sally-ann-final}, Sally thinks the ball is in the beige
+box because she did not see Ann moving it. An external observer asked ``Where
+will Sally look for the ball?'' would answer ``in the blue box'' without a
+theory of mind (\ie, a model of the knowledge of Sally), whereas it would
+correctly answer ``In the beige box'' with a theory of mind.
 
 \begin{figure}
         \centering
-        \includegraphics[width=0.9\columnwidth]{sally_ann.pdf}
-        \caption{The standard ``Sally and Ann'' false-beliefs experiment, taken from~\cite{Leslie2000}.}
+        \subfigure[Sally puts the ball in the beige box.]{
+            \includegraphics[scale=0.3]{sally_ann1.pdf}
+        } \hspace{8pt} %
+        \subfigure[She goes away.]{
+            \includegraphics[scale=0.3]{sally_ann2.pdf}
+        } \\
+        \subfigure[Ann moves the ball.]{
+            \includegraphics[scale=0.3]{sally_ann3.pdf}
+        } \hspace{8pt} %
+        \subfigure[Where will Sally look for the ball?]{
+            \includegraphics[scale=0.3]{sally_ann4.pdf}
+            \label{fig|sally-ann-final}
+        }
+        \caption{The standard ``Sally and Ann'' false-beliefs experiment, taken
+        from~\cite{Leslie2000}.}
+
         \label{fig|sally-ann}
 \end{figure}
 
-Perceiving and understanding other's \emph{attention} has been identified as
-essential to the development of a theory of mind by
-Baron-Cohen~\cite{Baron-Cohen1985, Leslie2000}. In
-robotics~\cite{Scassellati2002}
+Scassellati~\cite{Scassellati2002} is amongst the researcher having studied
+theory of mind for robots.
+
 
 
 \subsubsection{Introspection: Who am I? What can I do?}
