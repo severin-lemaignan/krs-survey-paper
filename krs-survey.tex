@@ -932,16 +932,41 @@ nor always false (a contradiction) in every possible world. In knowledge
 representation systems for robotics that support logical modality,
 interpretations are often initialised with a common set of initial beliefs
 (like common-sense knowledge). This initial common knowledge is hence true in
-every possible worlds for the robot, and thus does not belong to the contingent
+every possible worlds for the robot, and thus does not belong to its contingent
 knowledge.
 
-Alternative mental models may be used to represent different (possibly
-hypothetical or even imaginary) views on the world, from the robot own
-perspective, or from persepectives of other agents, as computed by the robot.
+Logical modality allows to implement alternative mental models. They may be
+used to represent different (possibly hypothetical or even imaginary) views on
+the world, from the robot own perspective, or from other persepectives computed
+by the robot.
 
-provide explicit ways to model other point of view
-on the world. This ability is often referred as the \emph{perspective taking}
-ability.
+The representation of the mental perspective of other agents has a particular
+importance in human-robot interaction. It relies first on the ability to view
+the world from a standpoint which is not \emph{egocentric}. This cognitive
+ability is referred as \emph{perspective taking} (see
+Flavell~\cite{Flavell1992} and Tversky~\cite{Tversky1999} for the psychological
+grounds of perspective taking, itself originated in Piaget's work on cognitive
+development, as remembered by Flavell), and has been studied by
+infants~\cite{Moll2006} and robots as well~\cite{Trafton2005, Breazeal2006,
+Ros2010}.
+
+The idea of a \emph{theory of mind}~\cite{Premack1978} emerges from the
+perspective taking ability. It can be defined as the ability for one to
+understand and acknowledge that other intelligent agents can have their own
+mental state (that includes beliefs, intents, desires, knowledge) that is
+possibly different from one's own.
+
+\begin{figure}
+        \centering
+        \includegraphics[width=0.9\columnwidth]{sally_ann.pdf}
+        \caption{The standard ``Sally and Ann'' false-beliefs experiment, taken from~\cite{Leslie2000}.}
+        \label{fig|sally-ann}
+\end{figure}
+
+Perceiving and understanding other's \emph{attention} has been identified as
+essential to the development of a theory of mind by
+Baron-Cohen~\cite{Baron-Cohen1985, Leslie2000}. In
+robotics~\cite{Scassellati2002}
 
 
 \subsubsection{Introspection: Who am I? What can I do?}
