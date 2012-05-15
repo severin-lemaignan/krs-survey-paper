@@ -1975,8 +1975,71 @@ for systems that are explicit knowledge representation and reasoning modules,
 \subsection{KnowRob}
 \label{sect|knowrob}
 
+
+{\sc KnowRob}~\cite{Tenorth2009a} is an integrated knowledge management system
+developed at the Technical University of Munich. It is build as a set of
+modules (figure~\ref{fig|knowrob} organized around a core reasoning system
+written in Prolog. The core component interfaces through Java/Prolog or
+C/Prolog APIs with external modules.
+
+{\sc KnowRob} offers a mechanism called \emph{computables} that allow to
+evaluate certain predicates by calling external dedicated functions (for
+instance, the valuation of a proposition like \stmt{object1 isOn object2} is
+computed when required by calling a specific geometric reasonning module).
+
+\begin{figure}
+    \centering
+    \includegraphics[scale=0.36]{knowrob.pdf}
+
+    \caption{Overview of the {\sc KnowRob} framework, taken
+    from~\cite{Tenorth2011}.}
+
+    \label{fig|knowrob}
+\end{figure}
+
+
+Extension modules plug into the system and provide specialized reasoning
+capabilities or interfaces to external data, \eg to read object detections from
+the vision system. These modules mainly operate on the level of instances
+(ABox).
+
+\paragraph{Knowledge model} {\sc KnowRob} can load OWL ontologies, and the
+\emph{KnowRob-Base} ontology is provided as a common-sense ontology, with a
+focus on household and kitchen domains. {\sc KnowRob} also store and reason on
+introspective knowledge through the \emph{Semantic Robot Description
+Language}~\cite{Kunze2011} that allow to represent symbolically the
+capabilities of the robot, and is used for planning.
+
+
+\paragraph{Reasoning Techniques} Amongst the notable {\sc KnowRob} extensions,
+{\sc ProbCog}~\cite{Jain2009} is an effort to provide probabilistic reasoning
+based on bayesian networks, integration with naive physics reasoning has been
+studied~\cite{Kunze2011a}, automatic parsing of Web resource in semi-natural
+language has been experimented with~\cite{Tenorth2009b}.
+
+\paragraph{Grounding} Anchoring of knowledge in the {\sc KnowRob} framework
+relies on...CoP? Semantic Maps~\cite{Blodow2011}.
+
+%\paragraph{Integration with Decisional Layers} CRAM~\cite{Beetz2010}
+
+\paragraph{Notable Experiments} {\sc KnowRob} has been deployed on several
+scenarii at the Technical University of Munich, on the PR2 robot and on a 2-arm
+custom mobile manipulator in the scope of the ``assistive
+kitchen''~\cite{Beetz2008} project. In these experiments, {\sc KnowRob} has
+been used as central knowledge hub...
+
 \subsection{ORO}
 \label{sect|oro}
+
+\begin{figure}
+    \centering
+    \includegraphics[scale=0.36]{oro.pdf}
+
+    \caption{Overview of the ORO server, taken from~\cite{Lemaignan2012}.}
+
+    \label{fig|oro}
+\end{figure}
+
 
 \subsection{PEIS KR\&R}
 \label{sect|peis-ecology}
@@ -2058,7 +2121,7 @@ The PEIS framework offers through the \emph{PEIS middleware} a practical way to
 insert a new component into the shared \emph{tuple space}.  Thus, the KR\&R
 module can be seamlessly integrated into the PEIS ecosystem.
 
-\subsubsection{Notable experiments}
+\paragraph{Notable experiments}
 \label{sect|peis-expe}
 
 \subsection{NKRL}
@@ -2071,12 +2134,12 @@ field~\cite{Sabri2011}. NKRL is not {\it per-se} a knowledge representation
 system, as it is primarily a language. However, it is used as the
 representation and reasoning mechanism for robots by Sabri et al.
 
-\subsubsection{Intrinsic language features}
+\paragraph{Intrinsic language features}
 \label{sect|nkrl-intrinsic-features}
 
-\paragraph{Expressiveness}
+Expressiveness...
 
-\subsubsection{Integration with physical world and in the robot architecture}
+\paragraph{Integration with physical world and in the robot architecture}
 \label{sect|nkrl-integration}
 
 \ldots seem to be mostly WIP\ldots
