@@ -202,6 +202,12 @@ We have limited ourselves to systems that
 This exclude \textit{de-facto} platforms like {\sc DyKnow}~\cite{Heintz2004}
 which are focused on data fusion and knowledge grounding at lower levels.
 
+We have also chosen not to include the GOLOG language and its
+derivatives~\cite{Levesque1997, Ferrein2008, Gspandl2011} in this survey. While
+several implementations on robots, including service robots, do exist, the
+focus of this language is on representation and reasoning about actions and
+situations, and the link with symbolic, abstract knowledge is not explicit.
+
 While classical cognitive architectures like {\sc Soar}~\cite{Lehman2006} or
 {\sc ACT-R} have declarative knowledge modules~\cite{Derbinsky2010} and have
 been recently used on service robots (see {\sc ACT-R/E}~\cite{Kennedy2009} for
@@ -1324,7 +1330,10 @@ performed starting in some initial state.
 
 \paragraph{Diagnosis}: this corresponds to the ability to rewind on past events
 in case of failure to provide possible explanation. This can be seen as the
-temporal reverse of the projection task.
+temporal reverse of the projection task. Because of their modelisation of
+situations as an history of actions, derivatives of the GOLOG logic programming
+languages are a good example of diagnosis tasks integrated to the knowledge
+representation system~\cite{Gspandl2011}.
 
 \paragraph{Explanation} Diagnosis is also linked to the \emph{explanation} or
 \emph{justification} capabilities that may be offered by the knowledge
@@ -1411,6 +1420,10 @@ actions and situation have emerged: besides situation calculs, \emph{fluent
 calculus} and \emph{event calculus} are the main ones.
 Thielscher~\cite{Thielscher2011} recently proposed a unification of these
 approach in a new \emph{action calculus}.
+
+The GOLOG~\cite{Levesque1997} language and its derivatives (like {\sc
+ReadyLOG}~\cite{Ferrein2008} and {\sc IndiLOG}~\ref{Gspandl2011}) propose
+implementations of the situation calculus focused on robotic applications.
 
 
 It is however common to rely on external components dedicated to symbolic task
