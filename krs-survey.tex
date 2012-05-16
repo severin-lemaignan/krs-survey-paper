@@ -1945,7 +1945,7 @@ PEIS KR\&R & KRS & Daoutis, Coradeshi, Loutfi, Saffiotti \par (Örebro Univ.) & 
 CAST Proxies & Ubiquitous & Wyatt, Hawes, Jacobsson, Kruijff (Brimingham Univ., DFKI Saarbrücken) & & & Amodal proxies & & \cite{Jacobsson2008} \\
 NKRL & Language & Zarri et al. \par (Paris Est Créteil Univ.) & & NKRL & & & \cite{Sabri2011} \\
 GSM & KRS & Mavridis, Roy \par (MIT MediaLab) & & ? & & & \cite{Mavridis2006} \\
-OMRKF & KRS & Suh et al. \par (Hanyang Univ.) & \url{incorl.hanyang.ac.kr/xe} & ? & Horn Clauses & ? & \cite{Suh2007} \\
+OUR-K & KRS & Suh et al. \par (Hanyang Univ.) & \url{incorl.hanyang.ac.kr/xe} & ? & Horn Clauses & ? & \cite{Suh2007} \\
 Ke Jia Project & KRS & Chen et al. \par (Univ. of Science and Technology of China) & \url{www.wrighteagle.org/en} & ASP & ASP & ASP & \cite{Chen2010} \\
 ARMAR/Tapas & KRS & Holzapfel, Waibel \par (Karlsruhe TH) & & ? & TFS (Typed Feature Structures) & & \cite{Holzapfel2008}\\
 Golog & Language & Levesque (Toronto Univ.) & & {\sc Prolog} & & & \\
@@ -2174,7 +2174,8 @@ that add new a feature like \emph{"this object is a fruit"}. The learning
 module is called back, and can add this new information to its model.
 
 In the presented implementation, the CAST knowledge model does no allow for
-effectively representing actions or temporal information.\fxfatal{What about reasoning? can they retrieve for example 'all proxies for colorful objects'?}
+effectively representing actions or temporal information.\fxfatal{What about
+reasoning? can they retrieve for example 'all proxies for colorful objects'?}
 
 In~\cite{Hawes2011}, Hawes et al. also explore \emph{curiosity} mechanisms in
 the context of spatial representations.
@@ -2227,36 +2228,37 @@ tracking and speech recognition (Sphinx4). Mavridis and Roy provide in addition
 an in-depth analysis of the performance of GSM by the mean of a standard
 psycholinguistic test, the \emph{Token test}~\cite{DiSimoni1978}.
 
-\subsection{OMRKF}
+\subsection{OUR-K and OMRKF}
 \label{sect|omrkf}
 
-The Ontology-based Multi-layered Robot Knowledge Framework~\cite{Suh2007}
-(OMRKF) is a knowledge representation system based on four inter-related
+The Ontology-based Unified Robot
+Knowledge~\cite{Lim2011} (OUR-K) framework, successor of the Ontology-based Multi-layered Robot Knowledge Framework~\cite{Suh2007}
+(OMRKF), is a knowledge representation system based on five inter-related
 \emph{classes} of knowledge (Figure~\ref{fig|omrkf}). It proposes a layered
 approach to knowledge representation that allows to integrate the grounding
-process to the knowledge representation process. OMRKF knowledge model is
-implemented with Horn clauses.
+process to the knowledge representation process. OUR-K knowledge model is
+implemented with a mix of Description Logics for the concept hierarchies and Horn clauses.
 
 \begin{figure}
     \centering
-    \includegraphics[width=0.8\columnwidth]{omrkf.pdf}
+    \includegraphics[width=0.8\columnwidth]{ourk.pdf}
 
-    \caption{OMRKF organizes knowledge into four \emph{classes}, each composed
-    of three \emph{levels}. The figure shows some examples of link between
-    knowledge classes and knowledge levels. Based on~\ref{Suh2007}.}
+    \caption{OUR-K organizes knowledge into fives \emph{classes}, each composed
+    of \emph{levels}. Figure based on~\ref{Lim2011}.}
 
     \label{fig|omrkf}
 \end{figure}
 
 Each level of knowledge is build as three stages of ontological realization: a
 \emph{meta-concept} (the level itself, like ``temporal context'', ``behaviour''
-or ``object feature'', a taxonomy of concepts inside this level (for instance
+or ``object feature''), a taxonomy of concepts inside this level (for instance
 $cup : Object \sqsubseteq tableware : Object$) and an instantiation of the
 taxonomy ($cup1 : cup$).
 
-Environment is represented in OMRKF in the $space : Model$ knowledge level as a
-classical three layers mapping (metric, topological and semantic maps). Objects
-(in $object : Model$) are localized in $space : Model$ through Voronoi nodes.
+\paragraph{Representation} The environment is represented in OUR-K in the
+$space : Model$ knowledge level as a classical three layers mapping (metric,
+topological and semantic maps). Objects (in $object : Model$) are localized in
+$space : Model$ through Voronoi nodes.
 
 The knowledge class $Context$ proposes an explicit statement of spatial context
 (mostly geometric relations between objects), temporal context and a more
@@ -2265,10 +2267,10 @@ general \emph{high-level} context, inferred from spatial and temporal contexts.
 Finally, the $Activity$ knowledge class store compound actions in a HTN-like
 structure, exploited at run-time by a planner.
 
-\paragraph{Experiments} Experiments conducted with OMRKF include finding
-kitchen objects and reporting about their state to a human.  This experiment
-also shows how OMRKF can deal with objects only partially matched by their
-descriptor by introducing a $candidate()$ function.
+\paragraph{Experiments} Experiments conducted with OUR-K and OMRKF include
+finding kitchen objects and reporting about their state to a human.  This
+experiment also shows how OUR-K can deal with objects only partially matched by
+their descriptor by introducing a $candidate()$ function.
 
 \subsection{Ke Jia Project}
 \label{sect|kejia}
@@ -2331,7 +2333,7 @@ PEIS Ecology & {\sc ResearchCyc} \\
 NKLR &  None \\
 CAST Proxies &  None \\
 GSM &  Predefined categories \\
-OMRKF & {\it A priori} knowledge structure and axioms, custom set of instances\\
+OUR-K & {\it A priori} knowledge structure and axioms, custom set of instances\\
 Ke Jia & None \\
 ARMAR/{\sc Tapas} & Custom ontology related to the kitchen\\
 
@@ -2367,7 +2369,7 @@ regarding the long-term goal of \emph{human-level robots}.
 
 \begin{tabular}{cp{4.5cm}p{2.3cm}p{2cm}p{1cm}p{1cm}p{1cm}p{1cm}p{1.5cm}p{2cm}p{1.5cm}p{1.5cm}}
 \toprule
-\multicolumn{2}{c}{\bf Category} & {\sc KnowRob} & {ORO} & {\sc PEIS} & {\sc CAST} & {\sc Ke Jia} & {\sc NKRL} & {\sc GSM} & {\sc OMRKF} & {\sc ARMAR} & {\sc Hertzberg} \\
+\multicolumn{2}{c}{\bf Category} & {\sc KnowRob} & {ORO} & {\sc PEIS} & {\sc CAST} & {\sc Ke Jia} & {\sc NKRL} & {\sc GSM} & {\sc OUR-K} & {\sc ARMAR} & {\sc Hertzberg} \\
 
 \midrule
 
