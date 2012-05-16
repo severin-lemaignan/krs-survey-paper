@@ -1952,17 +1952,17 @@ This section briefly presents each of them.
 \toprule
 {\bf Project} & {\bf Category} & {\bf Authors (Institution)} & {\bf Project homepage} & {\bf Programming language} & {\bf Knowledge model/Logical Formalism} & {\bf Reasoner} & Main reference \\
 \midrule
+ARMAR/Tapas & KRS & Holzapfel, Waibel \par (Karlsruhe TH) & & ? & TFS (Typed Feature Structures) & & \cite{Holzapfel2008}\\
+CAST Proxies & Ubiquitous & Wyatt, Hawes, Jacobsson, Kruijff (Brimingham Univ., DFKI Saarbrücken) & & & Amodal proxies & & \cite{Jacobsson2008} \\
+GSM & KRS & Mavridis, Roy \par (MIT MediaLab) & & ? & & & \cite{Mavridis2006} \\
+Ke Jia Project & KRS & Chen et al. \par (Univ. of Science and Technology of China) & \url{www.wrighteagle.org/en} & ASP & ASP & ASP & \cite{Chen2010} \\
 {\sc KnowRob} & KRS & Tenorth, Beetz \par (TU Munich) & \url{ias.in.tum.de/kb/wiki} & {\sc Prolog} & {\sc Prolog} + OWL-DL & Custom \par ({\sc Prolog}) & \cite{Tenorth2009a} \\
+NKRL & Language & Zarri et al. \par (Paris Est Créteil Univ.) & & NKRL & & & \cite{Sabri2011} \\
+%OBOC & KRS & Mendoza & & & & & \cite{Mendoza2005} \\
+OUR-K & KRS & Suh et al. \par (Hanyang Univ.) & \url{incorl.hanyang.ac.kr/xe} & ? & Horn Clauses & ? & \cite{Suh2007} \\
 ORO & KRS & Lemaignan, Alami \par (LAAS-CNRS) & \url{oro.openrobots.org} & {\sc Java} & OWL-DL ({\sc Jena}) & {\sc Pellet} & \cite{Lemaignan2010} \\
 PEIS KR\&R & KRS & Daoutis, Coradeshi, Loutfi, Saffiotti \par (Örebro Univ.) & \url{www.aass.oru.se/~peis} & {\sc C}, {\sc CycL} & CycL (1st and 2nd order logics, modal logics) & & \cite{Daoutis2009} \\
-CAST Proxies & Ubiquitous & Wyatt, Hawes, Jacobsson, Kruijff (Brimingham Univ., DFKI Saarbrücken) & & & Amodal proxies & & \cite{Jacobsson2008} \\
-NKRL & Language & Zarri et al. \par (Paris Est Créteil Univ.) & & NKRL & & & \cite{Sabri2011} \\
-GSM & KRS & Mavridis, Roy \par (MIT MediaLab) & & ? & & & \cite{Mavridis2006} \\
-OUR-K & KRS & Suh et al. \par (Hanyang Univ.) & \url{incorl.hanyang.ac.kr/xe} & ? & Horn Clauses & ? & \cite{Suh2007} \\
-Ke Jia Project & KRS & Chen et al. \par (Univ. of Science and Technology of China) & \url{www.wrighteagle.org/en} & ASP & ASP & ASP & \cite{Chen2010} \\
-ARMAR/Tapas & KRS & Holzapfel, Waibel \par (Karlsruhe TH) & & ? & TFS (Typed Feature Structures) & & \cite{Holzapfel2008}\\
-Golog & Language & Levesque (Toronto Univ.) & & {\sc Prolog} & & & \\
-OBOC & KRS & Mendoza & & & & & \cite{Mendoza2005} \\
+%Golog & Language & Levesque (Toronto Univ.) & & {\sc Prolog} & & & \\
 % & & Varadarajan, Vincze \par (TU Wien) & & & & & \cite{Varadarajan2011} \\ % -> affordances, but no implementation on a robot
 % & & Kaelbling, Lozano-Pérez \par (MIT CSAIL) & & & & & \cite{Kaelbling2011} \\ % -> mostly planning under uncertainty
 % & & Hertzberg (Osnabrück Univ.) \\ % -> affordances, semantic mapping
@@ -1982,181 +1982,31 @@ for systems that are explicit knowledge representation and reasoning modules,
 \end{table}
 \end{landscape}
 
-\fxfatal{Bielefeld -> could not find much\ldots}
-\fxfatal{Kollar/Tellex -> really focusing on the natural language grounding}
+%\fxfatal{Bielefeld -> could not find much\ldots}
+%\fxfatal{Kollar/Tellex -> really focusing on the natural language grounding}
 
-\subsection{KnowRob}
-\label{sect|knowrob}
+\subsection{ARMAR/Tapas}
 
+{\sc Tapas} is the name of the knowledge representation system and dialogue
+manager found on the ARMARIII robot~\cite{Holzapfel2008}.
 
-{\sc KnowRob}~\cite{Tenorth2009a} is an integrated knowledge management system
-developed at the Technical University of Munich. It is build as a set of
-modules (figure~\ref{fig|knowrob} organized around a core reasoning system
-written in Prolog. The core component interfaces through Java/Prolog or
-C/Prolog APIs with external modules.
+Knowledge in {\sc Tapas} exists as procedural knowledge (plans) and declarative
+knowledge. The later is split into \emph{lexical knowledge}, \emph{semantic
+knowledge} and a database of identified objects (with their properties). The
+\emph{lexical knowledge} contains lexical and grammatical informations about
+the objects. The \emph{semantic knowledge} is organized into an ontology
+relying on \emph{typed feature structures} (TFS,~\cite{Carpenter1992}, a
+formalism originating from the computational linguistics community, and a
+superset of first-order logic).
 
-{\sc KnowRob} offers a mechanism called \emph{computables} that allow to
-evaluate certain predicates by calling external dedicated functions (for
-instance, the valuation of a proposition like \stmt{object1 isOn object2} is
-computed when required by calling a specific geometric reasonning module).
+{\sc Tapas} has a strong focus on natural language grounding. It proceeds by
+generating grammars from properties represented in the ontology to parse and
+understand dialogue.
 
-\begin{figure}
-    \centering
-    \includegraphics[scale=0.36]{knowrob.pdf}
-
-    \caption{Overview of the {\sc KnowRob} framework, taken
-    from~\cite{Tenorth2011}.}
-
-    \label{fig|knowrob}
-\end{figure}
-
-
-Extension modules plug into the system and provide specialized reasoning
-capabilities or interfaces to external data, \eg to read object detections from
-the vision system. These modules mainly operate on the level of instances
-(ABox).
-
-\paragraph{Knowledge model} {\sc KnowRob} can load OWL ontologies, and the
-\emph{KnowRob-Base} ontology is provided as a common-sense ontology, with a
-focus on household and kitchen domains. {\sc KnowRob} also store and reason on
-introspective knowledge through the \emph{Semantic Robot Description
-Language}~\cite{Kunze2011} that allow to represent symbolically the
-capabilities of the robot, and is used for planning.
-
-
-\paragraph{Reasoning Techniques} Amongst the notable {\sc KnowRob} extensions,
-{\sc ProbCog}~\cite{Jain2009} is an effort to provide probabilistic reasoning
-based on bayesian networks, integration with naive physics reasoning has been
-studied~\cite{Kunze2011a}, automatic parsing of Web resource in semi-natural
-language has been experimented with~\cite{Tenorth2009b}.
-
-\paragraph{Grounding} Anchoring of knowledge in the {\sc KnowRob} framework
-relies on...CoP? Semantic Maps~\cite{Blodow2011}.
-
-%\paragraph{Integration with Decisional Layers} CRAM~\cite{Beetz2010}
-
-\paragraph{Notable Experiments} {\sc KnowRob} has been deployed on several
-scenarii at the Technical University of Munich, on the PR2 robot and on a 2-arm
-custom mobile manipulator in the scope of the ``assistive
-kitchen''~\cite{Beetz2008} project. In these experiments, {\sc KnowRob} has
-been used as central knowledge hub...
-
-\subsection{ORO}
-\label{sect|oro}
-
-\begin{figure}
-    \centering
-    \includegraphics[scale=0.36]{oro.pdf}
-
-    \caption{Overview of the ORO server, taken from~\cite{Lemaignan2012}.}
-
-    \label{fig|oro}
-\end{figure}
-
-
-\subsection{PEIS KR\&R}
-\label{sect|peis-ecology}
-
-
-{\sc PEIS Ecology}~\cite{Saffiotti2005} is a software \emph{ecosystem} that aim to binds autonomous
-robotics with ambient intelligence (network of sensors). \emph{PEIS} stands for
-\emph{Physically Embedded Intelligent System}: every robots or intelligent
-device in the environment is abstracted as a PEIS.
-
-Each PEIS physical component is running a \emph{PEIS Kernel} instance. Communication
-between instance relies on a custom P2P communication protocol.
-
-The PEIS architecture allows for adding new abilities through software components sharing the common \emph{tuple space}.
-
-We survey here the semantic layer~\cite{Daoutis2009}, referred as \emph{PEIS KR\&R}, that includes symbolic representation and reasoning.
-
-% More in details:
-% - object identification based on viewpoint independent SIFT features
-% - formalized anchoring system that explicitly match percieved attributes to predicates
-% - Cyc predicates
-% - ground 12 colors, based on a paper on color perception. Could be useful for us.
-% - idem, they cite a paper on what spatial relations to compute
-% - location of objects based on a previously provided semantic map (but not much on this semantic map)
-% - two "memories": the robot memory stores the current list of percieved objects ; the archive memory stores what is not percieved anymore
-% - uses directly Cyc (ie, 250 000 common sense concepts\ldots), via CycL language -> 2nd and higher order logics (quantification over predicates, functions, etc)
-% Remark: using 2nd order logic (ie meta statements), it would be easy to store the knowledge of each agent
-% - disambiguation in concept name by asking human to decide amongst all concepts known by Cyc
-% - template based natural language
-% - experiment conducted in a "smart" indoor environmement + simple robot
-
-\paragraph{Knowledge model} The PEIS Knowledge representation system relies on
-the {\sc ResearchCyc} and {\sc CycL} language to represent knowledge. The {\sc CycL} language
-allows to represent first order logic sentences and has extensions for modal logics and higher order logics.
-
-\fxfatal{Is modal logics and higher order logics actually used in PEIS?} 
-
-As a system relying on {\sc CycL}, contexts can be expressed as
-\emph{microtheories}: the truth or falsity of a set of statement depends of the
-\emph{microtheory} in which these statements are evaluated.
-
-\fxfatal{OWA/CWA?}
-
-\begin{figure}
-	\centering
-	\includegraphics[width=0.9\columnwidth]{peis-architecture.pdf}
-	\caption{The PEIS knowledge representation system, taken from~\cite{Daoutis2009}}
-	\label{fig|peis-archi}
-\end{figure}
-
-The PEIS KR\&R system is deeply integrated to the general PEIS Ecology
-\emph{smart} environment. Figure~\ref{fig|peis-archi} gives an overview of the
-interactions between PEIS knowledge processing layers.
-
-\paragraph{Knowledge Acquisition} The primary source for knowledge acquisition
-is perception.  The PEIS ecosystem provides a SIFT-based object recognizer used
-in conjunction with ceiling cameras for object localization.  Other perceptual
-modalities are available (like human tracking, ambient environment monitoring).
-
-A template-based natural language parsing system may also be used to add new
-assertions to the system.
-
-The system can ask the human for help to disambiguate between concept names.
-
-\paragraph{Anchoring} Daoutis et al. formalize the issue of anchoring as
-finding a \emph{predicate grounding relation} $g \subseteq \mathcal{P} \times
-\Phi \times D(\Phi)$, where $\mathcal{P}$ is a set of predicate symbols, $\Phi$
-a set of percept's attributes, and $D(\Phi)$ the domain of these attributes.
-
-In the current implementation, object category (returned by the SIFT
-classifier), color, location, spatial relations (both topological -- \emph{at},
-\emph{near} -- and relative to the robot -- \emph{left}, \emph{behind}, etc.)
-and visibility are the five classes of extracted attributes.
-
-\paragraph{Integration in the robot architecture}
-\label{sect|peis-integration}
-
-The PEIS framework offers through the \emph{PEIS middleware} a practical way to
-insert a new component into the shared \emph{tuple space}.  Thus, the KR\&R
-module can be seamlessly integrated into the PEIS ecosystem.
-
-\paragraph{Notable experiments}
-\label{sect|peis-expe}
-
-\subsection{NKRL}
-\label{sect|nkrl}
-
-\emph{NKRL} stands for \emph{Narrative Knowledge Representation Language}.
-While this language is developed since a long time by Zarri~\cite{Zarri1997,
-Zarri2008}, recent research direction include application to the robotic
-field~\cite{Sabri2011}. NKRL is not {\it per-se} a knowledge representation
-system, as it is primarily a language. However, it is used as the
-representation and reasoning mechanism for robots by Sabri et al.
-
-\paragraph{Intrinsic language features}
-\label{sect|nkrl-intrinsic-features}
-
-Expressiveness...
-
-\paragraph{Integration with physical world and in the robot architecture}
-\label{sect|nkrl-integration}
-
-\ldots seem to be mostly WIP\ldots
-
+Another focus is put on handling unknown words and objects. {\sc Tapas}
+provides routines to recognize unknown entities, and propose and interactive
+and iterative verbal process to categorize (including adding new categories)
+those new concepts.
 
 \subsection{CAST Knowledge model}
 \label{sect|cast}
@@ -2241,6 +2091,111 @@ tracking and speech recognition (Sphinx4). Mavridis and Roy provide in addition
 an in-depth analysis of the performance of GSM by the mean of a standard
 psycholinguistic test, the \emph{Token test}~\cite{DiSimoni1978}.
 
+\subsection{GOLOG}
+\label{sect|kejia}
+
+
+\subsection{Ke Jia Project}
+\label{sect|kejia}
+
+The Ke Jia project~\cite{Chen2010} integrates on a mobile platform a knowledge
+representation language with natural language processing, task planing and
+motion planing.
+
+Knowledge representation relies on \emph{Action Language C}, itself based on
+\emph{Answer Set Programming} (ASP)~\cite{Gelfond2008}. These languages, that
+are syntactically close to Prolog, are based on \emph{stable models} of logic
+programs, and support non-monotonic reasoning. Default and non-monotonic
+reasoning has been especially researched within the Ke Jia project for symbolic
+task planing~\cite{Ji2011} and underspecified natural language processing.
+
+Amongst other features, the natural language processing capabilities of the
+system support acquisition of new logical rules at run-time.
+
+\paragraph{Experiments} The Ke Jia robot has been demonstrated in several tasks
+involving human-robot interaction with natural language. These tasks include a
+task with multiple \emph{pick \& carry} that are globally optimized, naive
+physics reasoning via taught rules or more complex scenarii with the robot
+delivering drinks, taking into account changing and mutually exclusive
+preferences of users.
+
+
+\subsection{KnowRob}
+\label{sect|knowrob}
+
+
+{\sc KnowRob}~\cite{Tenorth2009a} is an integrated knowledge management system
+developed at the Technical University of Munich. It is build as a set of
+modules (figure~\ref{fig|knowrob} organized around a core reasoning system
+written in Prolog. The core component interfaces through Java/Prolog or
+C/Prolog APIs with external modules.
+
+{\sc KnowRob} offers a mechanism called \emph{computables} that allow to
+evaluate certain predicates by calling external dedicated functions (for
+instance, the valuation of a proposition like \stmt{object1 isOn object2} is
+computed when required by calling a specific geometric reasonning module).
+
+\begin{figure}
+    \centering
+    \includegraphics[scale=0.36]{knowrob.pdf}
+
+    \caption{Overview of the {\sc KnowRob} framework, taken
+    from~\cite{Tenorth2011}.}
+
+    \label{fig|knowrob}
+\end{figure}
+
+
+Extension modules plug into the system and provide specialized reasoning
+capabilities or interfaces to external data, \eg to read object detections from
+the vision system. These modules mainly operate on the level of instances
+(ABox).
+
+\paragraph{Knowledge model} {\sc KnowRob} can load OWL ontologies, and the
+\emph{KnowRob-Base} ontology is provided as a common-sense ontology, with a
+focus on household and kitchen domains. {\sc KnowRob} also store and reason on
+introspective knowledge through the \emph{Semantic Robot Description
+Language}~\cite{Kunze2011} that allow to represent symbolically the
+capabilities of the robot, and is used for planning.
+
+
+\paragraph{Reasoning Techniques} Amongst the notable {\sc KnowRob} extensions,
+{\sc ProbCog}~\cite{Jain2009} is an effort to provide probabilistic reasoning
+based on bayesian networks, integration with naive physics reasoning has been
+studied~\cite{Kunze2011a}, automatic parsing of Web resource in semi-natural
+language has been experimented with~\cite{Tenorth2009b}.
+
+\paragraph{Grounding} Anchoring of knowledge in the {\sc KnowRob} framework
+relies on...CoP? Semantic Maps~\cite{Blodow2011}.
+
+%\paragraph{Integration with Decisional Layers} CRAM~\cite{Beetz2010}
+
+\paragraph{Notable Experiments} {\sc KnowRob} has been deployed on several
+scenarii at the Technical University of Munich, on the PR2 robot and on a 2-arm
+custom mobile manipulator in the scope of the ``assistive
+kitchen''~\cite{Beetz2008} project. In these experiments, {\sc KnowRob} has
+been used as central knowledge hub...
+
+\subsection{NKRL}
+\label{sect|nkrl}
+
+\emph{NKRL} stands for \emph{Narrative Knowledge Representation Language}.
+While this language is developed since a long time by Zarri~\cite{Zarri1997,
+Zarri2008}, recent research direction include application to the robotic
+field~\cite{Sabri2011}. NKRL is not {\it per-se} a knowledge representation
+system, as it is primarily a language. However, it is used as the
+representation and reasoning mechanism for robots by Sabri et al.
+
+\paragraph{Intrinsic language features}
+\label{sect|nkrl-intrinsic-features}
+
+Expressiveness...
+
+\paragraph{Integration with physical world and in the robot architecture}
+\label{sect|nkrl-integration}
+
+\ldots seem to be mostly WIP\ldots
+
 \subsection{OUR-K and OMRKF}
 \label{sect|omrkf}
 
@@ -2257,7 +2212,7 @@ implemented with a mix of Description Logics for the concept hierarchies and Hor
     \includegraphics[width=0.8\columnwidth]{ourk.pdf}
 
     \caption{OUR-K organizes knowledge into fives \emph{classes}, each composed
-    of \emph{levels}. Figure based on~\ref{Lim2011}.}
+    of \emph{levels}. Figure based on~\cite{Lim2011}.}
 
     \label{fig|omrkf}
 \end{figure}
@@ -2285,52 +2240,101 @@ finding kitchen objects and reporting about their state to a human.  This
 experiment also shows how OUR-K can deal with objects only partially matched by
 their descriptor by introducing a $candidate()$ function.
 
-\subsection{Ke Jia Project}
-\label{sect|kejia}
+\subsection{ORO}
+\label{sect|oro}
 
-The Ke Jia project~\cite{Chen2010} integrates on a mobile platform a knowledge
-representation language with natural language processing, task planing and
-motion planing.
+\begin{figure}
+    \centering
+    \includegraphics[scale=0.36]{oro.pdf}
 
-Knowledge representation relies on \emph{Action Language C}, itself based on
-\emph{Answer Set Programming} (ASP)~\cite{Gelfond2008}. These languages, that
-are syntactically close to Prolog, are based on \emph{stable models} of logic
-programs, and support non-monotonic reasoning. Default and non-monotonic
-reasoning has been especially researched within the Ke Jia project for symbolic
-task planing~\cite{Ji2011} and underspecified natural language processing.
+    \caption{Overview of the ORO server, taken from~\cite{Lemaignan2012}.}
 
-Amongst other features, the natural language processing capabilities of the
-system support acquisition of new logical rules at run-time.
+    \label{fig|oro}
+\end{figure}
 
-\paragraph{Experiments} The Ke Jia robot has been demonstrated in several tasks
-involving human-robot interaction with natural language. These tasks include a
-task with multiple \emph{pick \& carry} that are globally optimized, naive
-physics reasoning via taught rules or more complex scenarii with the robot
-delivering drinks, taking into account changing and mutually exclusive
-preferences of users.
+\subsection{PEIS KR\&R}
+\label{sect|peis-ecology}
 
-\subsection{ARMAR/Tapas}
 
-{\sc Tapas} is the name of the knowledge representation system and dialogue
-manager found on the ARMARIII robot~\cite{Holzapfel2008}.
+{\sc PEIS Ecology}~\cite{Saffiotti2005} is a software \emph{ecosystem} that aim to binds autonomous
+robotics with ambient intelligence (network of sensors). \emph{PEIS} stands for
+\emph{Physically Embedded Intelligent System}: every robots or intelligent
+device in the environment is abstracted as a PEIS.
 
-Knowledge in {\sc Tapas} exists as procedural knowledge (plans) and declarative
-knowledge. The later is split into \emph{lexical knowledge}, \emph{semantic
-knowledge} and a database of identified objects (with their properties). The
-\emph{lexical knowledge} contains lexical and grammatical informations about
-the objects. The \emph{semantic knowledge} is organized into an ontology
-relying on \emph{typed feature structures} (TFS,~\cite{Carpenter1992}, a
-formalism originating from the computational linguistics community, and a
-superset of first-order logic).
+Each PEIS physical component is running a \emph{PEIS Kernel} instance. Communication
+between instance relies on a custom P2P communication protocol.
 
-{\sc Tapas} has a strong focus on natural language grounding. It proceeds by
-generating grammars from properties represented in the ontology to parse and
-understand dialogue.
+The PEIS architecture allows for adding new abilities through software components sharing the common \emph{tuple space}.
 
-Another focus is put on handling unknown words and objects. {\sc Tapas}
-provides routines to recognize unknown entities, and propose and interactive
-and iterative verbal process to categorize (including adding new categories)
-those new concepts.
+We survey here the semantic layer~\cite{Daoutis2009}, referred as \emph{PEIS KR\&R}, that includes symbolic representation and reasoning.
+
+% More in details:
+% - object identification based on viewpoint independent SIFT features
+% - formalized anchoring system that explicitly match percieved attributes to predicates
+% - Cyc predicates
+% - ground 12 colors, based on a paper on color perception. Could be useful for us.
+% - idem, they cite a paper on what spatial relations to compute
+% - location of objects based on a previously provided semantic map (but not much on this semantic map)
+% - two "memories": the robot memory stores the current list of percieved objects ; the archive memory stores what is not percieved anymore
+% - uses directly Cyc (ie, 250 000 common sense concepts\ldots), via CycL language -> 2nd and higher order logics (quantification over predicates, functions, etc)
+% Remark: using 2nd order logic (ie meta statements), it would be easy to store the knowledge of each agent
+% - disambiguation in concept name by asking human to decide amongst all concepts known by Cyc
+% - template based natural language
+% - experiment conducted in a "smart" indoor environmement + simple robot
+
+\paragraph{Knowledge model} The PEIS Knowledge representation system relies on
+the {\sc ResearchCyc} and {\sc CycL} language to represent knowledge. The {\sc CycL} language
+allows to represent first order logic sentences and has extensions for modal logics and higher order logics.
+
+\fxfatal{Is modal logics and higher order logics actually used in PEIS?} 
+
+As a system relying on {\sc CycL}, contexts can be expressed as
+\emph{microtheories}: the truth or falsity of a set of statement depends of the
+\emph{microtheory} in which these statements are evaluated.
+
+\fxfatal{OWA/CWA?}
+
+\begin{figure}
+	\centering
+	\includegraphics[width=0.9\columnwidth]{peis-architecture.pdf}
+	\caption{The PEIS knowledge representation system, taken from~\cite{Daoutis2009}}
+	\label{fig|peis-archi}
+\end{figure}
+
+The PEIS KR\&R system is deeply integrated to the general PEIS Ecology
+\emph{smart} environment. Figure~\ref{fig|peis-archi} gives an overview of the
+interactions between PEIS knowledge processing layers.
+
+\paragraph{Knowledge Acquisition} The primary source for knowledge acquisition
+is perception.  The PEIS ecosystem provides a SIFT-based object recognizer used
+in conjunction with ceiling cameras for object localization.  Other perceptual
+modalities are available (like human tracking, ambient environment monitoring).
+
+A template-based natural language parsing system may also be used to add new
+assertions to the system.
+
+The system can ask the human for help to disambiguate between concept names.
+
+\paragraph{Anchoring} Daoutis et al. formalize the issue of anchoring as
+finding a \emph{predicate grounding relation} $g \subseteq \mathcal{P} \times
+\Phi \times D(\Phi)$, where $\mathcal{P}$ is a set of predicate symbols, $\Phi$
+a set of percept's attributes, and $D(\Phi)$ the domain of these attributes.
+
+In the current implementation, object category (returned by the SIFT
+classifier), color, location, spatial relations (both topological -- \emph{at},
+\emph{near} -- and relative to the robot -- \emph{left}, \emph{behind}, etc.)
+and visibility are the five classes of extracted attributes.
+
+\paragraph{Integration in the robot architecture}
+\label{sect|peis-integration}
+
+The PEIS framework offers through the \emph{PEIS middleware} a practical way to
+insert a new component into the shared \emph{tuple space}.  Thus, the KR\&R
+module can be seamlessly integrated into the PEIS ecosystem.
+
+\paragraph{Notable experiments}
+\label{sect|peis-expe}
+
 
 %%%%%%%%%% Underlying knowledge model table %%%%%%%%
 \begin{table}
