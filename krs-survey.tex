@@ -92,7 +92,7 @@ wrote together in 1998:
 
 \begin{quotation}
 
-    Central to this effort is to develop an understanding of the relationship
+    ``Central to this effort is to develop an understanding of the relationship
     between the knowledge, the perception, and the action of [\ldots] a robot. The
     sorts of questions we want to be able to answer are
 
@@ -117,7 +117,7 @@ wrote together in 1998:
     and so on. With respect to robotics, our goal (like that of many in AI) is
     \emph{high-level robotic control}: develop a system that is capable of
     generating actions in the world that are appropriate as a function of some
-    current set of beliefs and desires.
+    current set of beliefs and desires.''
 
 \end{quotation}
 
@@ -170,7 +170,7 @@ starting point: for Newell, \emph{knowledge} is a medium between \emph{agents}
 and \emph{goals}, \emph{actions}, \emph{bodies}. Whereas the symbol level deals
 with representation, the knowledge level deals with language, semantics;
 whereas the symbol level deals with inference, the knowledge level deals with
-entailment. We will, at the conclusion of the thesis, give a second look to
+entailment. We will, at the conclusion of the article, give a second look to
 this distinction.
 
 In our robotic context, we define knowledge as a narrower concept, while
@@ -182,13 +182,13 @@ designing a cognitive architecture is furthermore to make this knowledge as
 \emph{explicit} as possible.
 
 The relation of \emph{data} and \emph{information} to knowledge is a debated
-epistemology question known as the ``DIKW'' hierarchy question. In this thesis,
+epistemology question known as the ``DIKW'' hierarchy question. In this article,
 we will associate data to low-level material like raw sensor output, and
 information to uncontextualised symbolic facts.
 
 To give a example, we can imagine a human reading a book while being tracked by
 a Kinect sensor: the pose of the human skeleton in the world would be the data,
-the fact \concept{looksAt(human, book)} as interpreted by a geometric reasoning
+the fact \concept{looksAt(human, coords)} as interpreted by a geometric reasoning
 module would be the information, the fact \concept{looksAt(john,
 war\_and\_peace)}, fully grounded and connected to the whole knowledge base of
 the robot would be proper knowledge.
@@ -389,7 +389,7 @@ and challenges of knowledge representation and manipulation for service, social
 and interactive robotics. It underlines the place, the role and the need of
 knowledge in a near-future, everyday situation where several robots and humans
 co-exist and cooperate. This scenario will also be a source of support examples
-for later sections of the thesis. Also, we have emphasised several keywords in
+for later sections of the article. Also, we have emphasised several keywords in
 this description: we will come back to them in the next section to
 explain them formally and relate them to each other.
 
@@ -410,7 +410,7 @@ required by the human alone), {\it 3)} and the human is happy by the help it rec
 We voluntarily do not detail the subtasks of the scenario, neither we define
 how they are shared amongst agents: our focus is on knowledge needs and flows.
 
-A ``first-order'' analysis of this task leads to a rough partition of the
+A \textit{first order} analysis of this task leads to a rough partition of the
 required \emph{representation} abilities:
 
 \begin{enumerate}
@@ -437,7 +437,7 @@ enables the robot to retrieve more common-sense knowledge, like that actions
 related to cooking often take place in the kitchen, cooking requires
 ingredients, utensils and a procedure that may be provided by a recipe.
 
-These last assertions imply several other capabilities: ``cooking often takes
+These last assertions imply several other capabilities: ``cooking \emph{often} takes
 place in the kitchen'' implies that representation of both uncertainty and
 likelihood is desirable. The fact that cooking is associated to a place further
 implies that the system models locations and is able to attach \emph{thematic
@@ -482,10 +482,11 @@ Cooperation in our scenario can intervene at many places. For instance, an
 agent may want to inform another one about the number of eggs that are
 necessary for the brownie. This \emph{helping} behaviour makes sense only if
 the first agent knows that the recipient agent both needs the information but
-does not know it. This in turn requires the robot to be able to model the
-knowledge of the other agents: to think \emph{from the perspective} of another
-agent (an idea that is related to the availability of a theory of mind, we will
-come back to it later on).
+does not know it. This in turn requires the robot to be able to access its own
+knowledge (\emph{meta-cognition}), as well as to model the knowledge of the
+other agents (to think \emph{from the perspective} of another agent, an idea
+that is related to the availability of a theory of mind, we will come back to
+it later on).
 
 Ability to communicate is one important pre-requisite to collaboration.
 Communication in general requires the addresser and the addressee to share a
@@ -713,20 +714,16 @@ literature on that subject.
 
 It can be noted that the relation between expressiveness and reasoning
 complexity is fragile: for instance, adding the following axiom \stmt{farFrom
-disjointProperty near} (that states that two individuals can not be at the same
-time near and far from each other) changes the expressiveness power of the ORO
-Common-Sense ontology (presented at chapter~\ref{chapt|oroserver}) from
-$\mathcal{SHOIQ(D)}$ to $\mathcal{SROIQ(D)}$\footnote{See
-appendix~\ref{chapt|dl} for a brief explanation of this notation}: this
-seemingly innocuous assertion change the complexity class of the whole
-ontology, and the concept satisfiability reasoning problem switches from a {\it
-NExpTime-complete} problem to a {\it NExpTime-hard} problem (\ie, \emph{at
-least} as hard as the hardest problem in {\it NExpTime}).
+disjointProperty near} that states that two individuals can not be at the same
+time near and far from each other, while looking semantically seemingly
+innocuous, actually introduces what is called a \emph{complex role} that leads
+to a much harder reasoning problem: concept satisfiability, for instance,
+switches from a {\it NExpTime-complete} problem to a {\it NExpTime-hard}
+problem (\ie, \emph{at least} as hard as the hardest problem in {\it
+NExpTime}).
 
-This ``instability'' has practical consequences on run-time performances on
-the robot because a light alteration of the knowledge structure can lead to
-very noticeable performance drops.
-
+This kind of behaviours have practical consequences on run-time performances on
+the robot, and require careful design of the knowledge structure to be mitigated.
 
 \subsubsection{Open world and close world assumptions}
 \label{sect|owa-cwa}
@@ -874,18 +871,20 @@ introduced by Kuipers. It consists in multiple interacting representations of
 space, both qualitative and quantitative, that span from sensor-level
 representation to ontologies of places and regions.
 
-Symbolic representation of entities placement can be absolute or relative. The
-relation \concept{isOn}, for example, leads to absolute statements: the
-validity of the relation is independent of the nature of its subjects and
-objects, and is also independent of the observer.
+Symbolic representations of entities placement are either topological or
+directional. The topological relation \concept{isOn}, for example, leads to
+absolute statements: the validity of the relation is independent of the nature
+of its subjects and objects, and is also independent of the observer. These
+relations are also sometimes qualified as \emph{allocentric}.
 
-On the contrary, the relation \concept{nextTo} is relative, and depends on the
-relative size of the subject and the object. Two houses distant of 2 meters
-from each other can be considered as next to each other. Two ants separated by
-2 meters are not next to each other.
+On the contrary, the directional relation \concept{nextTo} is relative, and
+depends on the relative size of the subject and the object. Two houses distant
+of 2 meters from each other can be considered as next to each other. Two ants
+separated by 2 meters are not next to each other.
 
 The relation \concept{leftOf} is another example of relative spatial relation,
-this time because it depends on the observer viewpoint.
+this time because it depends on the observer viewpoint. These relations are
+also called \emph{egocentric}.
 
 \fxwarning{\concept{front}/\concept{back} -> entities have or not a concept of front/back.}
 
@@ -1017,7 +1016,7 @@ multi-scale aspects of context modeling.
 
 We see context representation as one of the main challenge of knowledge
 representatio in general, and we will further discuss the importance and issues
-brought by context modeling in the conclusion of the thesis.
+brought by context modeling in the conclusion of the paper.
 
 \subsubsection{Modality, contingency and theory of mind}
 \label{sect|possible-worlds}
@@ -1328,9 +1327,11 @@ to evaluate).
 
 One downside is that the knowledge base never contains explicitly the complete
 set of beliefs of the robot. This limits for instance the ability for the robot
-to react to logical conditions that involve facts that are lazily evaluated
-(``trigger a callback when object A is behind object B'' would not be triggered
-with a purely lazy evaluation strategy for spatial relations).
+to react to logical conditions that involve facts that are lazily evaluated:
+``trigger a callback when object A is behind object B'' would not be triggered
+with a purely lazy evaluation strategy for spatial relations. This can be
+mitigated by selecting (possibly dynamically) a subset of relations that are to
+be strictly evaluated.
 
 \subsubsection{Reasoning with uncertainty}
 
@@ -1435,7 +1436,7 @@ ability to explicit a reasoning or a decision.
 \end{scriptsize}
 
 
-\paragraph{Projection task}: determining whether or not some condition while
+\paragraph{Projection task}: determining whether or not some condition
 hold after a sequence of actions. The projection task is a typical
 non-monotonic reasoning task, since at each step, the system must add but also
 retract beliefs, as defined in the tasks post-conditions.
@@ -1778,7 +1779,7 @@ process. Numerous approaches exist, like amodal
 \emph{proxies}~\cite{Jacobsson2008}, grounded amodal
 representations~\cite{Alami2011, Mavridis2006}, semantic maps
 (Figure~\ref{fig|semanticmap}, \cite{Nuechter2008, Galindo2008,Blodow2011}) or
-affordance-based planing and object classification~\cite{Lorken2008,
+affordance-based planning and object classification~\cite{Lorken2008,
 Varadarajan2011}.
 
 \begin{figure}
@@ -2140,6 +2141,12 @@ computational efficiency, conciseness, consistency,} and
 \emph{organizational fitness}. Details and relevant literature can be found
 in Vrande{\v{c}}i{\'c}'s chapter.
 
+A last qualitative facet relates to the possible bias of an ontology
+regarding the domain it pretends to cover. For instance, Wikipedia (and
+consequently, DBPedia and YAGO) is known to have a bias towards contents
+related to people, geography or historic events. {\sc OpenCYC} also suffer of
+non-homogeneous concept coverage.
+
 \subsubsection{Granularity}
 
 Amongst the characteristics of ontologies, knowledge \emph{granularity}
@@ -2188,8 +2195,8 @@ Ke Jia Project & Formal & Chen et al. \par (Univ. of Science and Technology of C
 {\sc KnowRob} & Formal & Tenorth, Beetz \par (TU Munich) & \url{ias.in.tum.de/kb/wiki} & {\sc Prolog} & {\sc Prolog} + OWL-DL &  \cite{Tenorth2009a} \\
 NKRL & Language & Zarri et al. \par (Paris Est Créteil Univ.) & & NKRL & & \cite{Sabri2011} \\
 %OBOC & KRS & Mendoza & & & & & \cite{Mendoza2005} \\
+ORO & Formal & Lemaignan, Alami \par (LAAS-CNRS) & \url{oro.openrobots.org} & {\sc Java} & OWL-DL ({\sc Jena}) + {\sc Pellet} & \cite{Lemaignan2010} \\
 OUR-K/OMRKF & Formal & Lim, Suh et al. \par (Hanyang Univ.) & \url{incorl.hanyang.ac.kr/xe} & ? & DL + Horn Clauses &  \cite{Lim2011, Suh2007} \\
-%ORO & KRS & Lemaignan, Alami \par (LAAS-CNRS) & \url{oro.openrobots.org} & {\sc Java} & OWL-DL ({\sc Jena}) & {\sc Pellet} & \cite{Lemaignan2010} \\
 PEIS KR\&R & Formal & Daoutis, Coradeshi, Loutfi, Saffiotti \par (Örebro Univ.) & \url{www.aass.oru.se/~peis} & {\sc C}, {\sc CycL} & CycL (1st and 2nd order logics, modal logics) & \cite{Daoutis2009} \\
 %Golog & Language & Levesque (Toronto Univ.) & & {\sc Prolog} & & & \\
 % & & Varadarajan, Vincze \par (TU Wien) & & & & & \cite{Varadarajan2011} \\ % -> affordances, but no implementation on a robot
@@ -2339,15 +2346,15 @@ psycholinguistic test, the \emph{Token test}~\cite{DiSimoni1978}.
 \label{sect|kejia}
 
 The Ke Jia project~\cite{Chen2010} integrates on a mobile platform a knowledge
-representation language with natural language processing, task planing and
-motion planing.
+representation language with natural language processing, task planning and
+motion planning.
 
 Knowledge representation relies on \emph{Action Language C}, itself based on
 \emph{Answer Set Programming} (ASP)~\cite{Gelfond2008}. These languages, that
 are syntactically close to Prolog, are based on \emph{stable models} of logic
 programs, and support non-monotonic reasoning. Default and non-monotonic
 reasoning has been especially researched within the Ke Jia project for symbolic
-task planing~\cite{Ji2011} and underspecified natural language processing.
+task planning~\cite{Ji2011} and underspecified natural language processing.
 
 Amongst other features, the natural language processing capabilities of the
 system support acquisition of new logical rules at run-time.
@@ -2636,45 +2643,45 @@ representation that were identified in previous section.
 \begin{landscape}
 \begin{table}\tiny
 \begin{center}
-\begin{tabular}{p{0.2cm}p{3.4cm}p{1.6cm}p{1.3cm}p{1.7cm}p{1.5cm}p{2cm}p{2cm}p{1.4cm}p{1.8cm}|p{2cm}}
+\begin{tabular}{p{0.2cm}p{3.4cm}p{1.6cm}p{1.3cm}p{1.7cm}p{1.5cm}p{2cm}p{2cm}p{2cm}p{1.4cm}p{1.8cm}}
 \toprule
-\multicolumn{2}{c}{\bf Category}                                                     & ARMAR \cite{Holzapfel2008}& CAST \cite{Hawes2007}       & GSM \cite{Mavridis2006}     & {\sc Ke Jia} \cite{Chen2010}& {\sc KnowRob} \cite{Tenorth2009a}  & NKRL \cite{Sabri2011}                           & OUR-K \cite{Lim2011}          & PEIS \cite{Daoutis2009}       & ORO \cite{Lemaignan2010}                      \\
-                                                                                                                                                                                                                                                                                                                                                                                                                  
-\midrule                                                                                                                                                                                                                                                                                                                                                                                                          
-                                                                                                                                                                                                                                                                                                                                                                                                                  
-\multirow{4}{*}{\turn{90}{\bf Expressiveness}}                   & Logical formalism & TFS                       & (none)                      & (none)                      & ASP                         & Prolog                             & NKRL language (FOL + 2nd order extensions)      & DL + Horn clauses             & {\sc CycL}                    & DL (OWL)                                      \\
-                                                                           & OWA/CWA &                           &                             &                             & CWA                         & CWA                                &                                                 &                               &                               & OWA                                           \\
-                                                              & Modeling uncertainty &                           &                             & ++ (stochastic models)      &                             & {\it+++} ({\it ProbCog} \cite{Jain2009}) & +                                         & + (\emph{candidate} entities) &                               &                                               \\
-                                                                    & Meta-cognition &                           &                             &                             &                             & ++                                 & + (transformation rules)                        &                               &                               & ++ (reification, taxonomy walking)            \\
-\hline                                                                                                                                                                                                                                                                                                                                                                                                            
-\multirow{7}{*}{\turn{90}{\bf Representation}}                & Space Representation &                           &                             &                             &                             &                                    &                                                 & ++                            &                               & ++ ({\em perspective-aware symbolic locations} \cite{Sisbot2011})\\
-                                                               & Time representation &                           &                             & ++ (snapshots)              &                             &                                    & ++ (event oriented)                             & +                             &                               &                                               \\
-                                                                    & Actions/Events &                           &                             & ++ (events classifiers)     &                             & ++ (action recognition \cite{Beetz2010a})  & +++ (everything is an event)            & +++                           &                               &                                               \\
-                                                                           & Context &                           &                             &                             &                             &                                    & ++ (template matching)                          & ++                            & ++ (microtheories)            &                                               \\
-                                                                          & Modality &                           &                             & ++ (recursive model)        &                             &                                    &                                                 &                               &                               & ++ (Theory of Mind \cite{Warnier2012a})       \\
-                                                                    & Self-knowledge &                           &                             &                             &                             & + (SRDF \cite{Kunze2011})          &                                                 &                               &                               &                                               \\
-                                                                     & Memory models &                           &                             &                             &                             &                                    &                                                 &                               & +                             & +                                             \\
-\hline                                                                                                                                                                                                                                                                                                                                                                                                            
-\multirow{9}{*}{\turn{90}{\bf Reasoning}}                   & Standard FOL reasoning &                           &                             &                             & +++                         & +++                                & + (template matching)                           & +                             & ++                            & ++                                            \\
-                                            & Instantiation and structure alteration & ++                        &                             &                             & ++                          & + (dynamic instantiation)          &                                                 &                               &                               & ++ (TBox alteration)                          \\
-                                                                   & Lazy evaluation &                           &                             &                             &                             & +++ (Prolog, computables)          &                                                 &                               &                               &                                               \\
-                                                           & Non-monotonic reasoning &                           & ++ \cite{Hawes2011}         &                             & +++ \cite{Ji2011}           &                                    &                                                 &                               &                               &                                               \\
-                                                      & Presupposition accommodation &                           &                             & +++                         &                             &                                    &                                                 &                               &                               &                                               \\
-                                    & Prediction, projection, diagnosis, explanation &                           &                             &                             &                             &                                    & ++                                              &                               &                               & + (explanation)                               \\
-                                                                     & Task planning &                           &                             &                             & ++ \cite{Ji2011}            & +                                  &                                                 & +                             & {\it++}                       & +++ ({\em HATP})                              \\
-                                                           & Physics-based reasoning &                           &                             &                             & +                           & {\it+++} ({\em naive physics \cite{Kunze2011a}}) &                                   &                               &                               &                                               \\
-%                                                                         & Learning & ++                        & ++ \cite{Jacobsson2008}     &                             &                             &                                    &                                                 &                               &                               &                                               \\
-\hline                                                                                                                                                                                                                                                                                                                                                                                                            
-\multirow{5}{*}{\turn{90}{\bf Acquisition}}                         & Cross-modality & + (pointing gestures)     & ++                          & +++ (amodal model)          &                             &                                    &                                                 &                               & ++ ({\em ambient intelligence})& ++                                           \\
-                                                                               & NLP & +++                       & +++ \cite{Kruijff2010a}     & +++                         & +++                         &                                    &                                                 &                               & + (template-based)            & +++ ({\em Dialogs} \cite{Lemaignan2011a})     \\
-                                                                     & Web Resources &                           &                             &                             &                             & {\it+++} ({\em Web content processing \cite{Nyga2009}})&                             &                               &                               &                                               \\
-                                                                         & Grounding &                           & ++                          & ++ (bidirectional)          &                             & +++ ({\em semantic maps \cite{Blodow2011, Klank2009}}) &                             & +++ (bottom-up)               & +++ \cite{Loutfi2008}         & ++ ({\em amodal model} \cite{Lemaignan2012})  \\
-                                                              & Intrinsic Motivation &                           & ++ \cite{Hawes2011}         &                             &                             &                                    &                                                 &                               &                               &                                               \\
-\hline                                                                                                                                                                                                                                                                                                                                                                                                            
-\multirow{4}{*}{\turn{90}{\bf Integration}}     &   \ldots with sensori-motor layers &                           &                             & +                           &                             & +++ (computables, local geometric models) &                                          & +                             & ++ (tuple space)              &                                               \\
-                                                      & \ldots with executive layers &                           & ++ (ubiquitous events)      & +                           &                             & ++ (language extensions) \cite{Beetz2010} &                                          & ++                            & ++ (tuple space)              & ++ (semantic events)                          \\
-                                                          & Monitoring and debugging &                           &                             &                             &                             &                                    &                                                 &                               &                               & + ({\em remote visualisation})                \\
-                                                           & Performances evaluation &                           & ++ \cite{Hawes2008}         & ++ (Token test)             & +                           & + \cite{Tenorth2011}               &                                                 &                               &                               &                                               \\
+\multicolumn{2}{c}{\bf Category}                                                     & ARMAR \cite{Holzapfel2008}& CAST \cite{Hawes2007}       & GSM \cite{Mavridis2006}     & {\sc Ke Jia} \cite{Chen2010}& {\sc KnowRob} \cite{Tenorth2009a}  & NKRL \cite{Sabri2011}                           & ORO \cite{Lemaignan2010}                      & OUR-K \cite{Lim2011}          & PEIS \cite{Daoutis2009}        \\
+                                                                                                                                                                                                                                                                                                                                                                                                                   
+\midrule                                                                                                                                                                                                                                                                                                                                                                                                           
+                                                                                                                                                                                                                                                                                                                                                                                                                   
+\multirow{4}{*}{\turn{90}{\bf Expressiveness}}                   & Logical formalism & TFS                       & (none)                      & (none)                      & ASP                         & Prolog                             & NKRL language (FOL + 2nd order extensions)      & DL (OWL)                                      & DL + Horn clauses             & {\sc CycL}                     \\
+                                                                           & OWA/CWA &                           &                             &                             & CWA                         & CWA                                &                                                 & OWA                                           &                               &                                \\
+                                                              & Modeling uncertainty &                           &                             & ++ (stochastic models)      &                             & {\it+++} ({\it ProbCog} \cite{Jain2009}) & +                                         &                                               & + (\emph{candidate} entities) &                                \\
+                                                                    & Meta-cognition &                           &                             &                             &                             & +                                  & + (transformation rules)                        & ++ (reification, taxonomy walking)            &                               &                                \\
+\hline                                                                                                                                                                                                                                                                                                                                                                                                             
+\multirow{7}{*}{\turn{90}{\bf Representation}}                & Space Representation &                           &                             &                             &                             &                                    &                                                 & ++ ({\em perspective-aware symbolic locations} \cite{Sisbot2011})& ++         &                               \\
+                                                               & Time representation &                           &                             & ++ (snapshots)              &                             & + (Allen's intervals, via \emph{computables} & ++ (event oriented)                   &                                               & +                             &                                \\
+                                                                    & Actions/Events &                           &                             & ++ (events classifiers)     &                             & ++ (action recognition \cite{Beetz2010a})  & +++ (everything is an event)            &                                               & +++                           &                                \\
+                                                                           & Context &                           &                             &                             &                             &                                    & ++ (template matching)                          &                                               & ++                            & ++ (microtheories)             \\
+                                                                          & Modality &                           &                             & ++ (recursive model)        &                             &                                    &                                                 & ++ (Theory of Mind \cite{Warnier2012a})       &                               &                                \\
+                                                                    & Self-knowledge &                           &                             &                             &                             & + (SRDF \cite{Kunze2011})          &                                                 &                                               &                               &                                \\
+                                                                     & Memory models &                           &                             &                             &                             &                                    &                                                 & +                                             &                               & +                              \\
+\hline                                                                                                                                                                                                                                                                                                                                                                                                             
+\multirow{9}{*}{\turn{90}{\bf Reasoning}}                   & Standard FOL reasoning &                           &                             &                             & +++                         & +++                                & + (template matching)                           & ++                                            & +                             & ++                             \\
+                                            & Instantiation and structure alteration & ++                        &                             &                             & ++                          & + (dynamic instantiation)          &                                                 & ++ (TBox alteration)                          &                               &                                \\
+                                                                   & Lazy evaluation &                           &                             &                             &                             & +++ (Prolog, computables)          &                                                 &                                               &                               &                                \\
+                                                           & Non-monotonic reasoning &                           & ++ \cite{Hawes2011}         &                             & +++ \cite{Ji2011}           & + \cite{Tenorth2012}               &                                                 &                                               &                               &                                \\
+                                                      & Presupposition accommodation &                           &                             & +++                         &                             &                                    &                                                 &                                               &                               &                                \\
+                                    & Prediction, projection, diagnosis, explanation &                           &                             &                             &                             & + \cite{Tenorth2012}                                   & ++                                              & + (explanation)                               &                               &                                \\
+                                                                     & Task planning &                           &                             &                             & ++ \cite{Ji2011}            & +                                  &                                                 & +++ ({\em HATP})                              & +                             & {\it++}                        \\
+                                                           & Physics-based reasoning &                           &                             &                             & +                           & {\it+++} ({\em naive physics \cite{Kunze2011a}}) &                                   &                                               &                               &                                \\
+%                                                                         & Learning & ++                        & ++ \cite{Jacobsson2008}     &                             &                             &                                    &                                                 &                                               &                               &                                \\
+\hline                                                                                                                                                                                                                                                                                                                                                                                                             
+\multirow{5}{*}{\turn{90}{\bf Acquisition}}                         & Cross-modality & + (pointing gestures)     & ++                          & +++ (amodal model)          &                             &                                    &                                                 & ++                                            &                               & ++ ({\em ambient intelligence})\\
+                                                                               & NLP & +++                       & +++ \cite{Kruijff2010a}     & +++                         & +++                         &                                    &                                                 & +++ ({\em Dialogs} \cite{Lemaignan2011a})     &                               & + (template-based)             \\
+                                                                     & Web Resources &                           &                             &                             &                             & {\it+++} ({\em Web content processing \cite{Nyga2009}})&                             &                                               &                               &                                \\
+                                                                         & Grounding &                           & ++                          & ++ (bidirectional)          &                             & +++ ({\em semantic maps \cite{Blodow2011, Klank2009}}) &                             & ++ ({\em amodal model} \cite{Lemaignan2012})  & +++ (bottom-up)               & +++ \cite{Loutfi2008}          \\
+                                                              & Intrinsic Motivation &                           & ++ \cite{Hawes2011}         &                             &                             &                                    &                                                 &                                               &                               &                                \\
+\hline                                                                                                                                                                                                                                                                                                                                                                                                             
+\multirow{4}{*}{\turn{90}{\bf Integration}}     &   \ldots with sensori-motor layers &                           &                             & +                           &                             & +++ (computables, local geometric models) &                                          &                                               & +                             & ++ (tuple space)               \\
+                                                      & \ldots with executive layers &                           & ++ (ubiquitous events)      & +                           &                             & ++ (language extensions) \cite{Beetz2010} &                                          & ++ (semantic events)                          & ++                            & ++ (tuple space)               \\
+                                                          & Monitoring and debugging &                           &                             &                             &                             & +(Prolog tracer, visualisations...)&                                                 & + ({\em remote visualisation})                &                               &                                \\
+                                                           & Performances evaluation &                           & ++ \cite{Hawes2008}         & ++ (Token test)             & +                           & + \cite{Tenorth2011}               &                                                 &                                               &                               &                                \\
 
 \bottomrule
 
@@ -2713,7 +2720,7 @@ GSM encodes knowledge in an amodal (continuous, geometric) model while
 preserving features that are usually specific of symbolic models (like theory
 of mind or categorical knowledge).
 
-The interleaving of discreet symbolic models with continuous geometric models
+The interleaving of discrete symbolic models with continuous geometric models
 remains a major challenge, and techniques vary a lot: besides the CAST proxies
 and the GSM amodal model, most systems directly extract physical attributes of
 the environment to insert them in the symbolic model ({\sc Tapas}, Ke Jia,
@@ -2724,7 +2731,7 @@ compute symbolic properties like relative locations.
 In our approach, ORO has tight (but unidirectional) links with SPARK, the
 component in charge of geometric modeling and reasoning. Similarly to the GSM
 approach, SPARK is an amodal model of the environment we can manipulate (3D
-motion planing, for instance takes place in MHP, the twin brother of SPARK).
+motion planning, for instance takes place in MHP, the twin brother of SPARK).
 
 \subsection{Management of uncertainty and approximation}
 
@@ -2786,13 +2793,13 @@ modeling, but no consistent interpretation, let alone theory, of context
 management has clearly emerged.
 
 Several approaches for building contextualized knowledge have been presented in
-this thesis: symbolic environment interpretation, perspective taking and
+this article: symbolic environment interpretation, perspective taking and
 independent mental state for each agent, grounded natural language resolution,
 self-awareness of its own activity. Much remains to be done for a robot to
 actually identify its current context as well as contexts that may be referred
 to.
 
-We will further develop this important topic in the conclusion of the thesis.
+We will further develop this important topic in the conclusion of the paper.
 
 \subsection{Reasoning about time, events and actions}
 
@@ -2801,9 +2808,9 @@ perspective-taking) is well studied and KRS usually integrate with spatial
 perception and reasoning components, time representation and integration in
 knowledge systems is less uniform.
 
-The two main tasks that require time reasoning are task planing and sequence
+The two main tasks that require time reasoning are task planning and sequence
 recognition (in particular, action recognition). Systems that directly
-integrate task planing (like OUR-K, {\sc KnowRob}) thus have mechanisms (like
+integrate task planning (like OUR-K, {\sc KnowRob}) thus have mechanisms (like
 fluents in {\sc KnowRob}) to represent time.
 
 Other approaches include storing snapshots of the knowledge state (like GSM),
@@ -2982,7 +2989,7 @@ each agent.
 
 We have already explained how perspective awareness enables advanced cognitive
 capabilities like a theory of mind, and this is probably the main contribution
-of this thesis regarding techniques for knowledge representation.
+of this paper regarding techniques for knowledge representation.
 
 
 % \subsection{Justification and resolution of cognitive conflicts}
