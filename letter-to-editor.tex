@@ -1,0 +1,95 @@
+\documentclass{letter}
+\usepackage{letterbib}
+\usepackage[utf8]{inputenc}
+\usepackage{hyperref}
+\usepackage{booktabs}
+
+
+\signature{Séverin Lemaignan, Moritz Tenorth}
+\begin{document}
+
+\begin{letter}{Editor-in-Chief \\ Frank Park \\ Seoul National University}
+\opening{Dear Editor-in-Chief,}
+
+As recommended on the website of the \emph{Transactions on Robotics}, we contact
+you to bring to your attention a survey proposal on Knowledge Representation \&
+Reasoning systems for cognitive robotics.
+
+Those systems or frameworks have rapidly grown in number over the last few
+years: Brachman and Levesque's book~\cite{brachman2004knowledge} in 2004, dozens
+of systems have emerged to fulfil the need for explicit, symbolic (and
+sub-symbolic) \emph{representation} and \emph{reasoning} on knowledge in
+cognitive architectures for robots.
+
+Because these systems have explored many different paths, from building upon purely
+logic languages, to proposing distributed, diffuse knowledge representation
+schemes; because more and more research groups that are looking for increased
+robot autonomy, look towards implementing their own framework for knowledge
+representation; because, also, no previous survey of these tools has ever been
+published to our best knowledge, we propose to write such a review of the
+existing literature, starting with brief typology of main features to be found
+in those systems, followed by a systematic review of the existing tools.
+
+This survey would be a joint work by Moritz Tenorth, from the University of
+Bremen, Germany (Michael Beetz's group) and Séverin Lemaignan, currently working
+at EPFL, Switzerland and previously with Rachid Alami's group, LAAS-CNRS, France.
+
+Moritz Tenorth is the author and main developer of the well-known {\sc KnowRob}
+suite for knowledge management for service robots. This framework has been
+deployed on many different robots, ranging from the Willow Garage's PR2 to
+[...?]. His different previous publications on this project have been cited over
+500 times, and he is regarded as an expert in this field.
+
+Séverin Lemaignan is the author of the {\sc ORO} knowledge base, that has
+received special attention in the human-robot interaction community for being
+one of the first knowledge representation and reasoning system taking explicitly
+into account the cognitive models of the humans interacting with the robot. His
+platform has also been deployed on several robots, in at least five different
+laboratories. Séverin Lemaignan is regularly invited for talks on cognitive
+architectures.
+
+For this survey, we plan to consider the following systems:
+
+\begin{tabular}{p{2.8cm}p{8cm}p{1.5cm}}
+\toprule
+{\bf Project} & {\bf Authors (Institution)} & Main references \\
+\midrule
+ARMAR/Tapas &  Holzapfel, Waibel \par (Karlsruhe TH) &  \cite{Holzapfel2008}\\
+CAST Proxies &  Wyatt, Hawes, Jacobsson, Kruijff (Brimingham Univ., DFKI Saarbrücken) &  \cite{Jacobsson2008} \\
+GOLOG & Levesque (Toronto Univ.) & \cite{levesque1997golog} \\
+GSM &  Mavridis, Roy \par (MIT MediaLab) & \cite{Mavridis2006} \\
+Ke Jia Project & Chen et al. \par (Univ. of Science and Technology of China) &  \cite{Chen2010} \\
+{\sc KnowRob} &  Tenorth, Beetz \par (TU Munich) &   \cite{Tenorth2009a} \\
+NKRL &  Zarri et al. \par (Paris Est Créteil Univ.) &  \cite{Sabri2011} \\
+%OBOC & KRS & Mendoza & & & & & \cite{Mendoza2005} \\
+ORO &  Lemaignan, Alami \par (LAAS-CNRS) &  \cite{Lemaignan2010} \\
+OUR-K/OMRKF &  Lim, Suh et al. \par (Hanyang Univ.) &   \cite{Lim2011, Suh2007} \\
+PEIS KR\&R &  Daoutis, Coradeshi, Loutfi, Saffiotti \par (Örebro Univ.) &  \cite{Daoutis2009} \\
+% & & Varadarajan, Vincze \par (TU Wien) & & & & & \cite{Varadarajan2011} \\ % -> affordances, but no implementation on a robot
+% & & Kaelbling, Lozano-Pérez \par (MIT CSAIL) & & & & & \cite{Kaelbling2011} \\ % -> mostly planning under uncertainty
+% & & Hertzberg (Osnabrück Univ.) \\ % -> affordances, semantic mapping
+% (based on {\sc KnowRob} & & (JSK) \\
+
+\bottomrule
+
+\end{tabular}
+
+
+
+We hope that you may consider our proposal as interesting and relevant for a future issue of
+\emph{Transaction on Robotics}.
+
+\closing{Yours Sincerly,}
+
+\ps{Séverin Lemaignan is with EPFL, CHILI Lab, Lausanne, Switzerland; Moritz Tenorth is with Institute for Artificial Intelligence, Universität Bremen, Germany.}
+
+%\url{http://www.gnu.org/copyleft/fdl.html}.}
+%\encl{Copyright permission form}
+
+\end{letter}
+
+\bibliographystyle{ieeetr}
+\bibliography{biblio}
+
+
+\end{document}
