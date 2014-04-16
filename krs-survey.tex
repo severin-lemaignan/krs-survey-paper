@@ -47,20 +47,13 @@
 \newcommand{\setstmt}[1]{{\footnotesize [\setstmttt#1\relax]}}
 \def\setstmttt#1,#2\relax{\rawstmt{#1}, \rawstmt{#2}}
 
-\title{Knowledge Representation for Service Robots: Supply and Demand}
-\author{Séverin Lemaignan, Moritz Tenorth, Michael Beetz, Rachid Alami}
+\title{Knowledge Representation for Service Robots: A Survey}
+\author{Séverin Lemaignan, Moritz Tenorth, Rachid Alami, Michael Beetz}
 
 
 \begin{document}
 
-\tikzstyle {taxonomy} = [grow=right, level distance = 3cm, sibling
-distance=7mm]
-\tikzstyle {completetaxonomy} = [grow=right]
-\tikzstyle {taxon} = [text width=3cm, text centered,inner sep=0pt, outer
-sep=2pt] %, draw=blue!50,thick]
-
 \maketitle
-\tableofcontents
 
 
 \begin{abstract}
@@ -213,8 +206,7 @@ Besides, we have decided to restraint the set of systems to those actually
 implemented on robots, and used in semantic-rich environments (\ie dynamic,
 partially unknown environments with a large range of different entities which
 may have interactions). The typical scenario that would involve such robots is
-a service robot in a human-friendly environment like a kitchen (we will
-describe such a scenario in section~\ref{sect|scenario}).
+a service robot in a human-friendly environment like a kitchen.
 
 We have limited ourselves to systems that
 \begin{inparaenum} 
@@ -231,7 +223,7 @@ These criteria exclude platforms like {\sc DyKnow}~\cite{Heintz2004}
 which are focused on data fusion and knowledge grounding at lower levels.
 
 We have also chosen not to include the GOLOG language and its
-derivatives~\cite{Levesque1997, Ferrein2008, Gspandl2011} in this survey. While
+derivatives~\cite{levesque1997golog, Ferrein2008, Gspandl2011} in this survey. While
 several implementations on robots, including service robots, do exist, the
 focus of this language is on representation and reasoning about actions and
 situations, and the link with symbolic, abstract knowledge is not explicit.
@@ -399,8 +391,8 @@ base.
 
 The next paragraph details only briefly the exact meaning of these categories
 and introduce accordingly sub-categories. We kindly refer the interested reader
-to~\cite{blabla} for in-depth discussion of each of these dimensions of
-knowledge representation systems, as well as related literature.
+to~\cite{lemaignan2012symbolic} for in-depth discussion of each of these
+dimensions of knowledge representation systems, as well as related literature.
 
 Table~\ref{table|contribution-by-systems}, at the end of the article, summarizes
 the main contributions of each of the surveyed KRS with respect to these
@@ -439,8 +431,6 @@ represent and exhibit it own internal structures and representation mechanisms.
 This category focuses on questions that involve
 representational challenges (time, space, context) or require specific
 cognitive capabilities (theory of mind, introspection, memory).
-Note that the general strategies to actually \emph{construct} a
-knowledge model are treated in section~\ref{sect|design-strategies}.
 
 The dimension \taxon{B.1}{Roles}, with its sub-categories \taxon{B.1.1}{Space},
 \taxon{B.1.2}{Time} and \taxon{B.1.3}{Actions}, deals with the approaches that
@@ -481,7 +471,7 @@ unknown or uncertain domain or specific reasoning related to interaction with
 the physical world).
 
 Again, the descriptions of these ten subcategories hereafter are very
-superficial. Readers can refer to~\cite{blabla} for the details.
+superficial. Readers can refer to~\cite{lemaignan2012symbolic} for the details.
 
 \taxon{C.1}{Standard reasoning} covers conventional reasoning techniques based
 on logical inferences (for instance, \emph{forward/backward chaining} or
@@ -621,7 +611,7 @@ This section briefly presents each of them.
 \midrule
 ARMAR/Tapas & Formal & Holzapfel, Waibel \par (Karlsruhe TH) & & TFS (Typed Feature Structures) & \cite{Holzapfel2008}\\
 CAST Proxies & Ubiquitous & Wyatt, Hawes, Jacobsson, Kruijff (Brimingham Univ.,
-DFKI Saarbrücken) & & Amodal proxies & \cite{Jacobsson2008} \\
+DFKI Saarbrücken) & & Amodal proxies & \cite{jacobsson2008crossmodal} \\
 GSM & Structural & Mavridis, Roy \par (MIT MediaLab) & & & \cite{Mavridis2006} \\
 Ke Jia Project & Formal & Chen et al. \par (Univ. of Science and Technology of China) & ASP (Answer Set Programming) & ASP & \cite{Chen2010} \\
 {\sc KnowRob} & Formal & Tenorth, Beetz \par (TU Munich) & {\sc Prolog} & {\sc Prolog} + OWL-DL &  \cite{Tenorth2009a} \\
@@ -689,7 +679,7 @@ comprehensive toolkit aimed at building cognitive architectures for robots
 through a set of interconnected \emph{SA} (\emph{subarchitectures}). The CAS
 does not expose a central knowledge base as seen in other works. It represents
 instead knowledge as unrooted \emph{proxies}. Those proxies are formally
-defined in \cite{Jacobsson2008} as $p= \langle F_p, u_p \rangle$ where $F_p$ is
+defined in \cite{jacobsson2008crossmodal} as $p= \langle F_p, u_p \rangle$ where $F_p$ is
 a set of instantiated features (like $\phi^{Colour}_{red}$) and $u_p$ a
 \emph{proxies union} that form an equivalence class corresponding to one
 entity.
@@ -1027,33 +1017,6 @@ dialogue-based interaction with the robot about known objects.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-%%%%%%%%%% Underlying knowledge model table %%%%%%%%
-\begin{table}
-\begin{center}
-
-\begin{tabular}{lp{4cm}}
-\toprule
-{\bf Project} & {\bf Common-sense \par knowledge source} \\
-\midrule
-{\sc KnowRob} & {\sc OpenCyc}, processed web content, custom OWL-DL ontology \\
-ORO & {\sc OpenCyc}, custom OWL-DL ontology \\
-PEIS Ecology & {\sc ResearchCyc} \\
-NKLR &  None \\
-CAST Proxies &  None \\
-GSM &  Predefined categories \\
-OUR-K & {\it A priori} knowledge structure and axioms, custom set of instances\\
-Ke Jia & None \\
-ARMAR/{\sc Tapas} & Custom ontology related to the kitchen\\
-
-\bottomrule
-
-\end{tabular}
-\end{center}
-\caption{Underlying knowledge sources for each project}
-\label{table|knowledge-sources}
-\end{table}
-
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Towards the next generation of Knowledge Representation Systems for Robotics}
 \label{sect|conclusion}
@@ -1352,25 +1315,25 @@ well-structured online resources in the coming years.
 \begin{table}
 \begin{center}
 
-\begin{tabular}{ll}
+\begin{tabular}{lp{4cm}}
 \toprule
-{\bf Project} & {\bf Common-sense knowledge source} \\
+{\bf Project} & {\bf Common-sense \par knowledge source} \\
 \midrule
-ARMAR/{\sc Tapas} & Custom ontology related to the kitchen\\
-CAST Proxies &  None \\
-GSM &  Predefined categories \\
-Ke Jia & None \\
-{\sc KnowRob} & {\sc OpenCyc}, processed web content, custom OWL-DL ontology, physics simulation \\
-NKLR &  None \\
-OUR-K & {\it A priori} knowledge structure and axioms, custom set of instances\\
+{\sc KnowRob} & {\sc OpenCyc}, processed web content, custom OWL-DL ontology \\
 ORO & {\sc OpenCyc}, custom OWL-DL ontology \\
 PEIS Ecology & {\sc ResearchCyc} \\
+NKLR &  None \\
+CAST Proxies &  None \\
+GSM &  Predefined categories \\
+OUR-K & {\it A priori} knowledge structure and axioms, custom set of instances\\
+Ke Jia & None \\
+ARMAR/{\sc Tapas} & Custom ontology related to the kitchen\\
 
 \bottomrule
 
 \end{tabular}
 \end{center}
-\caption{Underlying common-sense knowledge sources for each project.}
+\caption{Underlying knowledge sources for each project}
 \label{table|knowledge-sources}
 \end{table}
 
@@ -1388,8 +1351,8 @@ the next section).
 
 Learning at the level of the knowledge representation system has been explored
 in conjunction with visual perception systems (mentioned for instance, in the
-CAST project, in~\cite{Jakobsson2008}). {\sc KnowRob}, by filling its pool of
-facts from informations automatically extracted from the Web~\ref{Nyga2009},
+CAST project, in~\cite{jacobsson2008crossmodal}). {\sc KnowRob}, by filling its pool of
+facts from informations automatically extracted from the Web~\cite{Nyga2009},
 can also be considered as a \emph{learning} system (it autonomously acquire
 knowledge). We lack however a formal study of learning strategies and
 techniques at the knowledge representation level.
