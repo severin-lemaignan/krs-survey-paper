@@ -1029,21 +1029,65 @@ dialogue-based interaction with the robot about known objects.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Towards the next generation of Knowledge Representation Systems for Robotics}
+\section{Synthesis: How Current Systems Tackle the Knowledge Representation
+Challenge?}
 \label{sect|conclusion}
 
-This section tries to summary the various approaches we surveyed in the
-previous sections and to draw some research perspectives. This section does not
-exactly follow the list of compared features presented in
-section~\ref{sect|features}. We have organized it along four axis: \emph{what
-can be represented?}, \emph{How knowledge is created and grounded?}, \emph{What
-can be done with the knowledge?} and \emph{How to use knowledge in the whole,
-larger robot architecture?}.
+This section summarizes the different approaches to knowledge representation and
+reasoning that are surveyed in the previous section, and attempt to identify
+research perspectives.
 
-The table~\ref{table|contribution-by-systems} sketches the landscape of current
-research. The main fields of \emph{contribution} for the systems we have
-surveyed are sorted along the different axis, dimensions of knowledge
-representation that were identified in previous section.
+First, the Table~\ref{table|contribution-by-systems} presents, system by system
+and feature by feature, a landscape of current research, underlining the main
+design choices and scientific \emph{contribution} of each of the KRS that we
+have examined.
+
+Then, we go over again the nine ``challenges'' proposed by McCarthy and Roy (see
+section~\ref{sect|evaluation-literature}) to evaluate how far we are on the road
+to natural interaction and, to slightly paraphrase McCarthy, ``human-level
+robots''.
+
+\subsection{Logic formalisms, continuous world}
+
+McCarthy underlines the necessity of relying on mathematical logic, as the most
+fruitful formalism for machine intelligence. This is largely the case. Almost
+all the systems we have surveyed rely on logical formalisms, in several cases
+as a mix of declarative languages (often based on Decription Logics) and
+logical programming languages (Prolog, expectedly, but not only).
+
+The two exceptions (the CAST knowledge model and GSM) are however 
+interesting: CAST proposes a pervasive model of knowledge that is convincing from
+the grounding perspective (but likely suboptimal for deliberative tasks), and
+GSM encodes knowledge in an amodal (continuous, geometric) model while
+preserving features that are usually specific of symbolic models (like theory
+of mind or categorical knowledge).
+
+The interleaving of discrete symbolic models with the continuous physics of the
+world remains a major challenge, and techniques vary a lot: besides the CAST
+proxies and the GSM amodal model, most systems directly extract physical
+attributes of the environment to insert them in the symbolic model ({\sc Tapas},
+Ke Jia, OUR-K, PEIS), thus skipping altogether an intermediate geometric model.
+ORO has tight (but unidirectional) links with an intermediate geometric
+representation (called {\sc Spark}), and {\sc KnowRob} adopt a top-down approach
+where local geometric models are set up on-demand to compute symbolic properties
+like relative locations.
+
+\subsection{Management of uncertainty and approximation}
+
+McCarthy also mentions the necessity to deal with \emph{approximate concepts
+and approximate theories} (that includes representing them and reasoning with
+them).
+
+The most notable attempt at modeling uncertainty down to the knowledge
+representation is {\sc ProgCog}, an extension of {\sc KnowRob}. Theoretical
+and practical performances issues (including decidability) remain however
+difficult to overcome.
+
+It can be also noted that some effort do exist to provided probabilistic
+reasoning to Description Logics based systems (like the {\sc Pronto}
+reasoner~\cite{Klinov2008}), but this does not appear to be a major focus in the
+currently available tools.
+
 
 \begin{landscape}
 \begin{table}\tiny
@@ -1094,72 +1138,17 @@ representation that were identified in previous section.
 \end{tabular}
 \end{center}
 
-\caption{Main domains of contribution of current KRS. Italics mean that the
-feature is implemented as an external module. Main references are given in the
-table header. When relevant, feature-specific publications have been provided.
-An empty cell means that either the system has no specific focus on this domain
-or we could not find relevant literature.}
+\caption{Design choices and main domains of contribution of current KRS (+
+indicates \emph{moderate contribution}, +++ indicates \emph{major
+contribution}). Italics mean that the feature is implemented as an external
+module. Main references are given in the table header. When relevant,
+feature-specific publications have been provided.  An empty cell means that
+either the system has no specific focus on this domain or we could not find
+relevant literature.}
 
 \label{table|contribution-by-systems}
 \end{table}
 \end{landscape}
-
-To comment this table, we propose select nine topic based on some of the
-challenges that McCarthy and Roy have identified (there are listed at
-section~\ref{sect|evaluation-literature}) on the road to natural interaction
-and, to slightly paraphrase McCarthy, ``human-level robots''.
-
-
-\subsection{Logic formalisms, continuous world}
-
-McCarthy underlines the necessity of relying on mathematical logic, as the most
-fruitful formalism for machine intelligence. This is largely the case. Almost
-all the systems we have surveyed rely on logical formalisms, in several cases
-as a mix of declarative languages (often based on Decription Logics) and
-logical programming languages (Prolog, of course, but not only).
-
-The two exceptions (the CAST knowledge model and GSM) are however also
-interesting: CAST proposes a pervasive model of knowledge that is seducing from
-the grounding perspective (but likely suboptimal for deliberative tasks), and
-GSM encodes knowledge in an amodal (continuous, geometric) model while
-preserving features that are usually specific of symbolic models (like theory
-of mind or categorical knowledge).
-
-The interleaving of discrete symbolic models with continuous geometric models
-remains a major challenge, and techniques vary a lot: besides the CAST proxies
-and the GSM amodal model, most systems directly extract physical attributes of
-the environment to insert them in the symbolic model ({\sc Tapas}, Ke Jia,
-OUR-K, PEIS), thus skipping altogether an intermediate geometric model. {\sc KnowRob}
-adopt a top-down approach where local geometric models are set up on-demand to
-compute symbolic properties like relative locations.
-
-In our approach, ORO has tight (but unidirectional) links with SPARK, the
-component in charge of geometric modeling and reasoning. Similarly to the GSM
-approach, SPARK is an amodal model of the environment we can manipulate (3D
-motion planning, for instance takes place in MHP, the twin brother of SPARK).
-
-\subsection{Management of uncertainty and approximation}
-
-McCarthy also mentions the necessity to deal with \emph{approximate concepts
-and approximate theories} (that includes representing them and reasoning with
-them).
-
-The most notable attempt at modeling uncertainty down to the knowledge
-representation is {\sc ProgCog}, an extension of {\sc KnowRob}. The theoretical
-and practical performances (including decidability) remain however difficult to
-overcome.
-
-The challenge of representing and reasoning under uncertainty has not been
-tackled in ORO server, at least not \emph{within} the current ORO server
-knowledge model. Two reasons explain this absence: the decisional architecture
-developed at LAAS for the robots has not consistent approach to uncertainty
-representation and management, neither at the \emph{symbol production} level
-(\ie SPARK or {\sc Dialogs}) or at the symbol consumption level (execution
-control). Thus, no strong incentive pushed us in this direction. Then, the
-current tools available from the Semantic Web domain to manipulate and reason
-about knowledge do not provide mature support for uncertainty management. Some
-effort do exist (like the {\sc Pronto} reasoner~\cite{Klinov2008}), but this
-does not appear to be a major focus in the currently available tools.
 
 \subsection{Non-monotonic reasoning}
 
@@ -1176,7 +1165,9 @@ new domain.
 
 Non-monotonicity can also be partially dealt with with appropriate time
 representation and reasoning (the reasoner then only takes into account
-statements that are set as valid for a given moment).
+statements that are set as valid for a given moment) or with dedicated reasoners
+for tasks requiring non-monotonic reasoning like symbolic task planning
+\fxwarning{mention ORO + HATP}.
 
 Finally, probabilistic reasoning also implicitly leads to non-monotonic
 reasoning, by relying on a continuous description of the state of the
@@ -1197,14 +1188,12 @@ contexts. Many of the KRS we have surveyed mention at some point the context
 modeling, but no consistent interpretation, let alone theory, of context
 management has clearly emerged.
 
-Several approaches for building contextualized knowledge have been presented in
-this article: symbolic environment interpretation, perspective taking and
-independent mental state for each agent, grounded natural language resolution,
-self-awareness of its own activity. Much remains to be done for a robot to
-actually identify its current context as well as contexts that may be referred
-to.
-
-We will further develop this important topic in the conclusion of the paper.
+Several approaches for building contextualized knowledge have been however
+hinted in section~\ref{sect|features}: symbolic environment interpretation,
+perspective taking and independent mental state for each agent, grounded natural
+language resolution, self-awareness of its own activity. Much remains to be done
+for a robot to actually identify its current context as well as contexts that
+may be referred to.
 
 \subsection{Reasoning about time, events and actions}
 
@@ -1223,51 +1212,17 @@ that is used to move back to past mental states (of the robot or of another
 agent).
 
 Integration of these techniques with memory mechanisms (forgetting and
-reinforcement learning) remains to explore.
-
-Temporal modeling is currently absent of ORO, and symbolic and geometric
-planning are accomplished outside of the main knowledge representation
-layer. As a matter of fact, knowledge is mostly atemporal in the ORO server: the
-set of triples stored in the server represents the beliefs of the robot
-\emph{at the current time}. The robot represents knowledge about the \emph{here
-and now}. Dealing with time reasoning is delegated to dedicated tools.
-
-However, ORO does provide a simple implementation of a memory mechanism that
-relies on time: when a statement is attached to a memory profile, the statement
-is reified and the date of creation is stored. This allows to remove the
-statement after a period of time that depends on the memory profile.
-
-Statement reification to store timestamps of creation for all statements is
-technically very easy to do in ORO server, but has not been actually enabled
-because the performance hit (each reified statement produces four triples
-instead of one) was not justified by any current use case of ORO server.
+reinforcement learning) remains mostly to be explored.
 
 Regarding events, several systems (GSM, NKRL, ORO) have adopted an {\em
 event-oriented} architecture where conditions (or templates) are used to
 trigger decisional and execution processes.
 
-A side note about how thematic roles and action models are initialized in ORO:
-The current implementation relies on a small, predefined set of action verbs
-that can be recognised from natural language
-(section~\ref{processing_of_actions}).  This constraint does not come from the
-resolution algorithm itself, but rather from the difficulty to automatically
-extract the thematic roles associated to a verb. An interesting yet easy to
-implement extension would consist in binding the dialogue processor with the
-symbolic task planner. The task planner could dynamically provide the list of
-actions that the robot can process, \ie actions for which the robot can produce
-a plan. In certain case, it could also validate the understanding of a desire
-by attempting to plan it.
-
-Also, we could exploit on-line resources like
-\textsc{VerbNet}~\cite{Kipper2008}, which provides a large machine-processable
-lexicon of English verbs along with their thematic roles.
-
-
 \subsection{Grounding in a multi-modal environment}
 
 Symbol grounding remains a focus for most of the developers of cognitive
 architectures for robots, and all the systems we have surveyed implement
-grounding strategies (...it was an inclusion criteria). Most of the systems
+grounding strategies. Most of the systems
 adapt their grounding strategies to the sensing modality, so that grounding can
 not be considered as a single, well delimited process.
 
@@ -1279,20 +1234,20 @@ required for spatial perspective taking: we need to know where the humans are
 looking at, and also where are the objects), and also improve the observability
 of the system.
 
-We note in addition that the development of what we have called ``synthetic
-sensors'' is simplifying the grounding task. The most obvious example is the
-human tracking system provided by the low-cost Kinect device, and now used
+We note in addition that the development of high-level sensors is simplifying
+the grounding task. The most obvious example is the human tracking system
+provided with the low-cost Kinect family of devices, and now used
 pervasively in the robotics lab. Not only this system segments and computes the
 pose of humans that enter its field of view, but it also tracks them (including
 in case they are partially or completely occluded). This kind of high level
 sensing device does not completely remove the need of grounding one symbolic
-instance of a human with the physical human, but the task is ways simpler than
+instance of a human with the physical human, but the task is much simpler than
 it used to be.
 
 Many systems also tackle the difficult question of natural language processing.
 The CAST middleware, in particular, has been used in the European CoSy and CogX
 projects as knowledge base by linguists~\cite{Kruijff2010a}. This demonstrates
-the huge interest for the grounding of verbal interaction within the cognitive
+the interest for the grounding of verbal interaction within the cognitive
 robotics community, and we are likely to reach important milestones in this
 field in the coming years.
 
@@ -1311,16 +1266,17 @@ however, that it is related to a diffuse cultural background, and one may even
 claim that, for a system to acquire common-sense reasoning is equivalent to
 solve the strong AI challenge (this is at least more or less McCarthy's opinion).
 
-Our knowledge representation systems have a pragmatic and potentially very
-powerful approach to common-sense: reuse knowledge stored on the Web. While not
-so many of the systems we have surveyed directly tackle this question ({\sc
-KnowRob} is the only one explicitly working on common-sense reasoning, through
+Knowledge representation systems have usually a pragmatic approach to
+common-sense: they reuse knowledge bases stored on the Web. While {\sc KnowRob}
+is the only one explicitly working on common-sense reasoning, through
 physics-based reasoning, integration with Web databases or parsing of
-semi-structured Web documents), several rely however on Web standards (OWL,
-OpenCyc) to represent their knowledge. With the development of initiatives like
-OpenMind that encode with the same standards common-sense facts and rules,
-there is a strong potential for our robot to gain common-sense knowledge from
-well-structured online resources in the coming years.
+semi-structured Web documents), several other KRS rely on Web standards (OWL,
+OpenCyc) to represent their knowledge (Table~\ref{table|knowledge-sources} lists
+the sources of common-sense knowledge found in the surveyed systems). With the
+development of initiatives like OpenMind that encode with the same standards
+common-sense facts and rules, there is a strong potential for our robot to gain
+common-sense knowledge from well-structured online resources in the coming
+years.
 
 %%%%%%%%%% Underlying knowledge model table %%%%%%%%
 \begin{table}
@@ -1348,21 +1304,11 @@ ARMAR/{\sc Tapas} & Custom ontology related to the kitchen\\
 \label{table|knowledge-sources}
 \end{table}
 
-Table~\ref{table|knowledge-sources} lists for the systems we have surveyed the
-current sources of common-sense knowledge.
-
 \subsection{Learning, representation of experience, introspection}
 
-Learning has not been addressed in this work. This is a complex, still emerging
-field, whose exact meaning and perimeter varies a lot. It was difficult to
-synthesise in the KRS taxonomy, and we decided to omit it. We did not either
-really tackled this question in ORO, except in term of knowledge structure
-alteration based on verbal interaction (this is presented in one case-study, in
-the next section).
-
 Learning at the level of the knowledge representation system has been explored
-in conjunction with visual perception systems (mentioned for instance, in the
-CAST project, in~\cite{jacobsson2008crossmodal}). {\sc KnowRob}, by filling its pool of
+in conjunction with visual perception systems (mentioned for instance for the
+CAST project~\cite{jacobsson2008crossmodal}). {\sc KnowRob}, by filling its pool of
 facts from informations automatically extracted from the Web~\cite{Nyga2009},
 can also be considered as a \emph{learning} system (it autonomously acquire
 knowledge). We lack however a formal study of learning strategies and
@@ -1388,48 +1334,15 @@ ability.
 
 Finally, Roy mentions \emph{the ability to take into account the human
 perspective}: this cognitive ability, that relates to the representation of
-different modalities, is present in ORO and GSM. ORO explicits the perspectives
-in different symbolic mental states while GSM recursively stores models for
-each agent.
+different modalities, is explicitly advertised in ORO and GSM only: ORO
+explicits the perspectives in different symbolic mental states while GSM
+recursively stores models for each agent.  We think however that several of the
+other systems could easily gain support for alternative belief models, leading
+the way to becoming perspective-aware KRS.
 
-We have already explained how perspective awareness enables advanced cognitive
-capabilities like a theory of mind, and this is probably the main contribution
-of this paper regarding techniques for knowledge representation.
+\subsection{Conclusion: the Future Directions to Explore}
 
-
-% \subsection{Justification and resolution of cognitive conflicts}
-% 
-% Logical inconsistencies in one ORO's model (or, from a cognitive point of view,
-% cognitive conflicts) could be better dealt with: while (partially) provided by
-% the Pellet reasoner, and output to the developers for debugging purposes, the
-% logical justification of the inconsistency is not really exploited.
-
-% \subsection{Performances analysis}
-% 
-% \subsubsection{Relaxation time}
-% 
-% The relaxation time (as defined at section~\ref{sect|performances}) of ORO for
-% the average workloads we have encountered during the experiments is in the
-% range of 100ms.  The temporal resolution that follows for the symbolic layer,
-% while acceptable in most cases, is not satisfactory. In particular, multi-modal
-% interaction requires fine grained temporal alignement between
-% modalities~\cite{Li2012} which are not possible with the current temporal
-% performances of ORO.
-% 
-% \subsubsection{Cognitive evaluation}
-% 
-% The performance evaluation of current tools is still mostly system- and
-% scenario-specific (``did my system do the job for my task?''), and amongst the
-% surveyed KRS, only few systems proposes an evaluation of their performances
-% that could be compared to other system.
-% 
-% 
-% \fxwarning{Mention reasoning and expressiveness, cf section oro-server}
-% 
-
-
-
-\subsection{Towards a new design}
+TDB
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
 \section*{Acknowledgements} 
